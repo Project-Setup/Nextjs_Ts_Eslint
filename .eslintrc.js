@@ -29,6 +29,14 @@ module.exports =  {
     }],
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/explicit-function-return-type': ['error', {
+      'allowTypedFunctionExpressions': true
+    }],
+    'jsx-a11y/anchor-is-valid': [ 'error', {
+      'components': [ 'Link' ],
+      'specialLink': [ 'hrefLeft', 'hrefRight' ],
+      'aspects': [ 'invalidHref', 'preferButton' ]
+    }],    
     'react/prop-types': 'off',
     'import/no-extraneous-dependencies': [
       'error',
