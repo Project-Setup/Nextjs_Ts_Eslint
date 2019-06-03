@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "allowJs": true, /* Allow JavaScript files to be type checked. */
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true, /* Parse in strict mode. */
+    "esModuleInterop": true, /* matches compilation setting */
+    "isolatedModules": true, /* to match webpack loader */
+    "jsx": "preserve", /* Preserves jsx outside of Next.js. */
+    "lib": ["dom", "es2017"], /* List of library files to be included in the type checking. */
+    "module": "esnext", /* Specifies the type of module to type check. */
+    "moduleResolution": "node", /* Determine how modules get resolved. */
+    "noEmit": true, /* Do not emit outputs. Makes sure tsc only does type checking. */
+
+    /* Strict Type-Checking Options, optional, but recommended. */
+    "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
+    "noUnusedLocals": true, /* Report errors on unused locals. */
+    "noUnusedParameters": true, /* Report errors on unused parameters. */
+    "resolveJsonModule": true,
+    "removeComments": false,
+    "skipLibCheck": true,
+    "strict": true /* Enable all strict type-checking options. */,
+    "target": "esnext" /* The type checking input. */
+  },
+  "exclude": ["node_modules", "next.config.js"],
+  "include": ["**/*.ts", "**/*.tsx"]
+}
