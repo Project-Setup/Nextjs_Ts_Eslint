@@ -41,6 +41,9 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
         "module": "esnext", /* Specifies the type of module to type check. */
         "moduleResolution": "node", /* Determine how modules get resolved. */
         "noEmit": true, /* Do not emit outputs. Makes sure tsc only does type checking. */
+        "typeRoots": [
+          "./node_modules/@types"
+        ],
 
         /* Strict Type-Checking Options, optional, but recommended. */
         "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
@@ -73,7 +76,7 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
       },
     });
     ```
-12. create `.babelrc.js`
+12. create `babel.config.js`
     ```
     module.exports ={
       presets: [
@@ -86,7 +89,7 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
 ### [Eslint and Prettier](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
 
 13. `npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react`
-14. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import`
+14. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks`
 15. `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
 16. create `.eslintrc.js`
     ```
@@ -120,10 +123,9 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
           'ignoreRestSiblings': false
         }],
         'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-        '@typescript-eslint/no-explicit-any': 'warn',
-        '@typescript-eslint/explicit-function-return-type': ['error', {
-          'allowTypedFunctionExpressions': true
-        }],
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/no-object-literal-type-assertion': ['error', {'allowAsParameter': true}],
         'jsx-a11y/anchor-is-valid': [ 'error', {
           'components': [ 'Link' ],
           'specialLink': [ 'hrefLeft', 'hrefRight' ],
@@ -133,9 +135,7 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
         'import/no-extraneous-dependencies': [
           'error',
           {
-            'devDependencies': [
-              '**/*.tests.{js,jsx}'
-            ]
+            'devDependencies': true
           }
         ],
         'comma-dangle': [
@@ -148,9 +148,12 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
             'functions': 'never'
           }
         ],
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'off'
       },
       plugins: [
-        '@typescript-eslint/eslint-plugin'
+        '@typescript-eslint/eslint-plugin',
+        'react-hooks'
       ],
       settings:  {
         'import/resolver': {
@@ -162,13 +165,13 @@ This is an example project setup NextJs, Typescript, Eslint, Prettier. NextJs ma
           version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
         },
       },
-    };
+    }
     ```
 17. create `.prettierrc.js`
     ```
     module.exports =  {
       semi:  true,
-      trailingComma:  'all',
+      trailingComma:  'es5',
       singleQuote:  true,
       printWidth:  100,
       tabWidth:  2,
