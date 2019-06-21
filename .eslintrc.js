@@ -28,10 +28,9 @@ module.exports =  {
       'ignoreRestSiblings': false
     }],
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-    '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/explicit-function-return-type': ['error', {
-      'allowTypedFunctionExpressions': true
-    }],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/no-object-literal-type-assertion': ['error', {'allowAsParameter': true}],
     'jsx-a11y/anchor-is-valid': [ 'error', {
       'components': [ 'Link' ],
       'specialLink': [ 'hrefLeft', 'hrefRight' ],
@@ -41,9 +40,7 @@ module.exports =  {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        'devDependencies': [
-          '**/*.tests.{js,jsx}'
-        ]
+        'devDependencies': true
       }
     ],
     'comma-dangle': [
@@ -56,9 +53,12 @@ module.exports =  {
         'functions': 'never'
       }
     ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'off'
   },
   plugins: [
-    '@typescript-eslint/eslint-plugin'
+    '@typescript-eslint/eslint-plugin',
+    'react-hooks'
   ],
   settings:  {
     'import/resolver': {

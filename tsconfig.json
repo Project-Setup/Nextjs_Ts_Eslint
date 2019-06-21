@@ -10,6 +10,9 @@
     "module": "esnext", /* Specifies the type of module to type check. */
     "moduleResolution": "node", /* Determine how modules get resolved. */
     "noEmit": true, /* Do not emit outputs. Makes sure tsc only does type checking. */
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
 
     /* Strict Type-Checking Options, optional, but recommended. */
     "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
