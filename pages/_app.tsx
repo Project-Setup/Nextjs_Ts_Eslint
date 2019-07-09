@@ -2,7 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 
 class MyApp extends App {
-  render() {
+  public render() {
     const { Component, pageProps } = this.props;
 
     return (
@@ -11,6 +11,6 @@ class MyApp extends App {
       </Container>
     );
   }
-};
+}
 
 export default MyApp;
