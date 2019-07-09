@@ -8,7 +8,11 @@
     "build": "next build",
     "start": "next start"
   },
-  "keywords": ["nextjs", "react", "boilerplate"],
+  "keywords": [
+    "nextjs",
+    "react",
+    "boilerplate"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
