@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
-  "keywords": [],
+  "keywords": ["nextjs", "react", "boilerplate"],
   "author": "",
   "license": "ISC",
   "dependencies": {
