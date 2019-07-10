@@ -292,3 +292,39 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     "export": "npm run build && next export",
     "deploy": "NODE_ENV=production npm run export && mkdir -p docs && rm -rf docs/* && touch docs/.nojekyll && cp -R out/* docs",
     ```
+
+### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
+33. `npm i -P next-offline`
+34. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+    ```
+    const withOffline = require('next-offline');
+    //...
+
+    module.exports = withOffline({
+      //...
+
+      registerSwPrefix: `${prodAssetPrefix}`,
+      scope: `${prodAssetPrefix}/`,
+      workboxOpts: {
+        swDest: 'service-worker.js',
+        globPatterns: ['app/static/**/*'],
+        globDirectory: '.',
+        modifyURLPrefix: {
+          app: isProd ? prodAssetPrefix : '',
+        },
+        runtimeCaching: [
+          //...
+        ],
+      },
+
+      //...
+    });
+    ```
+35. add `<link rel="canonical" href="/Nextjs_Ts_Eslint" />` to `<Head />` to force redirected to `/Nextjs_Ts_Eslint` and allow scope of service worker works under `/Nextjs_Ts_Eslint/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+    ```
+    <Head>
+      <Link href="/" passHref>
+        <link rel="canonical" />
+      </Link>
+    </Head>
+    ```

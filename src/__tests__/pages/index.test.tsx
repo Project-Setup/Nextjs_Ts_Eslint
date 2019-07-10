@@ -14,7 +14,7 @@ describe('Pages', () => {
           pageProps: { userAgent: 'test' },
         });
       });
-      expect(TestIndexWrapper.find('span').text()).toBe('Your user agent: test');
+      expect(TestIndexWrapper.find('span').text()).toBe('This is index');
     });
   });
 });
