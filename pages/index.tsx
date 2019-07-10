@@ -3,23 +3,14 @@ import { NextPage } from 'next';
 import Loading from '../src/components/Loading';
 import Link from '../src/components/Link';
 
-interface Props {
-  userAgent?: string;
-}
-
-const Page: NextPage<Props> = ({ userAgent }) => (
+const Page: NextPage = () => (
   <main>
-    <span>{`Your user agent: ${userAgent}`}</span>
+    <span>This is index</span>
     <Loading />
-    <Link href="/about">
+    <Link href="/about" prefetch={false}>
       <a>about</a>
     </Link>
   </main>
 );
-
-Page.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-  return { userAgent };
-};
 
 export default Page;

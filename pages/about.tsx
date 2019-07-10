@@ -6,7 +6,7 @@ const Page: NextPage = () => (
   <main>
     <span>This is about page</span>
     <br />
-    <Link href="/">
+    <Link href="/" prefetch={false}>
       <a>index</a>
     </Link>
   </main>
