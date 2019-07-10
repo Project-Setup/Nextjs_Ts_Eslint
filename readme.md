@@ -69,16 +69,16 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Create Pages](https://github.com/zeit/next.js#typescript)
-18. create `pages` folder
-19. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
+10. create `pages` folder
+11. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
 
 
 ### [Eslint and Prettier](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
 
-13. `npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react`
-14. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks`
-15. `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
-16. create `.eslintrc.js`
+12. `npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react`
+13. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks`
+14. `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
+15. create `.eslintrc.js`
     ```
     module.exports =  {
       parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
@@ -154,7 +154,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       },
     }
     ```
-17. create `.prettierrc.js`
+16. create `.prettierrc.js`
     ```
     module.exports =  {
       semi:  true,
@@ -165,3 +165,79 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     };
     ```
 
+### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
+17. `npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react`
+18. add scripts in `package.json`
+    ```
+    "scripts": {
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "test:coverage": "jest --coverage"
+    },
+    ```
+19. `npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json`
+20. `npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
+21. create `jest.config.js`
+    ```
+    module.exports = {
+      moduleFileExtensions: ['ts', 'tsx', 'js'],
+      testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',
+      globals: {
+        NODE_ENV: 'test',
+      },
+      snapshotSerializers: ['enzyme-to-json/serializer'],
+      transform: {
+        '^.+\\.(j|t)sx?$': 'babel-jest',
+      },
+      coveragePathIgnorePatterns: [
+        '/node_modules/',
+        'enzyme.js',
+        '<rootDir>/configs/',
+        'jest.config.js',
+        '.json',
+        '.snap',
+      ],
+      setupFiles: ['<rootDir>/enzyme.js'],
+      coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
+      moduleNameMapper: {
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+          '<rootDir>/__mocks__/mocks.js',
+        '\\.(css|less|scss)$': '<rootDir>/__mocks__/mocks.js',
+      },
+    };
+    ```
+22. create `babel.config.js`
+    ```
+    module.exports = {
+      presets: [
+        [
+          'next/babel',
+          {
+            'styled-jsx': {},
+            'preset-env': {},
+            'preset-react': {},
+          },
+        ],
+      ],
+    };
+    ```
+23. create `enzyme.js`
+    ```
+    import Enzyme from 'enzyme';
+    import Adapter from 'enzyme-adapter-react-16';
+    // Make sure you can use "publicRuntimeConfig" within tests.
+
+    // import { setConfig } from 'next/config';
+    // import config from './next.config';
+
+    // setConfig(config);
+    Enzyme.configure({ adapter: new Adapter() });
+    ```
+26. change `env` in `.eslintrc.js`
+    ```
+    env: {
+            browser: true,
+            node: true,
+            jest: true
+          },
+    ```

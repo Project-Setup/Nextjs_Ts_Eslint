@@ -1,5 +1,3 @@
-// const esModules = ['next', 'enzyme'].join('|');
-
 module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js'],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',

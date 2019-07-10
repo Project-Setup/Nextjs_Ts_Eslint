@@ -9,19 +9,4 @@ module.exports = {
       },
     ],
   ],
-  env: {
-    test: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            modules: false,
-            targets: { node: 'current' },
-          },
-        ],
-        '@babel/react',
-        '@babel/typescript',
-      ],
-    },
-  },
 };
