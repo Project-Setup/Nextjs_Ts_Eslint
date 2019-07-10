@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "next": "^9.0.0",
+    "next-manifest": "^2.0.0",
     "next-offline": "^4.0.2",
     "next-server": "^9.0.0",
     "react": "^16.8.6",

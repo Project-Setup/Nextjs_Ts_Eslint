@@ -1,15 +1,16 @@
 import React from 'react';
 import { NextPage } from 'next';
+import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
-import Head from '../src/components/Head';
 
 const Page: NextPage = () => (
   <main>
-    <Head>
-      <Link href="/about" passHref>
-        <link rel="canonical" />
-      </Link>
-    </Head>
+    <ManifestHead
+      title="Nextjs Typescript Eslint"
+      themeColor="red"
+      hrefPage="/"
+      hrefManifest="/static/manifest/manifest.json"
+    />
     <span>This is about page</span>
     <br />
     <Link href="/" prefetch={false}>

@@ -1,0 +1,12 @@
+{
+	"name": "Nextjs Ts Eslint",
+	"short_name": "Nextjs_Ts_Es",
+	"icons": false,
+	"start_url": "/Nextjs_Ts_Eslint/",
+	"display": "standalone",
+	"orientation": "natural",
+	"background_color": "red",
+	"theme_color": "red",
+	"scope": "/Nextjs_Ts_Eslint/",
+	"dir": "ltr"
+}
