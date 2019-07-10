@@ -1,8 +1,8 @@
 {
-  "name": "next9",
+  "name": "nextjs_ts_eslint",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Project Setup with NextJs, Typescript, Eslint, Prettier, styled-jsx, react hooks, service worker, manifest",
+  "repository": "github:Project-Setup/Nextjs_Ts_Eslint",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -16,10 +16,23 @@
   "keywords": [
     "nextjs",
     "react",
-    "boilerplate"
+    "typescript",
+    "eslint",
+    "prettier",
+    "prettier-eslint",
+    "nextjs-boilerplate",
+    "eslint-config-airbnb",
+    "typescript-eslint",
+    "react-hooks",
+    "github-pages",
+    "pwa",
+    "next-offline",
+    "service-worker",
+    "workbox",
+    "web-manifest"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "clfhhc",
+  "license": "MIT",
   "dependencies": {
     "next": "^9.0.0",
     "next-manifest": "^2.0.0",
