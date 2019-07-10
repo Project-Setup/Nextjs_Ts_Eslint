@@ -1,5 +1,5 @@
 # Project Setup with NextJs, Typescript, Eslint, Prettier
-This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, and Github-Pages. NextJs made serverside rendering React framework so easy with much less boilerplate code.
+This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, Github-Pages, etc. NextJs made serverside rendering React framework so easy with much less boilerplate code.
 
 ## Setup
 
@@ -191,13 +191,13 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       },
       coveragePathIgnorePatterns: [
         '/node_modules/',
-        'enzyme.js',
+        'jest.setup.js',
         '<rootDir>/configs/',
         'jest.config.js',
         '.json',
         '.snap',
       ],
-      setupFiles: ['<rootDir>/enzyme.js'],
+      setupFiles: ['<rootDir>/jest.setup.js'],
       coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
       moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -213,7 +213,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       ],
     };
     ```
-23. create `enzyme.js`
+23. create `jest.setup.js`
     ```
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
