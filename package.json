@@ -7,6 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "export": "npm run build && next export",
+    "deploy": "NODE_ENV=production npm run export && mkdir -p docs && rm -rf docs/* && touch docs/.nojekyll && cp -R out/* docs",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
@@ -23,6 +25,7 @@
   },
   "dependencies": {
     "next": "^9.0.0",
+    "next-server": "^9.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-jsx": "^3.2.1"
