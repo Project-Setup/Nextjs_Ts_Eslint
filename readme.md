@@ -1,5 +1,5 @@
 # Project Setup with NextJs, Typescript, Eslint, Prettier
-This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, Github-Pages, etc. NextJs made serverside rendering React framework so easy with much less boilerplate code.
+This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, Github-Pages, service-worker, web manifest, etc. NextJs made serverside rendering React framework so easy with much less boilerplate code.
 
 ## Setup
 
@@ -210,7 +210,6 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
     module.exports = {
       presets: ['next/babel'],
-      ],
     };
     ```
 23. create `jest.setup.js`
@@ -218,14 +217,13 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
     // Make sure you can use "publicRuntimeConfig" within tests.
-
     // import { setConfig } from 'next/config';
-    // import config from './next.config';
+    // import publicRuntimeConfig from './ next.publicRuntimeConfig';
 
-    // setConfig(config);
+    // setConfig({ publicRuntimeConfig });
     Enzyme.configure({ adapter: new Adapter() });
     ```
-26. change `env` in `.eslintrc.js`
+24. change `env` in `.eslintrc.js`
     ```
     env: {
             browser: true,
@@ -235,9 +233,9 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Styled-JSX](https://nextjs.org/blog/styling-next-with-styled-jsx)
-27. `npm i -P styled-jsx`
-28. `npm i -D @types/styled-jsx`
-29. change `babel.config.js`
+25. `npm i -P styled-jsx`
+26. `npm i -D @types/styled-jsx`
+27. change `babel.config.js`
     ```
     module.exports = {
       presets: [
@@ -254,48 +252,52 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
-(deploy to /docs intead of using gh-pages branch)
+(deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
 
-30. create `assetPrefix` and `linkPrefix` in config
+28. create `linkPrefix` in `next.publicRuntimeConfig.js`
     ```
-    // ...
-
     const isProd = process.env.NODE_ENV === 'production';
-    const prodAssetPrefix = '/Nextjs_Ts_Eslint';
+    const prodAssetPrefix = '/{folder}';
 
     module.exports = {
-      //...
-      assetPrefix: isProd ? prodAssetPrefix : '',
-      publicRuntimeConfig: {
-        linkPrefix: isProd ? prodAssetPrefix : '',
-      },
+      linkPrefix: isProd ? prodAssetPrefix : '',
+      isProd,
+      prodAssetPrefix,
     };
     ```
-31. change `as` prop in `next/Link` to add `linkPrefix`
+29. create `assetPrefix` in `next.config.js`
+```
+    const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
+    const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
+
+    module.exports = {
+      assetPrefix: linkPrefix,
+      publicRuntimeConfig,
+    };
+```
+30. change `as` prop in `next/Link` to add `linkPrefix`
     ```
     // ...
-    import getConfig from 'next-server/config';
+    import getConfig from 'next/config';
     import Link from 'next/link';
 
     const { publicRuntimeConfig } = getConfig();
     export const { linkPrefix } = publicRuntimeConfig;
     // ...
-    const PrefixedLink: React.FC<Link['props']> = ({ href, as = href, children, ...props }) => (
-      <Link href={href} as={`${linkPrefix}${as}`} {...props}>
-        {children}
-      </Link>
+    const PrefixedLink: React.FC<Link['props']> = ({ href, as = href, ...props }) => (
+      <Link href={href} as={`${linkPrefix}${as}`} {...props} />
     );
     // ...
     ```
-32. change `scripts` in `package.json`
+31. change `scripts` in `package.json`
     ```
     "export": "npm run build && next export",
     "deploy": "NODE_ENV=production npm run export && mkdir -p docs && rm -rf docs/* && touch docs/.nojekyll && cp -R out/* docs",
     ```
 
 ### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
-33. `npm i -P next-offline`
-34. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+32. `npm i -P next-offline`
+33. add to `next.config.js` to make `service-worker.js` available at the root of project folder
     ```
     const withOffline = require('next-offline');
     //...
@@ -303,14 +305,14 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     module.exports = withOffline({
       //...
 
-      registerSwPrefix: `${prodAssetPrefix}`,
+      registerSwPrefix: prodAssetPrefix,
       scope: `${prodAssetPrefix}/`,
       workboxOpts: {
         swDest: 'service-worker.js',
         globPatterns: ['app/static/**/*'],
         globDirectory: '.',
         modifyURLPrefix: {
-          app: isProd ? prodAssetPrefix : '',
+          app: linkPrefix,
         },
         runtimeCaching: [
           //...
@@ -320,7 +322,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       //...
     });
     ```
-35. add `<link rel="canonical" href="/Nextjs_Ts_Eslint" />` to `<Head />` to force redirected to `/Nextjs_Ts_Eslint` and allow scope of service worker works under `/Nextjs_Ts_Eslint/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+34. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
     ```
     <Head>
       <Link href="/" passHref>
@@ -328,3 +330,140 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       </Link>
     </Head>
     ```
+
+### [Web Mainfest](https://www.npmjs.com/package/next-manifest)
+35. `npm i -P next-manifest`
+36. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+    ```
+    //...
+    const withManifest = require('next-manifest');
+    //...
+
+    module.exports = withManifest(
+      withOffline({
+        //...
+
+        manifest: {
+          /* eslint-disable @typescript-eslint/camelcase */
+          short_name: '{folder}',
+          name: '{folder}',
+          start_url: `${prodAssetPrefix}/`,
+          background_color: 'white',
+          display: 'standalone',
+          scope: `${prodAssetPrefix}/`,
+          dir: 'ltr', // text direction: left to right
+          theme_color: 'white',
+          icons: [
+            {
+              src: `${prodAssetPrefix}/static/icons/icon192x192.png`,
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: `${prodAssetPrefix}/static/icons/icon512x512.png`,
+              sizes: '512x512',
+              type: 'image/png',
+            },
+          ],
+          /* eslint-enable @typescript-eslint/camelcase */
+        },
+
+        //...
+      })
+    );
+    ```
+37. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
+    ```
+    //...
+    import NextHead from 'next/head';
+    // @ts-ignore
+    import Manifest from 'next-manifest/manifest';
+    import Link, { linkPrefix } from '../Link';
+
+    //...
+
+    const Head: React.FC<Props> = ({
+      title = '',
+      description = title,
+      charset = 'utf-8',
+      hrefPage,
+      hrefManifest,
+      viewportScale,
+      themeColor,
+      favIconPath,
+      keywords = title,
+      refresh,
+      appleIconPath,
+      appleIconSize = '192x192',
+      children,
+    }) => (
+      <NextHead>
+        <title>{title}</title>
+        <meta charSet={charset} />
+        <meta name="description" content={description} />
+        <Link href={hrefManifest} passHref>
+          <Manifest themeColor={themeColor} initialScale={viewportScale} />
+        </Link>
+        {hrefPage && (
+          <Link href={hrefPage} passHref>
+            <link rel="canonical" />
+          </Link>
+        )}
+
+        {/* favicon link */}
+        {favIconPath && (
+          <Link href={favIconPath} passHref>
+            <link rel="shortcut icon" type="image/x-icon" />
+          </Link>
+        )}
+
+        <meta name="keywords" content={keywords} />
+        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+
+        {/* for safari */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
+        <meta name="apple-mobile-web-app-title" content="With Manifest" />
+        {appleIconPath && appleIconSize && (
+          <Link href={appleIconPath} passHref>
+            <link rel="apple-touch-icon" sizes={appleIconSize} />
+          </Link>
+        )}
+
+        {/* for IE */}
+        {appleIconPath && (
+          <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+        )}
+        {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
+
+        {children}
+      </NextHead>
+    );
+    //...
+    ```
+38. import the `<ManifestHead>` in the page
+    ```
+    //...
+    import ManifestHead from '../src/components/Head/ManifestHead';
+    import Link from '../src/components/Link';
+
+    //...
+        <ManifestHead
+          title="index"
+          themeColor="red"
+          hrefPage="/"
+          favIconPath="/static/icons/favicon.ico"
+          appleIconPath="/static/icons/icon192x192.png"
+          hrefManifest="/static/manifest/manifest.json"
+        />
+    //..
+    ```
+39. Make icons files (favicon.ico, icon*.png) available in the static folder
+
+## Usage of this example setup
+1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`
+2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
+3. continue coding with `npm run dev`
+4. `npm run deploy` to deploy the gh-pages
+5. merge to github master branch and use `/docs` for gh-pages in github project repo settings

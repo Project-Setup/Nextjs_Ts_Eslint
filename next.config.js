@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withOffline = require('next-offline');
 const withManifest = require('next-manifest');
+const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
 
-const isProd = process.env.NODE_ENV === 'production';
-const prodAssetPrefix = '/Nextjs_Ts_Eslint';
+const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
 
 module.exports = withManifest(
   withOffline({
@@ -16,7 +16,7 @@ module.exports = withManifest(
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
       modifyURLPrefix: {
-        app: isProd ? prodAssetPrefix : '',
+        app: linkPrefix,
       },
       runtimeCaching: [
         {
@@ -47,9 +47,7 @@ module.exports = withManifest(
     },
 
     // cdn settings
-    assetPrefix: isProd ? prodAssetPrefix : '',
-    publicRuntimeConfig: {
-      linkPrefix: isProd ? prodAssetPrefix : '',
-    },
+    assetPrefix: linkPrefix,
+    publicRuntimeConfig,
   })
 );
