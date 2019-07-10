@@ -252,3 +252,43 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       ],
     };
     ```
+
+### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
+(deploy to /docs intead of using gh-pages branch)
+
+30. create `assetPrefix` and `linkPrefix` in config
+    ```
+    // ...
+
+    const isProd = process.env.NODE_ENV === 'production';
+    const prodAssetPrefix = '/Nextjs_Ts_Eslint';
+
+    module.exports = {
+      //...
+      assetPrefix: isProd ? prodAssetPrefix : '',
+      publicRuntimeConfig: {
+        linkPrefix: isProd ? prodAssetPrefix : '',
+      },
+    };
+    ```
+31. change `as` prop in `next/Link` to add `linkPrefix`
+    ```
+    // ...
+    import getConfig from 'next-server/config';
+    import Link from 'next/link';
+
+    const { publicRuntimeConfig } = getConfig();
+    export const { linkPrefix } = publicRuntimeConfig;
+    // ...
+    const PrefixedLink: React.FC<Link['props']> = ({ href, as = href, children, ...props }) => (
+      <Link href={href} as={`${linkPrefix}${as}`} {...props}>
+        {children}
+      </Link>
+    );
+    // ...
+    ```
+32. change `scripts` in `package.json`
+    ```
+    "export": "npm run build && next export",
+    "deploy": "NODE_ENV=production npm run export && mkdir -p docs && rm -rf docs/* && touch docs/.nojekyll && cp -R out/* docs",
+    ```

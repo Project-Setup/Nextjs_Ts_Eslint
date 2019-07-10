@@ -1,7 +1,7 @@
 // next.config.js
 
 const isProd = process.env.NODE_ENV === 'production';
-const prodAssetPrefix = '/NextJs_Ts_Eslint';
+const prodAssetPrefix = '/Nextjs_Ts_Eslint';
 
 module.exports = {
   // cdn settings
