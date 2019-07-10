@@ -209,15 +209,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 22. create `babel.config.js`
     ```
     module.exports = {
-      presets: [
-        [
-          'next/babel',
-          {
-            'styled-jsx': {},
-            'preset-env': {},
-            'preset-react': {},
-          },
-        ],
+      presets: ['next/babel'],
       ],
     };
     ```
@@ -240,4 +232,23 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
             node: true,
             jest: true
           },
+    ```
+
+### [Styled-JSX](https://nextjs.org/blog/styling-next-with-styled-jsx)
+27. `npm i -P styled-jsx`
+28. `npm i -D @types/styled-jsx`
+29. change `babel.config.js`
+    ```
+    module.exports = {
+      presets: [
+        [
+          'next/babel',
+          {
+            'styled-jsx': {},
+            'preset-env': {},
+            'preset-react': {},
+          },
+        ],
+      ],
+    };
     ```

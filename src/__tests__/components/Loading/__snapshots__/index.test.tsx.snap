@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should render without error 1`] = `
+<div
+  className="jsx-551631717"
+>
+  <div
+    className="jsx-660240691"
+    key="jsx-660240691"
+  />
+  <div
+    className="jsx-4081925047"
+    key="jsx-4081925047"
+  />
+  <div
+    className="jsx-4206995259"
+    key="jsx-4206995259"
+  />
+</div>
+`;
