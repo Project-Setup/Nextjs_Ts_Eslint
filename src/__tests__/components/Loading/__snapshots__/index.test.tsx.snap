@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loading should render without error 1`] = `
+@keyframes animation-0 {
+  from, 66%, to {
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: 0.5;
+  }
+
+  33% {
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: 1;
+  }
+}
+
 .emotion-3 {
   box-sizing: border-box;
   margin-top: 2.5rem;
@@ -32,8 +46,8 @@ exports[`Loading should render without error 1`] = `
   height: 1.25rem;
   opacity: 0.5;
   background-color: skyblue;
-  -webkit-animation-name: scale;
-  animation-name: scale;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
   -webkit-animation-duration: 1200ms;
   animation-duration: 1200ms;
   -webkit-animation-iteration-count: infinite;

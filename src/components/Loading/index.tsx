@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
 import { rem } from '../../utils/styleUtils';
 
 interface Props {
@@ -23,6 +23,19 @@ const Loading: React.FC<Props> = ({
 
   const boxStyles = Array.from(Array(numBox), (_, position) => animationDelayStyles(position));
 
+  const scaleEffects = keyframes`
+    from, ${Math.floor(200 / numBox)}%, to {
+      width: ${rem(boxSize)};
+      height: ${rem(boxSize)};
+      opacity: 0.5;
+    }
+    ${Math.floor(100 / numBox)}% {
+      width: ${rem(boxSize * 2)};
+      height: ${rem(boxSize * 2)};
+      opacity: 1;
+    }
+  `;
+
   const containerStyles = css`
     box-sizing: border-box;
     margin-top: ${rem(40)};
@@ -37,35 +50,12 @@ const Loading: React.FC<Props> = ({
     justify-content: space-evenly;
     align-items: center;
 
-    @keyframes scale {
-      0% {
-        width: ${rem(boxSize)};
-        height: ${rem(boxSize)};
-        opacity: 0.5;
-      }
-      ${Math.floor(100 / numBox)}% {
-        width: ${rem(boxSize * 2)};
-        height: ${rem(boxSize * 2)};
-        opacity: 1;
-      }
-      ${Math.floor(200 / numBox)}% {
-        width: ${rem(boxSize)};
-        height: ${rem(boxSize)};
-        opacity: 0.5;
-      }
-      100% {
-        width: ${rem(boxSize)};
-        height: ${rem(boxSize)};
-        opacity: 0.5;
-      }
-    }
-
     & > div {
       width: ${rem(boxSize)};
       height: ${rem(boxSize)};
       opacity: 0.5;
       background-color: ${boxColor};
-      animation-name: scale;
+      animation-name: ${scaleEffects};
       animation-duration: ${animationTime}ms;
       animation-iteration-count: infinite;
     }
