@@ -42,7 +42,18 @@ module.exports = withManifest(
       scope: `${prodAssetPrefix}/`,
       dir: 'ltr',
       theme_color: 'red',
-      icons: false,
+      icons: [
+        {
+          src: `${prodAssetPrefix}/static/icons/icon192x192.png`,
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          src: `${prodAssetPrefix}/static/icons/icon512x512.png`,
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
       /* eslint-enable @typescript-eslint/camelcase */
     },
 

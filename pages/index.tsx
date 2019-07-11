@@ -10,6 +10,8 @@ const Page: NextPage = () => (
       title="Nextjs Typescript Eslint"
       themeColor="red"
       hrefPage="/"
+      favIconPath="/static/icons/favicon.ico"
+      appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
     <span>This is index</span>
