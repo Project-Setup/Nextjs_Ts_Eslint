@@ -1,5 +1,5 @@
 import React from 'react';
-import css from 'styled-jsx/css';
+import { css } from '@emotion/core';
 import { rem } from '../../utils/styleUtils';
 
 interface Props {
@@ -17,13 +17,13 @@ const Loading: React.FC<Props> = ({
   numBox = 3,
   boxColor = 'skyblue',
 }) => {
-  const animationDelayStyles = (position: number) => css.resolve`
+  const animationDelayStyles = (position: number) => css`
     animation-delay: ${animationTime * (position / numBox)}ms;
   `;
 
   const boxStyles = Array.from(Array(numBox), (_, position) => animationDelayStyles(position));
 
-  const containerStyles = css.resolve`
+  const containerStyles = css`
     box-sizing: border-box;
     margin-top: ${rem(40)};
     margin-bottom: ${rem(40)};
@@ -60,7 +60,7 @@ const Loading: React.FC<Props> = ({
       }
     }
 
-    :global(${boxStyles.map(styles => `.${styles.className}`).join(', ')}) {
+    & > div {
       width: ${rem(boxSize)};
       height: ${rem(boxSize)};
       opacity: 0.5;
@@ -72,13 +72,10 @@ const Loading: React.FC<Props> = ({
   `;
 
   return (
-    <div className={containerStyles.className}>
+    <div css={containerStyles}>
       {boxStyles.map(styles => (
-        <div key={styles.className} className={styles.className}>
-          {styles.styles}
-        </div>
+        <div key={styles.name} css={styles} />
       ))}
-      {containerStyles.styles}
     </div>
   );
 };
