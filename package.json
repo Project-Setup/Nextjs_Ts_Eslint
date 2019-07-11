@@ -68,6 +68,7 @@
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
     "jest": "^24.8.0",
+    "jest-emotion": "^10.0.14",
     "lodash": "^4.17.14",
     "prettier": "^1.18.2",
     "typescript": "^3.5.3"

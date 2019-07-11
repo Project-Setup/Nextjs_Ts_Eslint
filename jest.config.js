@@ -4,7 +4,7 @@ module.exports = {
   globals: {
     NODE_ENV: 'test',
   },
-  snapshotSerializers: ['enzyme-to-json/serializer'],
+  snapshotSerializers: ['enzyme-to-json/serializer', 'jest-emotion'],
   transform: {
     '^.+\\.(j|t)sx?$': 'babel-jest',
   },
