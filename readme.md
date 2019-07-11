@@ -292,7 +292,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 31. change `scripts` in `package.json`
     ```
     "export": "npm run build && next export",
-    "deploy": "NODE_ENV=production npm run export && mkdir -p docs && rm -rf docs/* && touch docs/.nojekyll && cp -R out/* docs",
+    "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
     ```
 
 ### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
