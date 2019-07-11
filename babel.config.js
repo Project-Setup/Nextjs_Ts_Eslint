@@ -7,5 +7,6 @@ module.exports = {
         'preset-react': {},
       },
     ],
+    '@emotion/babel-preset-css-prop',
   ],
 };
