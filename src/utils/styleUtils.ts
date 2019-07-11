@@ -1,22 +1,20 @@
-import css from 'styled-jsx/css';
+import { css } from '@emotion/core';
 
 export const rem = (num: number) => {
   const remVal = num / 16;
   return `${remVal}rem`;
 };
 
-export const buttonReset = css.global`
-  button {
-    border: none;
-    border-radius: 0;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    overflow: visible;
-    background: transparent;
-  }
+export const buttonReset = css`
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
 
-  button:focus {
+  &:focus {
     outline: none;
     box-shadow: none;
   }
@@ -45,7 +43,7 @@ export const transition = (duration: number = 250, easing: string = 'ease-in-out
   const transitions = [...properties];
   const makeTransition = (property: string, index: number) =>
     `${index !== 0 ? ', ' : ''}${property} ${duration}ms ${easing}`;
-  return css.resolve`
+  return css`
     transition: ${transitions.map(makeTransition)};
   `;
 };

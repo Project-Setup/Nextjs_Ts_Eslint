@@ -3,10 +3,10 @@ module.exports = {
     [
       'next/babel',
       {
-        'styled-jsx': {},
         'preset-env': {},
         'preset-react': {},
       },
     ],
+    '@emotion/babel-preset-css-prop',
   ],
 };

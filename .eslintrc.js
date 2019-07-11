@@ -54,11 +54,15 @@ module.exports =  {
         'functions': 'never'
       }
     ],
-    'react-hooks/rules-of-hooks': 'error',
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error",
+    "react-hooks/rules-of-hooks": "error",
     'react-hooks/exhaustive-deps': 'off',
     'no-bitwise': 'off'
   },
   plugins: [
+    'emotion',
     '@typescript-eslint/eslint-plugin',
     'react-hooks'
   ],
