@@ -1,4 +1,5 @@
 # PWA Project Setup with NextJs, Typescript, Eslint
+
 This is an example project setup.
 Packages used:
 * NextJs
@@ -8,6 +9,15 @@ Packages used:
 * Emotion
 * Next-Offline
 * Next-Manifest
+
+## Usage of this example setup
+
+0. `nvm use; npm install`
+1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`
+2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
+3. continue coding with `npm run dev`
+4. `npm run deploy` to deploy the gh-pages
+5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
 
 ## Setup
 
@@ -500,10 +510,3 @@ Packages used:
     //..
     ```
 42. Make icons files (favicon.ico, icon*.png) available in the static folder
-
-## Usage of this example setup
-1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`
-2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
-3. continue coding with `npm run dev`
-4. `npm run deploy` to deploy the gh-pages
-5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
