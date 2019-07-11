@@ -232,9 +232,9 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
           },
     ```
 
-### [Styled-JSX](https://nextjs.org/blog/styling-next-with-styled-jsx)
-25. `npm i -P styled-jsx`
-26. `npm i -D @types/styled-jsx`
+### [EmotionJs](https://emotion.sh/docs/install)
+25. `npm i -P @emotion/core`
+26. `npm i -D @emotion/babel-preset-css-prop jest-emotion eslint-plugin-emotion`
 27. change `babel.config.js`
     ```
     module.exports = {
@@ -242,19 +242,51 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
         [
           'next/babel',
           {
-            'styled-jsx': {},
             'preset-env': {},
             'preset-react': {},
           },
         ],
+        '@emotion/babel-preset-css-prop',
       ],
     };
+    ```
+28. add rules and plugins to `.eslint.js`
+    ```
+    module.exports = {
+      // ...
+      rules: {
+        // ...
+        "emotion/no-vanilla": "error",
+        "emotion/import-from-emotion": "error",
+        "emotion/styled-import": "error",
+      },
+      // ...
+      plugins: [
+        'emotion',
+        // ...
+      ],
+      // ...
+    }
+    ```
+29. add `jest.setupAfterEnv.js`
+    ```
+    import { matchers } from 'jest-emotion';
+
+    expect.extend(matchers);
+    ```
+30. add serializers and setup files to `jest.config.js`
+    ```
+    // ...
+    snapshotSerializers: ['enzyme-to-json/serializer', 'jest-emotion'],
+    // ...
+    setupFilesAfterEnv: ['<rootDir>/jest.setupAfterEnv.js'],
+    // ...
     ```
 
 ### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
 (deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
 
-28. create `linkPrefix` in `next.publicRuntimeConfig.js`
+31. create `linkPrefix` in `next.publicRuntimeConfig.js`
     ```
     const isProd = process.env.NODE_ENV === 'production';
     const prodAssetPrefix = '/{folder}';
@@ -265,7 +297,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       prodAssetPrefix,
     };
     ```
-29. create `assetPrefix` in `next.config.js`
+32. create `assetPrefix` in `next.config.js`
 ```
     const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
     const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
@@ -275,7 +307,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       publicRuntimeConfig,
     };
 ```
-30. change `as` prop in `next/Link` to add `linkPrefix`
+33. change `as` prop in `next/Link` to add `linkPrefix`
     ```
     // ...
     import getConfig from 'next/config';
@@ -289,15 +321,15 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     );
     // ...
     ```
-31. change `scripts` in `package.json`
+34. change `scripts` in `package.json`
     ```
     "export": "npm run build && next export",
     "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
     ```
 
 ### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
-32. `npm i -P next-offline`
-33. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+35. `npm i -P next-offline`
+36. add to `next.config.js` to make `service-worker.js` available at the root of project folder
     ```
     const withOffline = require('next-offline');
     //...
@@ -322,7 +354,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       //...
     });
     ```
-34. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+37. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
     ```
     <Head>
       <Link href="/" passHref>
@@ -332,8 +364,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Web Mainfest](https://www.npmjs.com/package/next-manifest)
-35. `npm i -P next-manifest`
-36. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+38. `npm i -P next-manifest`
+39. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
     ```
     //...
     const withManifest = require('next-manifest');
@@ -372,7 +404,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       })
     );
     ```
-37. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
+40. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
     ```
     //...
     import NextHead from 'next/head';
@@ -442,7 +474,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     );
     //...
     ```
-38. import the `<ManifestHead>` in the page
+41. import the `<ManifestHead>` in the page
     ```
     //...
     import ManifestHead from '../src/components/Head/ManifestHead';
@@ -459,7 +491,7 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
         />
     //..
     ```
-39. Make icons files (favicon.ico, icon*.png) available in the static folder
+42. Make icons files (favicon.ico, icon*.png) available in the static folder
 
 ## Usage of this example setup
 1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`

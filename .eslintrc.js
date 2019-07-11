@@ -55,10 +55,9 @@ module.exports =  {
       }
     ],
     "emotion/no-vanilla": "error",
-    "emotion/styled-import": "error",
     "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error",
     "react-hooks/rules-of-hooks": "error",
-    'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'off',
     'no-bitwise': 'off'
   },
