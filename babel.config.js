@@ -3,7 +3,6 @@ module.exports = {
     [
       'next/babel',
       {
-        'styled-jsx': {},
         'preset-env': {},
         'preset-react': {},
       },
