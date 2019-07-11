@@ -1,7 +1,18 @@
 {
 	"name": "Nextjs Ts Eslint",
 	"short_name": "Nextjs_Ts_Es",
-	"icons": false,
+	"icons": [
+		{
+			"src": "/Nextjs_Ts_Eslint/static/icons/icon192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/Nextjs_Ts_Eslint/static/icons/icon512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
 	"start_url": "/Nextjs_Ts_Eslint/",
 	"display": "standalone",
 	"orientation": "natural",
