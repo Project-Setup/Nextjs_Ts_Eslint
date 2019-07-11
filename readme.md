@@ -1,4 +1,4 @@
-# Project Setup with NextJs, Typescript, Eslint
+# PWA Project Setup with NextJs, Typescript, Eslint
 This is an example project setup.
 Packages used:
 * NextJs
