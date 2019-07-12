@@ -1,15 +1,17 @@
 import React from 'react';
-import { NextComponentType } from 'next';
-import App, { Container, AppContext, AppInitialProps, AppProps } from 'next/app';
+import App, { Container } from 'next/app';
 
-export type Props = Pick<AppProps<AppInitialProps>, 'pageProps' | 'Component'>;
+export type Props = any;
 
-const MyApp: NextComponentType<AppContext, AppInitialProps, Props> = ({ Component, pageProps }) => (
-  <Container>
-    <Component {...pageProps} />
-  </Container>
-);
-
-MyApp.getInitialProps = App.getInitialProps;
+class MyApp extends App<any, any> {
+  public render() {
+    const { Component, pageProps } = this.props;
+    return (
+      <Container>
+        <Component {...pageProps} />
+      </Container>
+    );
+  }
+}
 
 export default MyApp;
