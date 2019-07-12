@@ -1,7 +1,7 @@
 import React from 'react';
 import { Store } from 'redux';
 import { NextPageContext, NextComponentType } from 'next';
-import { AppContext } from 'next/app';
+import { AppContext, AppInitialProps, AppProps } from 'next/app';
 import defaultConfig, { Config } from './defaultConfig';
 import objectAssign from '../common/objectAssign';
 
@@ -31,6 +31,10 @@ export interface WrappedAppProps {
   isServer: boolean;
 }
 
+export interface WithStoreProps {
+  store: Store;
+}
+
 const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) => {
   const config: Config = objectAssign(
     defaultConfig,
@@ -55,13 +59,12 @@ const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) =
     return (window as any)[storeKey];
   };
 
-  return (App: NextComponentType<WithStoreAppContext>) => {
+  return (App: NextComponentType<AppContext, AppInitialProps, WithStoreProps & AppProps>) => {
     const WrappedApp: NextComponentType<WithStoreAppContext, WrappedAppProps, WrappedAppProps> = ({
       initialProps,
       initialState,
       ...props
     }) => {
-      console.log('WrappedApp is called');
       const store = serveStore({ initialState });
 
       return <App {...props} {...initialProps} store={store} />;
