@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/index.js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/about.js"],{
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js":
 /*!*******************************************************************!*\
@@ -77,17 +77,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "./
 
 /***/ }),
 
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/define-properties */ "./node_modules/core-js/library/fn/object/define-properties.js");
-
-/***/ }),
-
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -96,17 +85,6 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/define-property */ "./node_modules/core-js/library/fn/object/define-property.js");
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! core-js/library/fn/object/freeze */ "./node_modules/core-js/library/fn/object/freeze.js");
 
 /***/ }),
 
@@ -754,36 +732,6 @@ __webpack_require__.r(__webpack_exports__);
 
 function _slicedToArray(arr, i) {
   return Object(_arrayWithHoles__WEBPACK_IMPORTED_MODULE_0__["default"])(arr) || Object(_iterableToArrayLimit__WEBPACK_IMPORTED_MODULE_1__["default"])(arr, i) || Object(_nonIterableRest__WEBPACK_IMPORTED_MODULE_2__["default"])();
-}
-
-/***/ }),
-
-/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js ***!
-  \**********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _taggedTemplateLiteral; });
-/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
-/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/freeze */ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js");
-/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__);
-
-
-function _taggedTemplateLiteral(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
-  }
-
-  return _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default()(strings, {
-    raw: {
-      value: _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(raw)
-    }
-  }));
 }
 
 /***/ }),
@@ -2996,22 +2944,6 @@ module.exports = function create(P, D) {
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/fn/object/define-properties.js":
-/*!*********************************************************************!*\
-  !*** ./node_modules/core-js/library/fn/object/define-properties.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es6.object.define-properties */ "./node_modules/core-js/library/modules/es6.object.define-properties.js");
-var $Object = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Object;
-module.exports = function defineProperties(T, D) {
-  return $Object.defineProperties(T, D);
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/library/fn/object/define-property.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/core-js/library/fn/object/define-property.js ***!
@@ -3024,19 +2956,6 @@ var $Object = __webpack_require__(/*! ../../modules/_core */ "./node_modules/cor
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/fn/object/freeze.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/core-js/library/fn/object/freeze.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(/*! ../../modules/es6.object.freeze */ "./node_modules/core-js/library/modules/es6.object.freeze.js");
-module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Object.freeze;
 
 
 /***/ }),
@@ -5755,20 +5674,6 @@ $export($export.S, 'Object', { create: __webpack_require__(/*! ./_object-create 
 
 /***/ }),
 
-/***/ "./node_modules/core-js/library/modules/es6.object.define-properties.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es6.object.define-properties.js ***!
-  \******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
-// 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
-$export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js"), 'Object', { defineProperties: __webpack_require__(/*! ./_object-dps */ "./node_modules/core-js/library/modules/_object-dps.js") });
-
-
-/***/ }),
-
 /***/ "./node_modules/core-js/library/modules/es6.object.define-property.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/core-js/library/modules/es6.object.define-property.js ***!
@@ -5779,26 +5684,6 @@ $export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "./no
 var $export = __webpack_require__(/*! ./_export */ "./node_modules/core-js/library/modules/_export.js");
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "./node_modules/core-js/library/modules/_descriptors.js"), 'Object', { defineProperty: __webpack_require__(/*! ./_object-dp */ "./node_modules/core-js/library/modules/_object-dp.js").f });
-
-
-/***/ }),
-
-/***/ "./node_modules/core-js/library/modules/es6.object.freeze.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/core-js/library/modules/es6.object.freeze.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// 19.1.2.5 Object.freeze(O)
-var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/core-js/library/modules/_is-object.js");
-var meta = __webpack_require__(/*! ./_meta */ "./node_modules/core-js/library/modules/_meta.js").onFreeze;
-
-__webpack_require__(/*! ./_object-sap */ "./node_modules/core-js/library/modules/_object-sap.js")('freeze', function ($freeze) {
-  return function freeze(it) {
-    return $freeze && isObject(it) ? $freeze(meta(it)) : it;
-  };
-});
 
 
 /***/ }),
@@ -8626,21 +8511,21 @@ exports.formatWithValidation = formatWithValidation;
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx!./":
-/*!*************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx ***!
-  \*************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx!./":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx ***!
+  \******************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/", function() {
-      var page = __webpack_require__(/*! ./pages/index.tsx */ "./pages/index.tsx")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/about", function() {
+      var page = __webpack_require__(/*! ./pages/about.tsx */ "./pages/about.tsx")
       if(true) {
-        module.hot.accept(/*! ./pages/index.tsx */ "./pages/index.tsx", function() {
-          if(!next.router.components["/"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/index.tsx */ "./pages/index.tsx")
-          next.router.update("/", updatedPage.default || updatedPage)
+        module.hot.accept(/*! ./pages/about.tsx */ "./pages/about.tsx", function() {
+          if(!next.router.components["/about"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/about.tsx */ "./pages/about.tsx")
+          next.router.update("/about", updatedPage.default || updatedPage)
         })
       }
       return { page: page.default || page }
@@ -12933,9 +12818,9 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/index.tsx":
+/***/ "./pages/about.tsx":
 /*!*************************!*\
-  !*** ./pages/index.tsx ***!
+  !*** ./pages/about.tsx ***!
   \*************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -12945,11 +12830,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_components_Loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/Loading */ "./src/components/Loading/index.tsx");
-/* harmony import */ var _src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/Head/ManifestHead */ "./src/components/Head/ManifestHead.tsx");
-/* harmony import */ var _src_components_Link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/Link */ "./src/components/Link/index.tsx");
-var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/index.tsx";
-
+/* harmony import */ var _src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/Head/ManifestHead */ "./src/components/Head/ManifestHead.tsx");
+/* harmony import */ var _src_components_Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/Link */ "./src/components/Link/index.tsx");
+var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/about.tsx";
 
 
 
@@ -12959,48 +12842,48 @@ var Page = function Page() {
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 7
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_2__["default"], {
     title: "Nextjs Typescript Eslint",
     themeColor: "red",
-    hrefPage: "/",
+    hrefPage: "/about",
     favIconPath: "/static/icons/favicon.ico",
     appleIconPath: "/static/icons/icon192x192.png",
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 8
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
+  }, "This is about page"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
+    __source: {
+      fileName: _jsxFileName,
       lineNumber: 17
     },
     __self: this
-  }, "This is index"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: "/",
+    prefetch: false,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: "/about",
-    prefetch: false,
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, "about")));
+  }, "index")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Page);
@@ -13267,118 +13150,14 @@ var PrefixedLink = function PrefixedLink(_ref) {
 
 /***/ }),
 
-/***/ "./src/components/Loading/index.tsx":
-/*!******************************************!*\
-  !*** ./src/components/Loading/index.tsx ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/array/from */ "./node_modules/@babel/runtime-corejs2/core-js/array/from.js");
-/* harmony import */ var _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_style_rem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/style/rem */ "./src/utils/style/rem.ts");
-
-
-var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/components/Loading/index.tsx";
-
-
-function _templateObject() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    from, ", "%, to {\n      width: ", ";\n      height: ", ";\n      opacity: 0.5;\n    }\n    ", "% {\n      width: ", ";\n      height: ", ";\n      opacity: 1;\n    }\n  "]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-
-
-
-var Loading = function Loading(_ref) {
-  var _ref$boxSize = _ref.boxSize,
-      boxSize = _ref$boxSize === void 0 ? 20 : _ref$boxSize,
-      _ref$width = _ref.width,
-      width = _ref$width === void 0 ? 180 : _ref$width,
-      _ref$animationTime = _ref.animationTime,
-      animationTime = _ref$animationTime === void 0 ? 1200 : _ref$animationTime,
-      _ref$numBox = _ref.numBox,
-      numBox = _ref$numBox === void 0 ? 3 : _ref$numBox,
-      _ref$boxColor = _ref.boxColor,
-      boxColor = _ref$boxColor === void 0 ? 'skyblue' : _ref$boxColor;
-
-  var animationDelayStyles = function animationDelayStyles(position) {
-    return (
-      /*#__PURE__*/
-      Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["css"])("animation-delay:", animationTime * (position / numBox), "ms;" + ( false ? undefined : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kYXZpZC5jaGVuL0RvY3VtZW50cy9wcm9qZWN0cy9uZXh0OS9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL2luZGV4LnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFtQndEIiwiZmlsZSI6Ii9Vc2Vycy9kYXZpZC5jaGVuL0RvY3VtZW50cy9wcm9qZWN0cy9uZXh0OS9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL2luZGV4LnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBjc3MsIGtleWZyYW1lcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuaW1wb3J0IHJlbSBmcm9tICcuLi8uLi91dGlscy9zdHlsZS9yZW0nO1xuXG5pbnRlcmZhY2UgUHJvcHMge1xuICBib3hTaXplPzogbnVtYmVyO1xuICB3aWR0aD86IG51bWJlcjtcbiAgYW5pbWF0aW9uVGltZT86IG51bWJlcjtcbiAgbnVtQm94PzogbnVtYmVyO1xuICBib3hDb2xvcj86IHN0cmluZztcbn1cblxuY29uc3QgTG9hZGluZzogUmVhY3QuRkM8UHJvcHM+ID0gKHtcbiAgYm94U2l6ZSA9IDIwLFxuICB3aWR0aCA9IDE4MCxcbiAgYW5pbWF0aW9uVGltZSA9IDEyMDAsXG4gIG51bUJveCA9IDMsXG4gIGJveENvbG9yID0gJ3NreWJsdWUnLFxufSkgPT4ge1xuICBjb25zdCBhbmltYXRpb25EZWxheVN0eWxlcyA9IChwb3NpdGlvbjogbnVtYmVyKSA9PiBjc3NgXG4gICAgYW5pbWF0aW9uLWRlbGF5OiAke2FuaW1hdGlvblRpbWUgKiAocG9zaXRpb24gLyBudW1Cb3gpfW1zO1xuICBgO1xuXG4gIGNvbnN0IGJveFN0eWxlcyA9IEFycmF5LmZyb20oQXJyYXkobnVtQm94KSwgKF8sIHBvc2l0aW9uKSA9PiBhbmltYXRpb25EZWxheVN0eWxlcyhwb3NpdGlvbikpO1xuXG4gIGNvbnN0IHNjYWxlRWZmZWN0cyA9IGtleWZyYW1lc2BcbiAgICBmcm9tLCAke01hdGguZmxvb3IoMjAwIC8gbnVtQm94KX0lLCB0byB7XG4gICAgICB3aWR0aDogJHtyZW0oYm94U2l6ZSl9O1xuICAgICAgaGVpZ2h0OiAke3JlbShib3hTaXplKX07XG4gICAgICBvcGFjaXR5OiAwLjU7XG4gICAgfVxuICAgICR7TWF0aC5mbG9vcigxMDAgLyBudW1Cb3gpfSUge1xuICAgICAgd2lkdGg6ICR7cmVtKGJveFNpemUgKiAyKX07XG4gICAgICBoZWlnaHQ6ICR7cmVtKGJveFNpemUgKiAyKX07XG4gICAgICBvcGFjaXR5OiAxO1xuICAgIH1cbiAgYDtcblxuICBjb25zdCBjb250YWluZXJTdHlsZXMgPSBjc3NgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBtYXJnaW4tdG9wOiAke3JlbSg0MCl9O1xuICAgIG1hcmdpbi1ib3R0b206ICR7cmVtKDQwKX07XG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWF4LXdpZHRoOiAke3JlbSh3aWR0aCl9O1xuICAgIGhlaWdodDogJHtyZW0oYm94U2l6ZSAqIDIpfTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBmbGV4LWZsb3c6IHJvdztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuXG4gICAgJiA+IGRpdiB7XG4gICAgICB3aWR0aDogJHtyZW0oYm94U2l6ZSl9O1xuICAgICAgaGVpZ2h0OiAke3JlbShib3hTaXplKX07XG4gICAgICBvcGFjaXR5OiAwLjU7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke2JveENvbG9yfTtcbiAgICAgIGFuaW1hdGlvbi1uYW1lOiAke3NjYWxlRWZmZWN0c307XG4gICAgICBhbmltYXRpb24tZHVyYXRpb246ICR7YW5pbWF0aW9uVGltZX1tcztcbiAgICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlO1xuICAgIH1cbiAgYDtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY3NzPXtjb250YWluZXJTdHlsZXN9PlxuICAgICAge2JveFN0eWxlcy5tYXAoc3R5bGVzID0+IChcbiAgICAgICAgPGRpdiBrZXk9e3N0eWxlcy5uYW1lfSBjc3M9e3N0eWxlc30gLz5cbiAgICAgICkpfVxuICAgIDwvZGl2PlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgTG9hZGluZztcbiJdfQ== */"))
-    );
-  };
-
-  var boxStyles = _babel_runtime_corejs2_core_js_array_from__WEBPACK_IMPORTED_MODULE_1___default()(Array(numBox), function (_, position) {
-    return animationDelayStyles(position);
-  });
-
-  var scaleEffects = Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["keyframes"])(_templateObject(), Math.floor(200 / numBox), Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize), Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize), Math.floor(100 / numBox), Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize * 2), Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize * 2));
-  var containerStyles =
-  /*#__PURE__*/
-  Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["css"])("box-sizing:border-box;margin-top:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(40), ";margin-bottom:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(40), ";margin-left:auto;margin-right:auto;display:flex;max-width:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(width), ";height:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize * 2), ";width:100%;flex-flow:row;justify-content:space-evenly;align-items:center;& > div{width:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize), ";height:", Object(_utils_style_rem__WEBPACK_IMPORTED_MODULE_4__["default"])(boxSize), ";opacity:0.5;background-color:", boxColor, ";animation-name:", scaleEffects, ";animation-duration:", animationTime, "ms;animation-iteration-count:infinite;}label:containerStyles;" + ( false ? undefined : "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9kYXZpZC5jaGVuL0RvY3VtZW50cy9wcm9qZWN0cy9uZXh0OS9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL2luZGV4LnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFzQzZCIiwiZmlsZSI6Ii9Vc2Vycy9kYXZpZC5jaGVuL0RvY3VtZW50cy9wcm9qZWN0cy9uZXh0OS9zcmMvY29tcG9uZW50cy9Mb2FkaW5nL2luZGV4LnRzeCIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBjc3MsIGtleWZyYW1lcyB9IGZyb20gJ0BlbW90aW9uL2NvcmUnO1xuaW1wb3J0IHJlbSBmcm9tICcuLi8uLi91dGlscy9zdHlsZS9yZW0nO1xuXG5pbnRlcmZhY2UgUHJvcHMge1xuICBib3hTaXplPzogbnVtYmVyO1xuICB3aWR0aD86IG51bWJlcjtcbiAgYW5pbWF0aW9uVGltZT86IG51bWJlcjtcbiAgbnVtQm94PzogbnVtYmVyO1xuICBib3hDb2xvcj86IHN0cmluZztcbn1cblxuY29uc3QgTG9hZGluZzogUmVhY3QuRkM8UHJvcHM+ID0gKHtcbiAgYm94U2l6ZSA9IDIwLFxuICB3aWR0aCA9IDE4MCxcbiAgYW5pbWF0aW9uVGltZSA9IDEyMDAsXG4gIG51bUJveCA9IDMsXG4gIGJveENvbG9yID0gJ3NreWJsdWUnLFxufSkgPT4ge1xuICBjb25zdCBhbmltYXRpb25EZWxheVN0eWxlcyA9IChwb3NpdGlvbjogbnVtYmVyKSA9PiBjc3NgXG4gICAgYW5pbWF0aW9uLWRlbGF5OiAke2FuaW1hdGlvblRpbWUgKiAocG9zaXRpb24gLyBudW1Cb3gpfW1zO1xuICBgO1xuXG4gIGNvbnN0IGJveFN0eWxlcyA9IEFycmF5LmZyb20oQXJyYXkobnVtQm94KSwgKF8sIHBvc2l0aW9uKSA9PiBhbmltYXRpb25EZWxheVN0eWxlcyhwb3NpdGlvbikpO1xuXG4gIGNvbnN0IHNjYWxlRWZmZWN0cyA9IGtleWZyYW1lc2BcbiAgICBmcm9tLCAke01hdGguZmxvb3IoMjAwIC8gbnVtQm94KX0lLCB0byB7XG4gICAgICB3aWR0aDogJHtyZW0oYm94U2l6ZSl9O1xuICAgICAgaGVpZ2h0OiAke3JlbShib3hTaXplKX07XG4gICAgICBvcGFjaXR5OiAwLjU7XG4gICAgfVxuICAgICR7TWF0aC5mbG9vcigxMDAgLyBudW1Cb3gpfSUge1xuICAgICAgd2lkdGg6ICR7cmVtKGJveFNpemUgKiAyKX07XG4gICAgICBoZWlnaHQ6ICR7cmVtKGJveFNpemUgKiAyKX07XG4gICAgICBvcGFjaXR5OiAxO1xuICAgIH1cbiAgYDtcblxuICBjb25zdCBjb250YWluZXJTdHlsZXMgPSBjc3NgXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBtYXJnaW4tdG9wOiAke3JlbSg0MCl9O1xuICAgIG1hcmdpbi1ib3R0b206ICR7cmVtKDQwKX07XG4gICAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgbWF4LXdpZHRoOiAke3JlbSh3aWR0aCl9O1xuICAgIGhlaWdodDogJHtyZW0oYm94U2l6ZSAqIDIpfTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBmbGV4LWZsb3c6IHJvdztcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWV2ZW5seTtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuXG4gICAgJiA+IGRpdiB7XG4gICAgICB3aWR0aDogJHtyZW0oYm94U2l6ZSl9O1xuICAgICAgaGVpZ2h0OiAke3JlbShib3hTaXplKX07XG4gICAgICBvcGFjaXR5OiAwLjU7XG4gICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAke2JveENvbG9yfTtcbiAgICAgIGFuaW1hdGlvbi1uYW1lOiAke3NjYWxlRWZmZWN0c307XG4gICAgICBhbmltYXRpb24tZHVyYXRpb246ICR7YW5pbWF0aW9uVGltZX1tcztcbiAgICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IGluZmluaXRlO1xuICAgIH1cbiAgYDtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY3NzPXtjb250YWluZXJTdHlsZXN9PlxuICAgICAge2JveFN0eWxlcy5tYXAoc3R5bGVzID0+IChcbiAgICAgICAgPGRpdiBrZXk9e3N0eWxlcy5uYW1lfSBjc3M9e3N0eWxlc30gLz5cbiAgICAgICkpfVxuICAgIDwvZGl2PlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgTG9hZGluZztcbiJdfQ== */"));
-  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["jsx"])("div", {
-    css: containerStyles,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 65
-    },
-    __self: this
-  }, boxStyles.map(function (styles) {
-    return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_2__["jsx"])("div", {
-      key: styles.name,
-      css: styles,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 67
-      },
-      __self: this
-    });
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Loading);
-
-/***/ }),
-
-/***/ "./src/utils/style/rem.ts":
-/*!********************************!*\
-  !*** ./src/utils/style/rem.ts ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var rem = function rem(num) {
-  var remVal = num / 16;
-  return "".concat(remVal, "rem");
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (rem);
-
-/***/ }),
-
-/***/ 0:
-/*!*****************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx ***!
-  \*****************************************************************************************************************************************/
+/***/ 2:
+/*!**********************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx ***!
+  \**********************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx!./");
 
 
 /***/ }),
@@ -13394,5 +13173,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=index.js.map
+},[[2,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=about.js.map
