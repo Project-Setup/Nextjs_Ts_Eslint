@@ -1,6 +1,6 @@
 import { ReactWrapper } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import appWrapper from '../../utils/appWrapper';
+import appWrapper from '../../utils/test/appWrapper';
 import Index from '../../../pages/index';
 
 describe('Pages', () => {

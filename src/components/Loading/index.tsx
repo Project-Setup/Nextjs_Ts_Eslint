@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, keyframes } from '@emotion/core';
-import { rem } from '../../utils/styleUtils';
+import rem from '../../utils/style/rem';
 
 interface Props {
   boxSize?: number;
