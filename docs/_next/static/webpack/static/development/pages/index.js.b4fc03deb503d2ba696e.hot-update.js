@@ -15,6 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_components_Loading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/Loading */ "./src/components/Loading/index.tsx");
 /* harmony import */ var _src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../src/components/Head/ManifestHead */ "./src/components/Head/ManifestHead.tsx");
 /* harmony import */ var _src_components_Link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../src/components/Link */ "./src/components/Link/index.tsx");
+/* harmony import */ var _src_redux_actions_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/redux/actions/actions */ "./src/redux/actions/actions.ts");
 var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/index.tsx";
 
 
@@ -22,11 +23,31 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/index.tsx";
 
 
 
-var Page = function Page() {
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var count = _ref.count.count;
+  return {
+    count: count
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    addNumber: function addNumber(num) {
+      return dispatch(Object(_src_redux_actions_actions__WEBPACK_IMPORTED_MODULE_5__["addNumber"])(num));
+    },
+    minusNumber: function minusNumber(num) {
+      return dispatch(Object(_src_redux_actions_actions__WEBPACK_IMPORTED_MODULE_5__["minusNumber"])(num));
+    }
+  };
+};
+
+var Page = function Page(_ref2) {
+  var count = _ref2.count;
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 22
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -38,20 +59,25 @@ var Page = function Page() {
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 23
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 31
     },
     __self: this
-  }, "This is index"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    numBox: 4,
+  }, "This is index"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 32
+    },
+    __self: this
+  }, "Number is ", count), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Loading__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -59,13 +85,13 @@ var Page = function Page() {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 34
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 35
     },
     __self: this
   }, "about")));
@@ -73,7 +99,35 @@ var Page = function Page() {
 
 /* harmony default export */ __webpack_exports__["default"] = (Page);
 
+/***/ }),
+
+/***/ "./src/redux/actions/actions.ts":
+/*!**************************************!*\
+  !*** ./src/redux/actions/actions.ts ***!
+  \**************************************/
+/*! exports provided: addNumber, minusNumber */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addNumber", function() { return addNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "minusNumber", function() { return minusNumber; });
+/* harmony import */ var _actionTypes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes */ "./src/redux/actions/actionTypes.ts");
+
+var addNumber = function addNumber(num) {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["default"].ADD,
+    payload: num
+  };
+};
+var minusNumber = function minusNumber(num) {
+  return {
+    type: _actionTypes__WEBPACK_IMPORTED_MODULE_0__["default"].MINUS,
+    payload: num
+  };
+};
+
 /***/ })
 
 })
-//# sourceMappingURL=index.js.84bbd8267885ab550eba.hot-update.js.map
+//# sourceMappingURL=index.js.b4fc03deb503d2ba696e.hot-update.js.map
