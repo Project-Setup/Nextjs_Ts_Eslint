@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 interface Props extends ReturnType<typeof mapStateToProps>, ReturnType<typeof mapDispatchToProps> {}
 
-const Page: NextPage<Props> = ({ count, addNum, minusNum }) => (
+export const Page: NextPage<Props> = ({ count, addNum, minusNum }) => (
   <main>
     <ManifestHead
       title="Nextjs Typescript Eslint"

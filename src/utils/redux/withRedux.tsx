@@ -17,7 +17,7 @@ export interface WithStoreAppContext extends AppContext {
 export interface MakeStoreOptions extends Config, WithStorePageContext {}
 
 export interface MakeStore {
-  (initialState: any, options: Partial<MakeStoreOptions>): Store;
+  (initialState: any, options?: Partial<MakeStoreOptions>): Store;
 }
 
 export interface InitStoreOptions {
@@ -34,6 +34,10 @@ export interface WrappedAppProps {
 export interface WithStoreProps {
   store: Store;
 }
+
+export interface TransformedAppProps extends WithStoreProps, AppProps {}
+
+export type TransformedApp = NextComponentType<AppContext, AppInitialProps, TransformedAppProps>;
 
 const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) => {
   const config: Config = objectAssign(
@@ -59,7 +63,7 @@ const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) =
     return (window as any)[storeKey];
   };
 
-  return (App: NextComponentType<AppContext, AppInitialProps, WithStoreProps & AppProps>) => {
+  return (App: TransformedApp) => {
     const WrappedApp: NextComponentType<WithStoreAppContext, WrappedAppProps, WrappedAppProps> = ({
       initialProps,
       initialState,
