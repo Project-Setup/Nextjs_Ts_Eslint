@@ -1,17 +1,10 @@
 import React from 'react';
-import { NextPage } from 'next';
-import App, { Container } from 'next/app';
+import { NextComponentType } from 'next';
+import App, { Container, AppContext, AppInitialProps, AppProps } from 'next/app';
 
-export interface Props {
-  Component: NextPage;
-  pageProps: any;
-}
+export type Props = Pick<AppProps<AppInitialProps>, 'pageProps' | 'Component'>;
 
-interface RootApp extends React.FC<Props> {
-  getInitialProps: typeof App.getInitialProps;
-}
-
-const MyApp: RootApp = ({ Component, pageProps }) => (
+const MyApp: NextComponentType<AppContext, AppInitialProps, Props> = ({ Component, pageProps }) => (
   <Container>
     <Component {...pageProps} />
   </Container>
