@@ -1,50 +1,60 @@
-import React from 'react';
-import { NextPage } from 'next';
+import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { get } from 'lodash';
 import Loading from '../src/components/Loading';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
-import { RootState } from '../src/redux/store';
+import dynamicReducerWrap from '../src/utils/redux/dynamicReducerWrap';
+import { Store } from '../src/redux/store';
+import count, { initialState } from '../src/redux/reducers/count';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
 
-const mapStateToProps = ({ count: { count } }: RootState) => ({
-  count,
+export interface State {
+  count: typeof initialState;
+}
+
+const mapStateToProps = (state: State) => ({
+  numCount: get(state, 'count.count', 0),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  addNum: (num: number) => dispatch(addNumber(num)),
-  minusNum: (num: number) => dispatch(minusNumber(num)),
+  add2: () => dispatch(addNumber(2)),
+  minus3: () => dispatch(minusNumber(3)),
 });
 
 interface Props extends ReturnType<typeof mapStateToProps>, ReturnType<typeof mapDispatchToProps> {}
 
-export const Page: NextPage<Props> = ({ count, addNum, minusNum }) => (
-  <main>
-    <ManifestHead
-      title="Nextjs Typescript Eslint"
-      themeColor="red"
-      hrefPage="/"
-      favIconPath="/static/icons/favicon.ico"
-      appleIconPath="/static/icons/icon192x192.png"
-      hrefManifest="/static/manifest/manifest.json"
-    />
-    <span>This is index</span>
-    <div>{`Number is ${count}`}</div>
-    <button type="button" onClick={() => addNum(2)}>
-      add 2
-    </button>
-    <button type="button" onClick={() => minusNum(3)}>
-      minus 3
-    </button>
-    <Loading />
-    <Link href="/about" prefetch={false}>
-      <a>about</a>
-    </Link>
-  </main>
-);
+export const Page: FC<Props> = ({ numCount, minus3, add2 }) => {
+  return (
+    <main>
+      <ManifestHead
+        title="Nextjs Typescript Eslint"
+        themeColor="red"
+        hrefPage="/"
+        favIconPath="/static/icons/favicon.ico"
+        appleIconPath="/static/icons/icon192x192.png"
+        hrefManifest="/static/manifest/manifest.json"
+      />
+      <span>This is index</span>
+      <div>{`Number is ${numCount}`}</div>
+      <button type="button" onClick={add2}>
+        add 2
+      </button>
+      <button type="button" onClick={minus3}>
+        minus 3
+      </button>
+      <Loading />
+      <Link href="/about" prefetch={false}>
+        <a>about</a>
+      </Link>
+    </main>
+  );
+};
 
-export default connect(
+const ConnectedPage = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Page);
+
+export default dynamicReducerWrap<Store>({ reducers: { count }, Child: ConnectedPage });

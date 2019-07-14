@@ -1,11 +1,9 @@
-import { createStore } from 'redux';
 import { devToolsEnhancer } from 'redux-devtools-extension/developmentOnly';
-import reducer, { defaultState } from './reducers';
-import { MakeStore } from '../utils/redux/withRedux';
+import commonReducers from './reducers';
+import configureStore, { ReducerEnhancedStore } from '../utils/redux/configureStore';
 
-export type RootState = typeof defaultState;
+export type Store = ReducerEnhancedStore;
 
-const initStore: MakeStore = (initialState = {}) =>
-  createStore(reducer, initialState, devToolsEnhancer({}));
+const initStore = configureStore(commonReducers, devToolsEnhancer({}));
 
 export default initStore;
