@@ -13,27 +13,49 @@ Packages used:
 
 ## Usage of this example setup
 
-0. `nvm use; npm install`
+0. setup node env
+    ```sh
+    nvm use
+    npm install
+    ```
 1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `pages`
 2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
-3. continue coding with `npm run dev`
-4. `npm run deploy` to deploy the gh-pages
+3. preview dev progress on `http://localhost:3000/`
+    ```sh
+    npm run dev
+    ```
+4. deploy the gh-pages
+    ```sh
+    npm run deploy
+    ```
 5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
 
 ## Setup
 
 0. install nvm in the os
-1. `nvm install node`
-2. `git init`
-3. add `.gitignore`
-4. `node -v > .nvmrc`
-5. `npm init -y`
+1. 
+   ```sh
+   nvm install node
+   git init
+   ```
+2. add `.gitignore`
+4. 
+    ```sh
+    node -v > .nvmrc
+    ```
+4. 
+    ```sh
+    npm init -y
+    ```
 
 ### [NextJs](https://github.com/zeit/next.js#how-to-use)
 
-6. `npm i -P next react react-dom`
-7. add a script to your package.json like this:
+1. 
+    ```sh
+    npm i -P next react react-dom
     ```
+2. add a script to your package.json like this:
+    ```json
     {
       "scripts": {
         "dev": "next",
@@ -45,9 +67,12 @@ Packages used:
 
 ### [Typescript](https://github.com/zeit/next.js#typescript)
 
-8. `npm i -D typescript @types/react @types/react-dom @types/node`
-9. create `tsconfig.json`
+1.
+    ```sh
+    npm i -D typescript @types/react @types/react-dom @types/node`
     ```
+2. create `tsconfig.json`
+    ```json
     {
       "compilerOptions": {
         "allowJs": true,
@@ -88,17 +113,20 @@ Packages used:
     ```
 
 ### [Create Pages](https://github.com/zeit/next.js#typescript)
-10. create `pages` folder
-11. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
+1. create `pages` folder
+2. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
 
 
 ### [Eslint and Prettier](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
 
-12. `npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react`
-13. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks`
-14. `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
-15. create `.eslintrc.js`
+1. 
+    ```sh
+    npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react
+    npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```
+2. create `.eslintrc.js`
+    ```js
     module.exports =  {
       parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
       extends:  [
@@ -173,8 +201,8 @@ Packages used:
       },
     }
     ```
-16. create `.prettierrc.js`
-    ```
+3. create `.prettierrc.js`
+    ```js
     module.exports =  {
       semi:  true,
       trailingComma:  'es5',
@@ -185,19 +213,25 @@ Packages used:
     ```
 
 ### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
-17. `npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react`
-18. add scripts in `package.json`
+1. 
+    ```sh
+    npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react
     ```
+2. add scripts in `package.json`
+    ```json
     "scripts": {
       "test": "jest",
       "test:watch": "jest --watch",
       "test:coverage": "jest --coverage"
     },
     ```
-19. `npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json`
-20. `npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
-21. create `jest.config.js`
+3. 
+    ```sh
+    npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json
+    npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest
     ```
+4. create `jest.config.js`
+    ```js
     module.exports = {
       moduleFileExtensions: ['ts', 'tsx', 'js'],
       testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',
@@ -225,14 +259,14 @@ Packages used:
       },
     };
     ```
-22. create `babel.config.js`
-    ```
+5. create `babel.config.js`
+    ```js
     module.exports = {
       presets: ['next/babel'],
     };
     ```
-23. create `jest.setup.js`
-    ```
+6. create `jest.setup.js`
+    ```js
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
     // Make sure you can use "publicRuntimeConfig" within tests.
@@ -242,8 +276,8 @@ Packages used:
     // setConfig({ publicRuntimeConfig });
     Enzyme.configure({ adapter: new Adapter() });
     ```
-24. change `env` in `.eslintrc.js`
-    ```
+7. change `env` in `.eslintrc.js`
+    ```js
     env: {
             browser: true,
             node: true,
@@ -252,10 +286,13 @@ Packages used:
     ```
 
 ### [EmotionJs](https://emotion.sh/docs/install)
-25. `npm i -P @emotion/core`
-26. `npm i -D @emotion/babel-preset-css-prop jest-emotion eslint-plugin-emotion`
-27. change `babel.config.js`
+1. 
+    ```sh
+    npm i -P @emotion/core
+    npm i -D @emotion/babel-preset-css-prop jest-emotion eslint-plugin-emotion
     ```
+2. change `babel.config.js`
+    ```js
     module.exports = {
       presets: [
         [
@@ -269,8 +306,8 @@ Packages used:
       ],
     };
     ```
-28. add rules and plugins to `.eslint.js`
-    ```
+3. add rules and plugins to `.eslint.js`
+    ```js
     module.exports = {
       // ...
       rules: {
@@ -287,14 +324,14 @@ Packages used:
       // ...
     }
     ```
-29. add `jest.setupAfterEnv.js`
-    ```
+4. add `jest.setupAfterEnv.js`
+    ```js
     import { matchers } from 'jest-emotion';
 
     expect.extend(matchers);
     ```
-30. add serializers and setup files to `jest.config.js`
-    ```
+5. add serializers and setup files to `jest.config.js`
+    ```js
     // ...
     snapshotSerializers: ['enzyme-to-json/serializer', 'jest-emotion'],
     // ...
@@ -305,8 +342,8 @@ Packages used:
 ### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
 (deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
 
-31. create `linkPrefix` in `next.publicRuntimeConfig.js`
-    ```
+1. create `linkPrefix` in `next.publicRuntimeConfig.js`
+    ```js
     const isProd = process.env.NODE_ENV === 'production';
     const prodAssetPrefix = '/{folder}';
 
@@ -316,8 +353,8 @@ Packages used:
       prodAssetPrefix,
     };
     ```
-32. create `assetPrefix` in `next.config.js`
-```
+2. create `assetPrefix` in `next.config.js`
+    ```js
     const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
     const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
 
@@ -325,9 +362,9 @@ Packages used:
       assetPrefix: linkPrefix,
       publicRuntimeConfig,
     };
-```
-33. change `as` prop in `next/Link` to add `linkPrefix`
     ```
+3. change `as` prop in `next/Link` to add `linkPrefix`
+    ```ts
     // ...
     import getConfig from 'next/config';
     import Link from 'next/link';
@@ -340,16 +377,23 @@ Packages used:
     );
     // ...
     ```
-34. change `scripts` in `package.json`
-    ```
-    "export": "npm run build && next export",
-    "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
+4. change `scripts` in `package.json`
+    ```json
+    {
+      "scripts": {
+        "export": "npm run build && next export",
+        "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
+      }
+    }
     ```
 
 ### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
-35. `npm i -P next-offline`
-36. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+1. 
+    ```sh
+    npm i -P next-offline
     ```
+2. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+    ```js
     const withOffline = require('next-offline');
     //...
 
@@ -373,8 +417,8 @@ Packages used:
       //...
     });
     ```
-37. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
-    ```
+3. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+    ```tsx
     <Head>
       <Link href="/" passHref>
         <link rel="canonical" />
@@ -383,9 +427,12 @@ Packages used:
     ```
 
 ### [Web Mainfest](https://www.npmjs.com/package/next-manifest)
-38. `npm i -P next-manifest`
-39. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+1. 
+    ```sh
+    npm i -P next-manifest
     ```
+2. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+    ```js
     //...
     const withManifest = require('next-manifest');
     //...
@@ -423,8 +470,8 @@ Packages used:
       })
     );
     ```
-40. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
-    ```
+3. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
+    ```tsx
     //...
     import NextHead from 'next/head';
     // @ts-ignore
@@ -493,8 +540,8 @@ Packages used:
     );
     //...
     ```
-41. import the `<ManifestHead>` in the page
-    ```
+4. import the `<ManifestHead>` in the page
+    ```tsx
     //...
     import ManifestHead from '../src/components/Head/ManifestHead';
     import Link from '../src/components/Link';
@@ -510,18 +557,28 @@ Packages used:
         />
     //..
     ```
-42. Make icons files (favicon.ico, icon*.png) available in the static folder
+5. Make icons files (favicon.ico, icon*.png) available in the static folder
 
 ### [Redux](https://github.com/kirill-konshin/next-redux-wrapper)
-43. `npm i -P redux react-redux`
-44. `npm i -D @types/react-redux`
-45. either use next-redux-wrapper package (`npm i -P next-redux-wrapper`) or copy the `withRedux.tsx` and `defaultConfig.ts` from the example setup `src/utils/redux` and helper function `objectAssign.ts` from `src/utils/common`
-46. create custom `makeStore` function, `_app.tsx` page and other redux setup as examples in `next-redux-wrapper` repo show.
+1. 
+    ```sh
+    npm i -P redux react-redux
+    npm i -D @types/react-redux
+    ```
+2. either use next-redux-wrapper package (`npm i -P next-redux-wrapper`) or copy the `withRedux.tsx` and `defaultConfig.ts` from the example setup `src/utils/redux` and helper function `objectAssign.ts` from `src/utils/common`
+3. create custom `makeStore` function, `_app.tsx` page and other redux setup as examples in `next-redux-wrapper` repo shows
+
+### [Redux-Saga](https://github.com/bmealhouse/next-redux-saga)
+1. 
+    ```sh
+    npm i -P redux-saga
+    ```
+2. either use next-redux-saga package (`npm i -P next-redux-saga`) or copy the `withReduxSaga.tsx` from the example setup `src/utils/redux`
+3. modify custom `makeStore` function, pages, and other redux setup as examples in `next-redux-saga` repo shows
 
 #### [code splitting](https://manukyan.dev/posts/2019-04-15-code-splitting-for-redux-and-optional-redux-saga/)
-47. copy `configureStore.ts`, `dynamicReducerWrap.tsx` from the example setup `src/utils/redux`
-48. copy `_app.tsx` from the example setup `pages/`
-49. adapt redux setup from the example setup `src/redux`
-50. notice:
-    1. can use `connect` from `react-redux` package and `dynamicReducerWrapper` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
-    2. `commonReducers` object in `src/redux/index.ts` and `reducers` object in `dynamicReducerWrapper`'s prop should follow: { [key: string]: reducerFunction }
+1. copy `configureStore.ts`, `DynamicStoreCallbackWrap.tsx` from the example setup `src/utils/redux`
+2. copy `_app.tsx` from the example setup `pages/`
+3. adapt redux setup from the example setup `src/redux`
+4. notice:
+    1. can use `connect` from `react-redux` package and `DynamicStoreCallbackWrap` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
