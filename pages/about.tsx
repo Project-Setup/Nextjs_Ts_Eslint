@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { get } from 'lodash';
+import get from 'lodash/get';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
 import dynamicReducerWrap from '../src/utils/redux/dynamicReducerWrap';
