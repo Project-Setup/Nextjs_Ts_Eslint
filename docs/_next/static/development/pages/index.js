@@ -17414,7 +17414,7 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/index.tsx";
 
 
 
-
+ // const SubstituteReducers = dynamicReducerWrap<Store>({ reducers: { count } });
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
@@ -17440,7 +17440,7 @@ var Page = function Page(_ref) {
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 32
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -17452,19 +17452,19 @@ var Page = function Page(_ref) {
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 34
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 42
     },
     __self: this
   }, "This is index"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 43
     },
     __self: this
   }, "Number is ".concat(numCount)), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17472,7 +17472,7 @@ var Page = function Page(_ref) {
     onClick: add2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 44
     },
     __self: this
   }, "add 2"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17480,13 +17480,13 @@ var Page = function Page(_ref) {
     onClick: minus3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 47
     },
     __self: this
   }, "minus 3"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Loading__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 50
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -17494,19 +17494,19 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 51
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 52
     },
     __self: this
   }, "stats")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 54
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -17514,18 +17514,19 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 55
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 56
     },
     __self: this
   }, "about")));
 };
-var ConnectedPage = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Page);
+var ConnectedPage = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Page); // export default ConnectedPage;
+
 /* harmony default export */ __webpack_exports__["default"] = (Object(_src_utils_redux_dynamicReducerWrap__WEBPACK_IMPORTED_MODULE_7__["default"])({
   reducers: {
     count: _src_redux_reducers_count__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -17985,44 +17986,58 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/utils/redux/d
 
 
 
-var SubstitueReducers = function SubstitueReducers(_ref) {
+var DynamicReducer = function DynamicReducer(_ref) {
   var store = _ref.store,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'replace' : _ref$type,
       reducers = _ref.reducers,
       Child = _ref.Child;
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    store.substitueReducers(reducers);
+    console.log('start: ', reducers);
+
+    if (type === 'replace') {
+      store.substitueReducers(reducers);
+    } else if (type === 'inject') {
+      store.injectReducers(reducers);
+    }
   }, []);
-  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
+  return Child ? Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 35
     },
     __self: this
-  });
+  }) : null;
 };
 
 function dynamicReducerWrap(_ref2) {
-  var reducers = _ref2.reducers,
+  var _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'replace' : _ref2$type,
+      reducers = _ref2.reducers,
       Child = _ref2.Child;
+  console.log(reducers);
   return function () {
+    console.log('init: ', reducers, type);
     return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_redux__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"].Consumer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 47
       },
       __self: this
     }, function (_ref3) {
       var store = _ref3.store;
-      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(SubstitueReducers, {
-        store: store,
+      console.log(reducers);
+      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(DynamicReducer, {
+        type: type,
         reducers: reducers,
+        store: store,
         Child: Child,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 51
         },
         __self: this
-      }));
+      });
     });
   };
 }

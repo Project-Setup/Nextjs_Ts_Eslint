@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux, { StoreProps } from '../src/utils/redux/withRedux';
+import withReduxSaga from '../src/utils/redux/withReduxSaga';
 import initStore, { Store } from '../src/redux/store';
 
 class MyApp extends App<StoreProps<Store>> {
@@ -17,4 +18,4 @@ class MyApp extends App<StoreProps<Store>> {
   }
 }
 
-export default withRedux<Store>(initStore)(MyApp);
+export default withRedux<Store>(initStore)(withReduxSaga<Store>(MyApp));

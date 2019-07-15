@@ -1,16 +1,19 @@
 import {
   createStore,
-  ReducersMapObject,
   combineReducers,
+  ReducersMapObject,
   Reducer,
   StoreEnhancer,
   Store,
   Action,
+  Middleware,
 } from 'redux';
+import createSagaMiddleware, { Saga } from 'redux-saga';
 import objectAssign from '../common/objectAssign';
 import { MakeStore } from './withRedux';
+import { SagaTaskProp } from './withReduxSaga';
 
-interface StoreReducerEnhanced {
+interface StoreReducerEnhanced extends Partial<SagaTaskProp> {
   commonReducers: ReducersMapObject;
   asyncReducers: ReducersMapObject;
   addReducer(key: string, asyncReducer: Reducer): void;
@@ -21,10 +24,17 @@ interface StoreReducerEnhanced {
 
 export interface ReducerEnhancedStore extends Store, StoreReducerEnhanced {}
 
-const configureStore = (
-  commonReducers: ReducersMapObject,
-  enhancer: StoreEnhancer
-): MakeStore<ReducerEnhancedStore> => (initialState: any = {}) => {
+const configureStore = ({
+  commonReducers,
+  enhancer,
+  middlewareArray = [],
+  rootSaga,
+}: {
+  commonReducers: ReducersMapObject;
+  enhancer(...args: Middleware[]): StoreEnhancer;
+  middlewareArray?: Middleware[];
+  rootSaga?: Saga;
+}): MakeStore<ReducerEnhancedStore> => (initialState: any = {}) => {
   let keysToRemove: string[] = [];
 
   const createReducer = (asyncReducers?: ReducersMapObject) => (state: any, action: Action) => {
@@ -39,8 +49,11 @@ const configureStore = (
     })(updatedState, action);
   };
 
+  const sagaMiddleware = createSagaMiddleware();
+
+  middlewareArray.unshift(sagaMiddleware);
   const store: ReducerEnhancedStore = Object.assign(
-    createStore(createReducer(), initialState, enhancer),
+    createStore(createReducer(), initialState, enhancer(...middlewareArray)),
     {
       commonReducers,
       asyncReducers: {},
@@ -68,10 +81,14 @@ const configureStore = (
       },
 
       substitueReducers: reducers => {
-        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => !(k in reducers)));
+        console.log(keysToRemove);
+        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => { console.log(k, reducers, !(k in reducers)); return !(k in reducers)}));
+        console.log(keysToRemove);
         store.asyncReducers = reducers;
         store.replaceReducer(createReducer(store.asyncReducers));
       },
+
+      sagaTask: rootSaga ? sagaMiddleware.run(rootSaga) : undefined,
     } as StoreReducerEnhanced
   );
 

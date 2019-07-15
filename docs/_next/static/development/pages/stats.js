@@ -17298,6 +17298,12 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/stats.tsx";
 
 
 
+var SubstituteReducers = Object(_src_utils_redux_dynamicReducerWrap__WEBPACK_IMPORTED_MODULE_6__["default"])({
+  reducers: {
+    stats: _src_redux_reducers_stats__WEBPACK_IMPORTED_MODULE_7__["default"]
+  },
+  type: 'inject'
+});
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
@@ -17323,10 +17329,16 @@ var Page = function Page(_ref) {
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 31
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(SubstituteReducers, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_4__["default"], {
     title: "Nextjs Typescript Eslint testing",
     themeColor: "red",
     hrefPage: "/stats",
@@ -17335,19 +17347,19 @@ var Page = function Page(_ref) {
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 33
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 41
     },
     __self: this
   }, "This is stats"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 42
     },
     __self: this
   }, "Number is ".concat(numstats)), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17355,7 +17367,7 @@ var Page = function Page(_ref) {
     onClick: add8,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 43
     },
     __self: this
   }, "add 8"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17363,7 +17375,7 @@ var Page = function Page(_ref) {
     onClick: minus5,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 46
     },
     __self: this
   }, "minus 5"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -17371,24 +17383,19 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 49
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 50
     },
     __self: this
   }, "index")));
 };
 var ConnectedPage = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Page);
-/* harmony default export */ __webpack_exports__["default"] = (Object(_src_utils_redux_dynamicReducerWrap__WEBPACK_IMPORTED_MODULE_6__["default"])({
-  reducers: {
-    stats: _src_redux_reducers_stats__WEBPACK_IMPORTED_MODULE_7__["default"]
-  },
-  Child: ConnectedPage
-}));
+/* harmony default export */ __webpack_exports__["default"] = (ConnectedPage);
 
 /***/ }),
 
@@ -17756,44 +17763,58 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/utils/redux/d
 
 
 
-var SubstitueReducers = function SubstitueReducers(_ref) {
+var DynamicReducer = function DynamicReducer(_ref) {
   var store = _ref.store,
+      _ref$type = _ref.type,
+      type = _ref$type === void 0 ? 'replace' : _ref$type,
       reducers = _ref.reducers,
       Child = _ref.Child;
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    store.substitueReducers(reducers);
+    console.log('start: ', reducers);
+
+    if (type === 'replace') {
+      store.substitueReducers(reducers);
+    } else if (type === 'inject') {
+      store.injectReducers(reducers);
+    }
   }, []);
-  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
+  return Child ? Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 35
     },
     __self: this
-  });
+  }) : null;
 };
 
 function dynamicReducerWrap(_ref2) {
-  var reducers = _ref2.reducers,
+  var _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'replace' : _ref2$type,
+      reducers = _ref2.reducers,
       Child = _ref2.Child;
+  console.log(reducers);
   return function () {
+    console.log('init: ', reducers, type);
     return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_redux__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"].Consumer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 47
       },
       __self: this
     }, function (_ref3) {
       var store = _ref3.store;
-      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(SubstitueReducers, {
-        store: store,
+      console.log(reducers);
+      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(DynamicReducer, {
+        type: type,
         reducers: reducers,
+        store: store,
         Child: Child,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 51
         },
         __self: this
-      }));
+      });
     });
   };
 }
@@ -17802,7 +17823,7 @@ function dynamicReducerWrap(_ref2) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 0:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fstats&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fstats.tsx ***!
   \**********************************************************************************************************************************************/
@@ -17825,5 +17846,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=stats.js.map

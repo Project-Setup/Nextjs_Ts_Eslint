@@ -1,7 +1,7 @@
 import React from 'react';
 import { Store } from 'redux';
 import { NextPageContext, NextComponentType } from 'next';
-import { AppContext, AppProps, AppInitialProps } from 'next/app';
+import { AppContext, AppProps } from 'next/app';
 import defaultConfig, { Config } from './defaultConfig';
 import objectAssign from '../common/objectAssign';
 
@@ -34,12 +34,12 @@ export interface WrappedAppProps {
   isServer: boolean;
 }
 
-export interface TransformedAppProps<S = Store> extends StoreProps<S>, AppProps {}
+export interface TransformedAppProps<S = Store, P = {}> extends StoreProps<S>, AppProps<P> {}
 
-export type TransformedApp<S = Store> = NextComponentType<
+export type TransformedApp<S = Store, P = {}, IP = P> = NextComponentType<
   AppContext,
-  AppInitialProps,
-  TransformedAppProps<S>
+  IP,
+  TransformedAppProps<S, P>
 >;
 
 function withRedux<S extends Store = Store>(
@@ -69,7 +69,7 @@ function withRedux<S extends Store = Store>(
     return (window as any)[storeKey];
   };
 
-  return (App: TransformedApp<S>) => {
+  return (App: TransformedApp<S, any>) => {
     const WrappedApp: NextComponentType<
       WithStoreAppContext<S>,
       WrappedAppProps,

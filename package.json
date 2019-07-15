@@ -45,7 +45,8 @@
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-saga": "^1.0.5"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.5.4",
