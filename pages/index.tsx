@@ -10,8 +10,6 @@ import { Store } from '../src/redux/store';
 import count, { initialState } from '../src/redux/reducers/count';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
 
-// const SubstituteReducers = dynamicReducerWrap<Store>({ reducers: { count } });
-
 export interface State {
   count: typeof initialState;
 }
@@ -30,7 +28,6 @@ interface Props extends ReturnType<typeof mapStateToProps>, ReturnType<typeof ma
 export const Page: FC<Props> = ({ numCount, minus3, add2 }) => {
   return (
     <main>
-      {/* <SubstituteReducers /> */}
       <ManifestHead
         title="Nextjs Typescript Eslint"
         themeColor="red"
@@ -63,7 +60,5 @@ const ConnectedPage = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Page);
-
-// export default ConnectedPage;
 
 export default dynamicReducerWrap<Store>({ reducers: { count }, Child: ConnectedPage });

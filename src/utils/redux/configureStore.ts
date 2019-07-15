@@ -81,10 +81,8 @@ const configureStore = ({
       },
 
       substitueReducers: reducers => {
-        console.log(keysToRemove);
-        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => { console.log(k, reducers, !(k in reducers)); return !(k in reducers)}));
-        console.log(keysToRemove);
-        store.asyncReducers = reducers;
+        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => !(k in reducers)));
+        store.asyncReducers = objectAssign()({}, reducers);
         store.replaceReducer(createReducer(store.asyncReducers));
       },
 
