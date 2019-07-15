@@ -517,7 +517,7 @@ Packages used:
 45. either use next-redux-wrapper package (`npm i -P next-redux-wrapper`) or copy the `withRedux.tsx` and `defaultConfig.ts` from the example setup `src/utils/redux` and helper function `objectAssign.ts` from `src/utils/common`
 46. create custom `makeStore` function, `_app.tsx` page and other redux setup as examples in `next-redux-wrapper` repo show.
 
-####[code splitting](https://manukyan.dev/posts/2019-04-15-code-splitting-for-redux-and-optional-redux-saga/)
+#### [code splitting](https://manukyan.dev/posts/2019-04-15-code-splitting-for-redux-and-optional-redux-saga/)
 47. copy `configureStore.ts`, `dynamicReducerWrap.tsx` from the example setup `src/utils/redux`
 48. copy `_app.tsx` from the example setup `pages/`
 49. adapt redux setup from the example setup `src/redux`
