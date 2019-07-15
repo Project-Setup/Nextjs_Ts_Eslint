@@ -1,4 +1,4 @@
-import React, { ComponentType, FC, useEffect } from 'react';
+import React, { FC, useEffect, ComponentType } from 'react';
 import { ReducersMapObject } from 'redux';
 import { ReactReduxContext } from 'react-redux';
 import { StoreProps } from './withRedux';
@@ -9,36 +9,39 @@ interface ReducerProps {
 }
 
 interface DynamicReducerWrapProps extends ReducerProps {
-  Child: ComponentType<any>;
+  type?: 'replace' | 'inject';
+  Child?: ComponentType<any>;
 }
 
-const SubstitueReducers: FC<DynamicReducerWrapProps & StoreProps<ReducerEnhancedStore>> = ({
+const DynamicReducer: FC<DynamicReducerWrapProps & StoreProps<ReducerEnhancedStore>> = ({
   store,
+  type,
   reducers,
   Child,
 }) => {
   useEffect(() => {
-    store.substitueReducers(reducers);
+    if (type === 'replace') {
+      store.substitueReducers(reducers);
+    } else if (type === 'inject') {
+      store.injectReducers(reducers);
+    }
   }, []);
 
-  return <Child />;
+  return Child ? <Child /> : null;
 };
 
 function dynamicReducerWrap<S extends ReducerEnhancedStore = ReducerEnhancedStore>({
+  type = 'replace',
   reducers,
   Child,
 }: DynamicReducerWrapProps) {
-  return () => {
-    return (
-      <ReactReduxContext.Consumer>
-        {({ store }) => (
-          <>
-            <SubstitueReducers store={store as S} reducers={reducers} Child={Child} />
-          </>
-        )}
-      </ReactReduxContext.Consumer>
-    );
-  };
+  return () => (
+    <ReactReduxContext.Consumer>
+      {({ store }) => (
+        <DynamicReducer type={type} reducers={reducers} store={store as S} Child={Child} />
+      )}
+    </ReactReduxContext.Consumer>
+  );
 }
 
 export default dynamicReducerWrap;

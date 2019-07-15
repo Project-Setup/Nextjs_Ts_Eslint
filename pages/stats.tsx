@@ -13,7 +13,7 @@ export interface State {
   stats: typeof initialState;
 }
 
-const mapStateToProps = (state: State | {}) => ({
+const mapStateToProps = (state: State) => ({
   numstats: get(state, 'stats.stats', 0),
 });
 

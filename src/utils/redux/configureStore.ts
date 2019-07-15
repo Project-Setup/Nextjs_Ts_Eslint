@@ -1,11 +1,12 @@
 import {
   createStore,
-  ReducersMapObject,
   combineReducers,
+  ReducersMapObject,
   Reducer,
   StoreEnhancer,
   Store,
   Action,
+  Middleware,
 } from 'redux';
 import objectAssign from '../common/objectAssign';
 import { MakeStore } from './withRedux';
@@ -21,10 +22,15 @@ interface StoreReducerEnhanced {
 
 export interface ReducerEnhancedStore extends Store, StoreReducerEnhanced {}
 
-const configureStore = (
-  commonReducers: ReducersMapObject,
-  enhancer: StoreEnhancer
-): MakeStore<ReducerEnhancedStore> => (initialState: any = {}) => {
+const configureStore = ({
+  commonReducers,
+  enhancer,
+  middlewareArray = [],
+}: {
+  commonReducers: ReducersMapObject;
+  enhancer(...args: Middleware[]): StoreEnhancer;
+  middlewareArray?: Middleware[];
+}): MakeStore<ReducerEnhancedStore> => (initialState: any = {}) => {
   let keysToRemove: string[] = [];
 
   const createReducer = (asyncReducers?: ReducersMapObject) => (state: any, action: Action) => {
@@ -40,7 +46,7 @@ const configureStore = (
   };
 
   const store: ReducerEnhancedStore = Object.assign(
-    createStore(createReducer(), initialState, enhancer),
+    createStore(createReducer(), initialState, enhancer(...middlewareArray)),
     {
       commonReducers,
       asyncReducers: {},
@@ -69,7 +75,7 @@ const configureStore = (
 
       substitueReducers: reducers => {
         keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => !(k in reducers)));
-        store.asyncReducers = reducers;
+        store.asyncReducers = objectAssign()({}, reducers);
         store.replaceReducer(createReducer(store.asyncReducers));
       },
     } as StoreReducerEnhanced
