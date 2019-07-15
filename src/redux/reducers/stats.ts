@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 import actionTypes from '../actions/actionTypes';
 
 export const initialState = {
-  about: -3,
+  stats: -3,
 };
 
 const reducer: Reducer = (state = initialState, action) => {
@@ -10,12 +10,12 @@ const reducer: Reducer = (state = initialState, action) => {
     case actionTypes.ADD:
       return {
         ...state,
-        about: state.about + action.payload,
+        stats: state.stats + action.payload,
       };
     case actionTypes.MINUS:
       return {
         ...state,
-        about: state.about - action.payload,
+        stats: state.stats - action.payload,
       };
     default:
       return state;

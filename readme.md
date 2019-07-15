@@ -13,7 +13,7 @@ Packages used:
 ## Usage of this example setup
 
 0. `nvm use; npm install`
-1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`
+1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `pages`
 2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
 3. continue coding with `npm run dev`
 4. `npm run deploy` to deploy the gh-pages
@@ -510,3 +510,17 @@ Packages used:
     //..
     ```
 42. Make icons files (favicon.ico, icon*.png) available in the static folder
+
+### [Redux](https://github.com/kirill-konshin/next-redux-wrapper)
+43. `npm i -P redux react-redux`
+44. `npm i -D @types/react-redux`
+45. either use next-redux-wrapper package (`npm i -P next-redux-wrapper`) or copy the `withRedux.tsx` and `defaultConfig.ts` from the example setup `src/utils/redux` and helper function `objectAssign.ts` from `src/utils/common`
+46. create custom `makeStore` function, `_app.tsx` page and other redux setup as examples in `next-redux-wrapper` repo show.
+
+####[code splitting](https://manukyan.dev/posts/2019-04-15-code-splitting-for-redux-and-optional-redux-saga/)
+47. copy `configureStore.ts`, `dynamicReducerWrap.tsx` from the example setup `src/utils/redux`
+48. copy `_app.tsx` from the example setup `pages/`
+49. adapt redux setup from the example setup `src/redux`
+50. notice:
+    1. can use `connect` from `react-redux` package and `dynamicReducerWrapper` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
+    2. `commonReducers` object in `src/redux/index.ts` and `reducers` object in `dynamicReducerWrapper`'s prop should follow: { [key: string]: reducerFunction }
