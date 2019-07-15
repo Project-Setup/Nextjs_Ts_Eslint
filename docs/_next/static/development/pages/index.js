@@ -17490,7 +17490,7 @@ var Page = function Page(_ref) {
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    href: "/about",
+    href: "/stats",
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
@@ -17501,6 +17501,26 @@ var Page = function Page(_ref) {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 49
+    },
+    __self: this
+  }, "stats")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 51
+    },
+    __self: this
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    href: "/about",
+    prefetch: false,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
     },
     __self: this
   }, "about")));
