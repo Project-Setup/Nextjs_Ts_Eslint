@@ -4,16 +4,20 @@ import { Dispatch } from 'redux';
 import get from 'lodash/get';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
-import dynamicReducerWrap from '../src/utils/redux/dynamicReducerWrap';
+import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
 import { Store } from '../src/redux/store';
 import stats, { initialState } from '../src/redux/reducers/stats';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
-
-const SubstituteReducers = dynamicReducerWrap<Store>({ reducers: { stats }, type: 'inject' });
+import saga2 from '../src/redux/sagas/saga2';
 
 export interface State {
   stats: typeof initialState;
 }
+
+const storeCallback = (store: Store) => {
+  store.substitueReducers({ stats });
+  store.substitueSagas({ stats: saga2 });
+};
 
 const mapStateToProps = (state: State) => ({
   numstats: get(state, 'stats.stats', 0),
@@ -29,7 +33,6 @@ interface Props extends ReturnType<typeof mapStateToProps>, ReturnType<typeof ma
 export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
   return (
     <main>
-      <SubstituteReducers />
       <ManifestHead
         title="Nextjs Typescript Eslint testing"
         themeColor="red"
@@ -58,4 +61,4 @@ const ConnectedPage = connect(
   mapDispatchToProps
 )(Page);
 
-export default ConnectedPage;
+export default dynamicStoreCallbackWrap<Store>({ callback: storeCallback, Child: ConnectedPage });

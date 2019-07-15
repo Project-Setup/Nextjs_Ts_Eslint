@@ -11,15 +11,23 @@ import {
 import createSagaMiddleware, { Saga } from 'redux-saga';
 import objectAssign from '../common/objectAssign';
 import { MakeStore } from './withRedux';
-import { SagaTaskProp } from './withReduxSaga';
+import { SagaTasksProp } from './withReduxSaga';
 
-interface StoreReducerEnhanced extends Partial<SagaTaskProp> {
+export interface SagaMapObject {
+  [key: string]: Saga;
+}
+
+interface StoreReducerEnhanced extends SagaTasksProp {
   commonReducers: ReducersMapObject;
   asyncReducers: ReducersMapObject;
   addReducer(key: string, asyncReducer: Reducer): void;
   removeReducer(key: string): void;
   injectReducers(reducers: ReducersMapObject): void;
   substitueReducers(reducers: ReducersMapObject): void;
+  addSaga(key: string, saga: Saga): void;
+  removeSaga(key: string): Promise<void>;
+  injectSagas(sagas: SagaMapObject): void;
+  substitueSagas(sagas: SagaMapObject): Promise<void>;
 }
 
 export interface ReducerEnhancedStore extends Store, StoreReducerEnhanced {}
@@ -70,7 +78,7 @@ const configureStore = ({
         if (!key || !store.asyncReducers[key]) {
           return;
         }
-        delete store.asyncReducers[key];
+        store.asyncReducers = objectAssign(([k]) => k !== key)({}, store.asyncReducers);
         keysToRemove.push(key);
         store.replaceReducer(createReducer(store.asyncReducers));
       },
@@ -81,14 +89,55 @@ const configureStore = ({
       },
 
       substitueReducers: reducers => {
-        console.log(keysToRemove);
-        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => { console.log(k, reducers, !(k in reducers)); return !(k in reducers)}));
-        console.log(keysToRemove);
-        store.asyncReducers = reducers;
+        keysToRemove.push(...Object.keys(store.asyncReducers).filter(k => !(k in reducers)));
+        store.asyncReducers = objectAssign()({}, reducers);
         store.replaceReducer(createReducer(store.asyncReducers));
       },
 
-      sagaTask: rootSaga ? sagaMiddleware.run(rootSaga) : undefined,
+      sagaTasks: rootSaga ? { root: sagaMiddleware.run(rootSaga) } : {},
+
+      addSaga: (key, saga) => {
+        if (!key || store.sagaTasks[key]) {
+          return;
+        }
+        store.sagaTasks[key] = sagaMiddleware.run(saga);
+      },
+
+      removeSaga: async key => {
+        if (!key || !store.sagaTasks[key]) {
+          return;
+        }
+        await store.sagaTasks[key].cancel();
+        store.sagaTasks = objectAssign(([k]) => k !== key)({}, store.sagaTasks);
+      },
+
+      injectSagas: sagas => {
+        Object.entries(sagas).forEach(([key, saga]) => {
+          if (!(key in store.sagaTasks) && saga) {
+            store.sagaTasks[key] = sagaMiddleware.run(saga);
+          }
+        });
+      },
+
+      substitueSagas: async sagas => {
+        const sagaKeysToRemove: string[] = [];
+        const removeSagas = Promise.all(
+          Object.keys(store.sagaTasks)
+            .filter(key => !(key in sagas && sagas[key]))
+            .map(async key => {
+              await store.sagaTasks[key].cancel();
+              sagaKeysToRemove.push(key);
+            })
+        );
+
+        Object.entries(sagas).forEach(([key, saga]) => {
+          if (!(key in store.sagaTasks) && saga) {
+            store.sagaTasks[key] = sagaMiddleware.run(saga);
+          }
+        });
+        await removeSagas;
+        store.sagaTasks = objectAssign(([k]) => !sagaKeysToRemove.includes(k))({}, store.sagaTasks);
+      },
     } as StoreReducerEnhanced
   );
 
