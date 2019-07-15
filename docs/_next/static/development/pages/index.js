@@ -17452,19 +17452,19 @@ var Page = function Page(_ref) {
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 32
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 40
     },
     __self: this
   }, "This is index"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 41
     },
     __self: this
   }, "Number is ".concat(numCount)), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17472,7 +17472,7 @@ var Page = function Page(_ref) {
     onClick: add2,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 42
     },
     __self: this
   }, "add 2"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17480,13 +17480,13 @@ var Page = function Page(_ref) {
     onClick: minus3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: this
   }, "minus 3"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Loading__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 48
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -17494,19 +17494,19 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 49
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 50
     },
     __self: this
   }, "stats")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 52
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -17514,13 +17514,13 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 54
     },
     __self: this
   }, "about")));
@@ -17985,44 +17985,52 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/utils/redux/d
 
 
 
-var SubstitueReducers = function SubstitueReducers(_ref) {
+var DynamicReducer = function DynamicReducer(_ref) {
   var store = _ref.store,
+      type = _ref.type,
       reducers = _ref.reducers,
       Child = _ref.Child;
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    store.substitueReducers(reducers);
+    if (type === 'replace') {
+      store.substitueReducers(reducers);
+    } else if (type === 'inject') {
+      store.injectReducers(reducers);
+    }
   }, []);
-  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
+  return Child ? Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 30
     },
     __self: this
-  });
+  }) : null;
 };
 
 function dynamicReducerWrap(_ref2) {
-  var reducers = _ref2.reducers,
+  var _ref2$type = _ref2.type,
+      type = _ref2$type === void 0 ? 'replace' : _ref2$type,
+      reducers = _ref2.reducers,
       Child = _ref2.Child;
   return function () {
     return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_redux__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"].Consumer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
+        lineNumber: 39
       },
       __self: this
     }, function (_ref3) {
       var store = _ref3.store;
-      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(SubstitueReducers, {
-        store: store,
+      return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(DynamicReducer, {
+        type: type,
         reducers: reducers,
+        store: store,
         Child: Child,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 41
         },
         __self: this
-      }));
+      });
     });
   };
 }
@@ -18049,7 +18057,7 @@ var rem = function rem(num) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*****************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Findex.tsx ***!
   \*****************************************************************************************************************************************/
@@ -18072,5 +18080,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map
