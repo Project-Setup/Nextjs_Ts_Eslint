@@ -7,6 +7,7 @@ Packages used:
 * Eslint, Prettier
 * Jest, Enzyme
 * Emotion
+* Redux
 * Next-Offline
 * Next-Manifest
 
