@@ -4,11 +4,15 @@ import { Store } from 'redux';
 import { END, Task } from 'redux-saga';
 import { TransformedApp, WithStoreAppContext, TransformedAppProps } from './withRedux';
 
-export interface SagaTaskProp {
-  sagaTask: Task;
+export interface SagaTasks {
+  [key: string]: Task;
 }
 
-export interface StoreWithSaga extends Store, Partial<SagaTaskProp> {}
+export interface SagaTasksProp {
+  sagaTasks: SagaTasks;
+}
+
+export interface StoreWithSaga extends Store, SagaTasksProp {}
 
 function withReduxSaga<S extends StoreWithSaga = StoreWithSaga>(BaseElement: TransformedApp<S>) {
   const WrappedElement: NextComponentType<
@@ -28,8 +32,11 @@ function withReduxSaga<S extends StoreWithSaga = StoreWithSaga>(BaseElement: Tra
     // Stop saga on the server
     if (isServer) {
       store.dispatch(END);
-      if (store.sagaTask) {
-        await store.sagaTask.toPromise();
+      if (store.sagaTasks) {
+        const tasks = Object.values(store.sagaTasks);
+        if (tasks.length) {
+          await Promise.all(tasks.map(task => task.toPromise()));
+        }
       }
     }
 
