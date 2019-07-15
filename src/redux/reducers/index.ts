@@ -1,10 +1,11 @@
-import { combineReducers } from 'redux';
-import count, { initialState as countInitialState } from './count';
+import { ReducersMapObject } from 'redux';
 
 export const defaultState = {
-  count: countInitialState,
+  // add common initialStates here
 };
 
-const rootReducer = combineReducers({ count });
+const commonReducers: ReducersMapObject<typeof defaultState> = {
+  // add common reducers here
+};
 
-export default rootReducer;
+export default commonReducers;

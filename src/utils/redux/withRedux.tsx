@@ -1,28 +1,31 @@
 import React from 'react';
 import { Store } from 'redux';
 import { NextPageContext, NextComponentType } from 'next';
-import { AppContext, AppInitialProps, AppProps } from 'next/app';
+import { AppContext, AppProps, AppInitialProps } from 'next/app';
 import defaultConfig, { Config } from './defaultConfig';
 import objectAssign from '../common/objectAssign';
 
-export interface WithStorePageContext extends NextPageContext {
-  store: Store;
+export interface StoreProps<S = Store> {
+  store: S;
+}
+
+export interface WithStorePageContext<S = Store> extends NextPageContext, StoreProps<S> {
   isServer: boolean;
 }
 
-export interface WithStoreAppContext extends AppContext {
-  ctx: WithStorePageContext;
+export interface WithStoreAppContext<S = Store> extends AppContext {
+  ctx: WithStorePageContext<S>;
 }
 
-export interface MakeStoreOptions extends Config, WithStorePageContext {}
+export interface MakeStoreOptions<S = Store> extends Config, WithStorePageContext<S> {}
 
-export interface MakeStore {
-  (initialState: any, options?: Partial<MakeStoreOptions>): Store;
+export interface MakeStore<S = Store> {
+  (initialState: any, options?: Partial<MakeStoreOptions<S>>): S;
 }
 
-export interface InitStoreOptions {
+export interface InitStoreOptions<S = Store> {
   initialState?: any;
-  ctx?: WithStorePageContext;
+  ctx?: WithStorePageContext<S>;
 }
 
 export interface WrappedAppProps {
@@ -31,23 +34,26 @@ export interface WrappedAppProps {
   isServer: boolean;
 }
 
-export interface WithStoreProps {
-  store: Store;
-}
+export interface TransformedAppProps<S = Store> extends StoreProps<S>, AppProps {}
 
-export interface TransformedAppProps extends WithStoreProps, AppProps {}
+export type TransformedApp<S = Store> = NextComponentType<
+  AppContext,
+  AppInitialProps,
+  TransformedAppProps<S>
+>;
 
-export type TransformedApp = NextComponentType<AppContext, AppInitialProps, TransformedAppProps>;
-
-const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) => {
-  const config: Config = objectAssign(
+function withRedux<S extends Store = Store>(
+  makeStore: MakeStore<S>,
+  optionalConfig: Partial<Config> = {}
+) {
+  const config: Config = objectAssign()(
     defaultConfig,
     { isServer: typeof window === 'undefined' },
     optionalConfig
   );
   const { storeKey, isServer, deserializeState, serializeState } = config;
 
-  const serveStore = ({ initialState, ctx }: InitStoreOptions): Store => {
+  const serveStore = ({ initialState, ctx }: InitStoreOptions<S>): S => {
     const createStore = () =>
       makeStore(deserializeState(initialState), {
         ...ctx,
@@ -63,12 +69,12 @@ const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) =
     return (window as any)[storeKey];
   };
 
-  return (App: TransformedApp) => {
-    const WrappedApp: NextComponentType<WithStoreAppContext, WrappedAppProps, WrappedAppProps> = ({
-      initialProps,
-      initialState,
-      ...props
-    }) => {
+  return (App: TransformedApp<S>) => {
+    const WrappedApp: NextComponentType<
+      WithStoreAppContext<S>,
+      WrappedAppProps,
+      WrappedAppProps
+    > = ({ initialProps, initialState, ...props }) => {
       const store = serveStore({ initialState });
 
       return <App {...props} {...initialProps} store={store} />;
@@ -96,6 +102,6 @@ const withRedux = (makeStore: MakeStore, optionalConfig: Partial<Config> = {}) =
 
     return WrappedApp;
   };
-};
+}
 
 export default withRedux;
