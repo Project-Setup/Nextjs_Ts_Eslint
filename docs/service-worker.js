@@ -1,27 +1,27 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/_app.js",
-    "revision": "1c25dbeae36a0f9b74df"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/_app.js",
+    "revision": "f797771ee7528f9eb289"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/_error.js",
-    "revision": "f8661bfa4767572dc992"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/_error.js",
+    "revision": "25309267df61a0c3192c"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/about.js",
-    "revision": "1ea4edc8d04599372f3b"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/about.js",
+    "revision": "b84e6bfc471cf591956a"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/amp.js",
-    "revision": "6ce72b903fa154ea8161"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/amp.js",
+    "revision": "be758c885bba05f90f64"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/index.js",
-    "revision": "97caaa01935d26d43a20"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/index.js",
+    "revision": "a2f4b453deee144d77c6"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/stats.js",
-    "revision": "28d437692c8db7d09bd2"
+    "url": "/Nextjs_Ts_Eslint/_next/static/NAjs9_UCaywx5qSdWw5iU/pages/stats.js",
+    "revision": "cbfae7f7ab2a8cd069bb"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.911954de4310733a2061.js",

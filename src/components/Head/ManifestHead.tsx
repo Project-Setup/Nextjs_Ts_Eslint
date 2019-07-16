@@ -34,7 +34,7 @@ const Head: React.FC<Props> = ({
   <NextHead>
     <title key="title">{title}</title>
     <meta charSet={charset} key="charSet" />
-    <meta name="description"  key="description" content={description} />
+    <meta name="description" key="description" content={description} />
     {themeColor && <meta name="theme-color" key="theme-color" content={themeColor} />}
     {hrefManifest && (
       <Link href={hrefManifest} key="manifest" passHref>
@@ -57,8 +57,16 @@ const Head: React.FC<Props> = ({
 
     {/* for safari */}
     <meta name="apple-mobile-web-app-capable" key="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style"  key="apple-mobile-web-app-status-bar-style" content="blue" />
-    <meta name="apple-mobile-web-app-title" key="apple-mobile-web-app-title" content="With Manifest" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      key="apple-mobile-web-app-status-bar-style"
+      content="blue"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      key="apple-mobile-web-app-title"
+      content="With Manifest"
+    />
     {appleIconPath && appleIconSize && (
       <Link href={appleIconPath} key="apple-touch-icon" passHref>
         <link rel="apple-touch-icon" key="apple-touch-icon" sizes={appleIconSize} />
@@ -67,9 +75,15 @@ const Head: React.FC<Props> = ({
 
     {/* for IE */}
     {appleIconPath && (
-      <meta name="msapplication-TitleImage" key="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+      <meta
+        name="msapplication-TitleImage"
+        key="msapplication-TitleImage"
+        content={`${linkPrefix}${appleIconPath}`}
+      />
     )}
-    {themeColor && <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />}
+    {themeColor && (
+      <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />
+    )}
     {children}
   </NextHead>
 );
