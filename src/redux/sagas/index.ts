@@ -1,6 +1,6 @@
 import { all, call, take, select } from 'redux-saga/effects';
 
-function* watchAndLog() {
+export function* watchAndLog() {
   while (true) {
     const action = yield take('*');
     const state = yield select();
