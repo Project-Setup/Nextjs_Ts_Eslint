@@ -1,5 +1,5 @@
 import React from 'react';
-import { Store } from 'redux';
+import { Store, Action, AnyAction } from 'redux';
 import { NextPageContext, NextComponentType } from 'next';
 import { AppContext, AppProps } from 'next/app';
 import defaultConfig, { Config } from './defaultConfig';
@@ -42,7 +42,7 @@ export type TransformedApp<S = Store, P = {}, IP = P> = NextComponentType<
   TransformedAppProps<S, P>
 >;
 
-function withRedux<S extends Store = Store>(
+function withRedux<A extends Action = AnyAction, S extends Store<any, A> = Store<any, A>>(
   makeStore: MakeStore<S>,
   optionalConfig: Partial<Config> = {}
 ) {

@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import get from 'lodash/get';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
 import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
@@ -9,18 +8,19 @@ import { Store } from '../src/redux/store';
 import stats, { initialState } from '../src/redux/reducers/stats';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
 import saga2 from '../src/redux/sagas/saga2';
+import { ActionWithPayload } from '../src/utils/redux/types';
 
 export interface State {
   stats: typeof initialState;
 }
 
-const storeCallback = (store: Store) => {
+const callbackOnMount = (store: Store) => {
   store.substitueReducers({ stats });
   store.substitueSagas({ stats: saga2 });
 };
 
 const mapStateToProps = (state: State) => ({
-  numstats: get(state, 'stats.stats', 0),
+  numstats: (state.stats || {}).stats || 0,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -34,9 +34,9 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
   return (
     <main>
       <ManifestHead
-        title="Nextjs Typescript Eslint testing"
+        title="Nextjs Typescript Eslint stats"
         themeColor="red"
-        hrefPage="/stats"
+        hrefCanonical="/stats"
         favIconPath="/static/icons/favicon.ico"
         appleIconPath="/static/icons/icon192x192.png"
         hrefManifest="/static/manifest/manifest.json"
@@ -49,8 +49,13 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
       <button type="button" onClick={minus5}>
         minus 5
       </button>
-      <Link href="/" prefetch={false}>
-        <a>index</a>
+      <br />
+      <Link href="/count" prefetch={false}>
+        <a>count</a>
+      </Link>
+      <br />
+      <Link href="/about" prefetch={false}>
+        <a>about</a>
       </Link>
     </main>
   );
@@ -61,4 +66,7 @@ const ConnectedPage = connect(
   mapDispatchToProps
 )(Page);
 
-export default dynamicStoreCallbackWrap<Store>({ callback: storeCallback, Child: ConnectedPage });
+export default dynamicStoreCallbackWrap<ActionWithPayload, Store>({
+  callbackOnMount,
+  Child: ConnectedPage,
+});

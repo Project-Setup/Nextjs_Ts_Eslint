@@ -4,7 +4,7 @@ const withOffline = require('next-offline');
 const withManifest = require('next-manifest');
 const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
 
-const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
+const { linkPrefix, prodAssetPrefix, serviceWorkerFilename } = publicRuntimeConfig;
 
 module.exports = withManifest(
   withOffline({
@@ -12,20 +12,41 @@ module.exports = withManifest(
     registerSwPrefix: prodAssetPrefix,
     scope: `${prodAssetPrefix}/`,
     workboxOpts: {
-      swDest: 'service-worker.js',
+      swDest: serviceWorkerFilename,
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
+      exclude: [/\/pages\/index.js$/, '**/node_modules/**/*'],
       modifyURLPrefix: {
         app: linkPrefix,
       },
+      navigationPreload: true,
       runtimeCaching: [
         {
           urlPattern: /^https?.*/,
           handler: 'NetworkFirst',
           options: {
             cacheName: 'offlineCache',
+            networkTimeoutSeconds: 15,
             expiration: {
-              maxEntries: 200,
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          urlPattern: ({ event }) => event.request.mode === 'navigate',
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'offlineCache',
+            expiration: {
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
             },
           },
         },
@@ -59,6 +80,9 @@ module.exports = withManifest(
 
     // cdn settings
     assetPrefix: linkPrefix,
+    amp: {
+      canonicalBase: linkPrefix,
+    },
     publicRuntimeConfig,
   })
 );

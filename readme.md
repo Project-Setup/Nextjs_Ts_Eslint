@@ -1,13 +1,18 @@
-# PWA Project Setup with NextJs, Typescript, Eslint
+# Github PWA Project Setup with NextJs, Typescript, Redux, AMP etc.
+
+**Go to different branches for different Project Setup**
+- `pwa-amp` -- with Amp, Redux-Saga, Emotion
+- `redux-saga` -- with Redux-Saga, Emotion
+- `redux-code-splitting` -- with Redux, Emotion
+- `emotion` -- with Emotion
+- `styled-jsx` -- with built-in Styled-JSX
 
 This is an example project setup.
-Packages used:
+Packages used for all branches:
 * NextJs
 * Typescript
 * Eslint, Prettier
 * Jest, Enzyme
-* Emotion
-* Redux
 * Next-Offline
 * Next-Manifest
 
@@ -24,11 +29,12 @@ Packages used:
     ```sh
     npm run dev
     ```
-4. deploy the gh-pages
+4. read [Setup](#Setup) for notes
+5. deploy the gh-pages
     ```sh
     npm run deploy
     ```
-5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
+6. merge to github master branch and use `/docs` for gh-pages in github project repo settings
 
 ## Setup
 
@@ -474,8 +480,6 @@ Packages used:
     ```tsx
     //...
     import NextHead from 'next/head';
-    // @ts-ignore
-    import Manifest from 'next-manifest/manifest';
     import Link, { linkPrefix } from '../Link';
 
     //...
@@ -484,57 +488,70 @@ Packages used:
       title = '',
       description = title,
       charset = 'utf-8',
-      hrefPage,
+      hrefCanonical,
       hrefManifest,
-      viewportScale,
       themeColor,
       favIconPath,
       keywords = title,
       refresh,
       appleIconPath,
       appleIconSize = '192x192',
+      isAmp,
       children,
     }) => (
       <NextHead>
-        <title>{title}</title>
-        <meta charSet={charset} />
-        <meta name="description" content={description} />
-        <Link href={hrefManifest} passHref>
-          <Manifest themeColor={themeColor} initialScale={viewportScale} />
-        </Link>
-        {hrefPage && (
-          <Link href={hrefPage} passHref>
-            <link rel="canonical" />
+        <title key="title">{title}</title>
+        <meta charSet={charset} key="charSet" />
+        <meta name="description" key="description" content={description} />
+        {themeColor && <meta name="theme-color" key="theme-color" content={themeColor} />}
+        {hrefManifest && (
+          <Link href={hrefManifest} key="manifest" passHref>
+            <link key="manifest" rel="manifest" />
           </Link>
         )}
-
-        {/* favicon link */}
+        {!isAmp && hrefCanonical && (
+          <Link href={hrefCanonical} key="canonical" passHref>
+            <link key="canonical" rel="canonical" />
+          </Link>
+        )}
         {favIconPath && (
-          <Link href={favIconPath} passHref>
-            <link rel="shortcut icon" type="image/x-icon" />
+          <Link href={favIconPath} key="fav-icon" passHref>
+            <link rel="shortcut icon" key="fav-icon" type="image/x-icon" />
           </Link>
         )}
-
-        <meta name="keywords" content={keywords} />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+        <meta name="keywords" key="keywords" content={keywords} />
+        <meta httpEquiv="X-UA-Compatible" key="ua-compatible" content="ie=edge" />
+        {refresh && <meta httpEquiv="refresh" key="refresh" content={`${refresh}`} />}
 
         {/* for safari */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
-        <meta name="apple-mobile-web-app-title" content="With Manifest" />
+        <meta name="apple-mobile-web-app-capable" key="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          key="apple-mobile-web-app-status-bar-style"
+          content="blue"
+        />
+        <meta
+          name="apple-mobile-web-app-title"
+          key="apple-mobile-web-app-title"
+          content="With Manifest"
+        />
         {appleIconPath && appleIconSize && (
-          <Link href={appleIconPath} passHref>
-            <link rel="apple-touch-icon" sizes={appleIconSize} />
+          <Link href={appleIconPath} key="apple-touch-icon" passHref>
+            <link rel="apple-touch-icon" key="apple-touch-icon" sizes={appleIconSize} />
           </Link>
         )}
 
         {/* for IE */}
         {appleIconPath && (
-          <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+          <meta
+            name="msapplication-TitleImage"
+            key="msapplication-TitleImage"
+            content={`${linkPrefix}${appleIconPath}`}
+          />
         )}
-        {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
-
+        {themeColor && (
+          <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />
+        )}
         {children}
       </NextHead>
     );
@@ -550,7 +567,7 @@ Packages used:
         <ManifestHead
           title="index"
           themeColor="red"
-          hrefPage="/"
+          hrefCanonical="/"
           favIconPath="/static/icons/favicon.ico"
           appleIconPath="/static/icons/icon192x192.png"
           hrefManifest="/static/manifest/manifest.json"
@@ -581,4 +598,70 @@ Packages used:
 2. copy `_app.tsx` from the example setup `pages/`
 3. adapt redux setup from the example setup `src/redux`
 4. notice:
-    1. can use `connect` from `react-redux` package and `DynamicStoreCallbackWrap` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
+    1. can use `connect` from `react-redux` package and `DynamicStoreCallbackWrap` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed
+
+
+### [AMP PWA](https://developers.google.com/web/ilt/pwa/lab-build-a-progressive-web-amp#3_install_the_service_worker_from_amp)
+NextJs v9 has built in support for developing amp pages. However, to make it takes some effort to make it work with a service worker.
+1. add a `<script>` in `<ManifestHead>` to install `amp-install-serviceworker` amp component
+    ```tsx
+    // ...
+    isAmp && (
+      <script
+        async
+        custom-element="amp-install-serviceworker"
+        src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"
+      />
+    )
+    // ...
+    ```
+2. add `serviceWorkerFilename` and `ampInstallServiceworkerScriptHtml` to `publicRuntimeConfig`
+    ```js
+    // ...
+    const serviceWorkerFilename = 'service-worker.js';
+    const ampInstallServiceworkerScriptHtml = 'amp-install-serviceworker-script.html';
+
+    module.exports = {
+      // ...
+      serviceWorkerFilename,
+      ampInstallServiceworkerScriptHtml,
+    }
+    ```
+3. add `canonicalBase` in `next.config.js`
+    ```js
+    // ...
+    module.exports = withManifest(
+      withOffline({
+        // ...
+        amp: {
+          canonicalBase: linkPrefix,
+        },
+      })
+    );
+    ```
+4. copy `amp-install-serviceworker-script.tsx` from the example setup `pages/`
+5. add `amp-install-serviceworkder` components near the end of the `<body>` in the amp page
+      ```tsx
+      {isProd && (
+      <amp-install-serviceworker
+        src={`${linkPrefix}/${serviceWorkerFilename}`}
+        layout="nodisplay"
+        data-iframe-src={`${linkPrefix}/${ampInstallServiceworkerScriptHtml}`}
+      />
+    )}
+    ```
+6. add `static/sw.js` as source of serviceworker. a trick is to copy from the previously generated serviceworker from workbox options. add the following code to cache amp related js.
+    ```js
+    self.addEventListener('install', event => {
+      const urls = [
+        'https://cdn.ampproject.org/v0.js',
+        'https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js',
+      ];
+      const cacheName = workbox.core.cacheNames.runtime;
+      event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)));
+    });
+    ```
+7. add pure amp pages or hybrid amp pages based on nextjs documentation. read example setup for use with `<ManifestHead>`.
+8. Notes:
+    1. remove js precache for pure amp pages in `exclude` option in `workboxOpts` in `next.config.js` since the plugin thinks the intermediate js files need to be cached, but there are none in the end
+    2. github pages only serves static files, so `?amp=1` doesn't work with hybrid amp retrieval; will have to use `amppage.amp` to retrieve amp version

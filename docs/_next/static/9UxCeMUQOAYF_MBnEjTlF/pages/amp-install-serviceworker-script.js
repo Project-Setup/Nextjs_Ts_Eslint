@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{F4Do:function(n,t,i){(window.__NEXT_P=window.__NEXT_P||[]).push(["/amp-install-serviceworker-script",function(){var n=i("dx7k");return{page:n.default||n}}])},dx7k:function(n,t,i){"use strict";i.r(t);var o=i("qKvR");i("q1tI");t.default=function(){return Object(o.b)("div",null)}}},[["F4Do",1,0]]]);

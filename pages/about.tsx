@@ -8,7 +8,7 @@ const Page: NextPage = () => (
     <ManifestHead
       title="Nextjs Typescript Eslint"
       themeColor="red"
-      hrefPage="/about"
+      hrefCanonical="/about"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
