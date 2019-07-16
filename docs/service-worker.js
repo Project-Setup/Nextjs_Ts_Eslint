@@ -1,35 +1,39 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8DQJrYpGG_ITUpKCSylVX/pages/_app.js",
-    "revision": "0c0e6d5908603a1ec866"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/_app.js",
+    "revision": "f65f78fd10d00baaa469"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8DQJrYpGG_ITUpKCSylVX/pages/_error.js",
-    "revision": "6455ae2d18c21f496ce4"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/_error.js",
+    "revision": "d132a8586f20f1210d7d"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8DQJrYpGG_ITUpKCSylVX/pages/about.js",
-    "revision": "9704ba6cfdb46da38bbb"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/about.js",
+    "revision": "caaa3d0975a035889d01"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8DQJrYpGG_ITUpKCSylVX/pages/index.js",
-    "revision": "3343582b56a25e1763bf"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/amptest.js",
+    "revision": "afb6a8391b8a03ce5270"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8DQJrYpGG_ITUpKCSylVX/pages/stats.js",
-    "revision": "29fd2bd62bc96395493f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/index.js",
+    "revision": "672a81a88fe8cee7e0e5"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.58eb3aa27f37e0e1c05f.js",
-    "revision": "778f7262f74790d5aa47"
+    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/stats.js",
+    "revision": "152ea3ff07f838eabed4"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-d7b9dd42b9676d74e37a.js",
-    "revision": "b841b48f29e2a9fe0220"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.911954de4310733a2061.js",
+    "revision": "c00c9feac2f80e319333"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
-    "revision": "b0a559ac8f238b6fd6f7"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-5856a6fa252953fc3e00.js",
+    "revision": "8aea4166013567da6174"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
+    "revision": "fba09cad31602b08916f"
   }
 ];
 

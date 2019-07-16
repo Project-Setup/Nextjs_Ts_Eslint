@@ -475,19 +475,15 @@ Packages used:
     ```tsx
     //...
     import NextHead from 'next/head';
-    // @ts-ignore
-    import Manifest from 'next-manifest/manifest';
     import Link, { linkPrefix } from '../Link';
 
     //...
-
     const Head: React.FC<Props> = ({
       title = '',
       description = title,
       charset = 'utf-8',
-      hrefCononical,
+      hrefCanonical,
       hrefManifest,
-      viewportScale,
       themeColor,
       favIconPath,
       keywords = title,
@@ -497,45 +493,44 @@ Packages used:
       children,
     }) => (
       <NextHead>
-        <title>{title}</title>
-        <meta charSet={charset} />
-        <meta name="description" content={description} />
-        <Link href={hrefManifest} passHref>
-          <Manifest themeColor={themeColor} initialScale={viewportScale} />
-        </Link>
-        {hrefCononical && (
-          <Link href={hrefCononical} passHref>
-            <link rel="canonical" />
+        <title key="title">{title}</title>
+        <meta charSet={charset} key="charSet" />
+        <meta name="description"  key="description" content={description} />
+        {themeColor && <meta name="theme-color" key="theme-color" content={themeColor} />}
+        {hrefManifest && (
+          <Link href={hrefManifest} key="manifest" passHref>
+            <link key="manifest" rel="manifest" />
           </Link>
         )}
-
-        {/* favicon link */}
+        {hrefCanonical && (
+          <Link href={hrefCanonical} key="canonical" passHref>
+            <link key="canonical" rel="canonical" />
+          </Link>
+        )}
         {favIconPath && (
-          <Link href={favIconPath} passHref>
-            <link rel="shortcut icon" type="image/x-icon" />
+          <Link href={favIconPath} key="fav-icon" passHref>
+            <link rel="shortcut icon" key="fav-icon" type="image/x-icon" />
           </Link>
         )}
-
-        <meta name="keywords" content={keywords} />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+        <meta name="keywords" key="keywords" content={keywords} />
+        <meta httpEquiv="X-UA-Compatible" key="ua-compatible" content="ie=edge" />
+        {refresh && <meta httpEquiv="refresh" key="refresh" content={`${refresh}`} />}
 
         {/* for safari */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
-        <meta name="apple-mobile-web-app-title" content="With Manifest" />
+        <meta name="apple-mobile-web-app-capable" key="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style"  key="apple-mobile-web-app-status-bar-style" content="blue" />
+        <meta name="apple-mobile-web-app-title" key="apple-mobile-web-app-title" content="With Manifest" />
         {appleIconPath && appleIconSize && (
-          <Link href={appleIconPath} passHref>
-            <link rel="apple-touch-icon" sizes={appleIconSize} />
+          <Link href={appleIconPath} key="apple-touch-icon" passHref>
+            <link rel="apple-touch-icon" key="apple-touch-icon" sizes={appleIconSize} />
           </Link>
         )}
 
         {/* for IE */}
         {appleIconPath && (
-          <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+          <meta name="msapplication-TitleImage" key="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
         )}
-        {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
-
+        {themeColor && <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />}
         {children}
       </NextHead>
     );
@@ -551,7 +546,7 @@ Packages used:
         <ManifestHead
           title="index"
           themeColor="red"
-          hrefCononical="/"
+          hrefCanonical="/"
           favIconPath="/static/icons/favicon.ico"
           appleIconPath="/static/icons/icon192x192.png"
           hrefManifest="/static/manifest/manifest.json"
