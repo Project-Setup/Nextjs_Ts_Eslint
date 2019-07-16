@@ -4,7 +4,7 @@ import { Dispatch } from 'redux';
 import get from 'lodash/get';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
-import dynamicReducerWrap from '../src/utils/redux/dynamicReducerWrap';
+import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
 import { Store } from '../src/redux/store';
 import stats, { initialState } from '../src/redux/reducers/stats';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
@@ -12,6 +12,10 @@ import { addNumber, minusNumber } from '../src/redux/actions/actions';
 export interface State {
   stats: typeof initialState;
 }
+
+const storeCallback = (store: Store) => {
+  store.substitueReducers({ stats });
+};
 
 const mapStateToProps = (state: State) => ({
   numstats: get(state, 'stats.stats', 0),
@@ -55,4 +59,4 @@ const ConnectedPage = connect(
   mapDispatchToProps
 )(Page);
 
-export default dynamicReducerWrap<Store>({ reducers: { stats }, Child: ConnectedPage });
+export default dynamicStoreCallbackWrap<Store>({ callback: storeCallback, Child: ConnectedPage });

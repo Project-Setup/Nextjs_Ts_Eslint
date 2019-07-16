@@ -519,9 +519,8 @@ Packages used:
 46. create custom `makeStore` function, `_app.tsx` page and other redux setup as examples in `next-redux-wrapper` repo show.
 
 #### [code splitting](https://manukyan.dev/posts/2019-04-15-code-splitting-for-redux-and-optional-redux-saga/)
-47. copy `configureStore.ts`, `dynamicReducerWrap.tsx` from the example setup `src/utils/redux`
+47. copy `configureStore.ts`, `dynamicStoreCallbackWrap.tsx` from the example setup `src/utils/redux`
 48. copy `_app.tsx` from the example setup `pages/`
 49. adapt redux setup from the example setup `src/redux`
 50. notice:
-    1. can use `connect` from `react-redux` package and `dynamicReducerWrapper` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
-    2. `commonReducers` object in `src/redux/index.ts` and `reducers` object in `dynamicReducerWrapper`'s prop should follow: { [key: string]: reducerFunction }
+  1. can use `connect` from `react-redux` package and `dynamicStoreCallbackWrap` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
