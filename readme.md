@@ -364,7 +364,7 @@ Packages used:
     };
     ```
 3. change `as` prop in `next/Link` to add `linkPrefix`
-    ```ts
+    ```tsx
     // ...
     import getConfig from 'next/config';
     import Link from 'next/link';
