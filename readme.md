@@ -4,10 +4,11 @@ This is an example project setup.
 Packages used:
 * NextJs
 * Typescript
+* Redux
+* Redux-Saga
 * Eslint, Prettier
 * Jest, Enzyme
 * Emotion
-* Redux
 * Next-Offline
 * Next-Manifest
 
