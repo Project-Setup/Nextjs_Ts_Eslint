@@ -52,6 +52,9 @@ export const Page: FC<Props> = ({ numCount, minus3, add2 }) => {
         minus 3
       </button>
       <Loading />
+      <Link href="/amp" prefetch={false}>
+        <a>amp</a>
+      </Link>
       <Link href="/stats" prefetch={false}>
         <a>stats</a>
       </Link>

@@ -1,35 +1,35 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/_app.js",
-    "revision": "f65f78fd10d00baaa469"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/_app.js",
+    "revision": "1c25dbeae36a0f9b74df"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/_error.js",
-    "revision": "d132a8586f20f1210d7d"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/_error.js",
+    "revision": "f8661bfa4767572dc992"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/about.js",
-    "revision": "caaa3d0975a035889d01"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/about.js",
+    "revision": "1ea4edc8d04599372f3b"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/amptest.js",
-    "revision": "afb6a8391b8a03ce5270"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/amp.js",
+    "revision": "6ce72b903fa154ea8161"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/index.js",
-    "revision": "672a81a88fe8cee7e0e5"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/index.js",
+    "revision": "97caaa01935d26d43a20"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/6ZDQHennnryvS9AQyNbTM/pages/stats.js",
-    "revision": "152ea3ff07f838eabed4"
+    "url": "/Nextjs_Ts_Eslint/_next/static/AMlyPOj8xoeT4HPGnHL3E/pages/stats.js",
+    "revision": "28d437692c8db7d09bd2"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.911954de4310733a2061.js",
     "revision": "c00c9feac2f80e319333"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-5856a6fa252953fc3e00.js",
-    "revision": "8aea4166013567da6174"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-949701e360204637477f.js",
+    "revision": "c32be239edd763c00f9a"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
