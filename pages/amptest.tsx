@@ -1,20 +1,21 @@
-import React from 'react';
-import { NextPage } from 'next';
+import React, { FC } from 'react';
 import ManifestHead from '../src/components/Head/ManifestHead';
-import Link from '../src/components/Link';
+import Link, { linkPrefix } from '../src/components/Link';
 
-const Page: NextPage = () => (
+export const config = { amp: true, cononicalBase: linkPrefix };
+
+const Page: FC = () => (
   <main>
     <ManifestHead
       title="Nextjs Typescript Eslint"
+      amp
       themeColor="red"
-      hrefCononical="/about"
+      hrefCononical="/amptest"
       favIconPath="/static/icons/favicon.ico"
       appleIconPath="/static/icons/icon192x192.png"
       hrefManifest="/static/manifest/manifest.json"
     />
-    <span>This is about page</span>
-    <br />
+    <span>This is amp page</span>
     <Link href="/" prefetch={false}>
       <a>index</a>
     </Link>

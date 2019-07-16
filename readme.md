@@ -485,7 +485,7 @@ Packages used:
       title = '',
       description = title,
       charset = 'utf-8',
-      hrefPage,
+      hrefCononical,
       hrefManifest,
       viewportScale,
       themeColor,
@@ -503,8 +503,8 @@ Packages used:
         <Link href={hrefManifest} passHref>
           <Manifest themeColor={themeColor} initialScale={viewportScale} />
         </Link>
-        {hrefPage && (
-          <Link href={hrefPage} passHref>
+        {hrefCononical && (
+          <Link href={hrefCononical} passHref>
             <link rel="canonical" />
           </Link>
         )}
@@ -551,7 +551,7 @@ Packages used:
         <ManifestHead
           title="index"
           themeColor="red"
-          hrefPage="/"
+          hrefCononical="/"
           favIconPath="/static/icons/favicon.ico"
           appleIconPath="/static/icons/icon192x192.png"
           hrefManifest="/static/manifest/manifest.json"

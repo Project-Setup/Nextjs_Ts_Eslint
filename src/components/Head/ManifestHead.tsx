@@ -1,22 +1,20 @@
 import React from 'react';
 import NextHead from 'next/head';
-// @ts-ignore
-import Manifest from 'next-manifest/manifest';
 import Link, { linkPrefix } from '../Link';
 
 interface Props {
   title?: string;
   description?: string;
   charset?: string;
-  hrefPage?: string;
-  hrefManifest: string;
-  viewportScale?: number;
+  hrefCononical?: string;
+  hrefManifest?: string;
   themeColor?: string;
   favIconPath?: string;
   keywords?: string;
   refresh?: number;
   appleIconPath?: string;
   appleIconSize?: string;
+  amp?: boolean;
   children?: React.ReactElement;
 }
 
@@ -24,27 +22,30 @@ const Head: React.FC<Props> = ({
   title = '',
   description = title,
   charset = 'utf-8',
-  hrefPage,
+  hrefCononical,
   hrefManifest,
-  viewportScale,
   themeColor,
   favIconPath,
   keywords = title,
   refresh,
   appleIconPath,
   appleIconSize = '192x192',
+  amp,
   children,
 }) => (
   <NextHead>
     <title>{title}</title>
     <meta charSet={charset} />
     <meta name="description" content={description} />
-    <Link href={hrefManifest} passHref>
-      <Manifest themeColor={themeColor} initialScale={viewportScale} />
-    </Link>
-    {hrefPage && (
-      <Link href={hrefPage} passHref>
-        <link rel="canonical" />
+    {themeColor && <meta name="theme-color" content={themeColor} />}
+    {hrefManifest && (
+      <Link href={hrefManifest} passHref>
+        <link rel="manifest" />
+      </Link>
+    )}
+    {!amp && hrefCononical && (
+      <Link href={hrefCononical} key="canonical" passHref>
+        <link key="canonical" rel="canonical" />
       </Link>
     )}
     {favIconPath && (
