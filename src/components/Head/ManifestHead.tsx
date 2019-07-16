@@ -14,7 +14,7 @@ interface Props {
   refresh?: number;
   appleIconPath?: string;
   appleIconSize?: string;
-  children?: React.ReactElement;
+  children?: React.ReactElement | React.ReactElement[];
 }
 
 const Head: React.FC<Props> = ({
