@@ -9,34 +9,47 @@ const { linkPrefix, prodAssetPrefix, serviceWorkerFilename } = publicRuntimeConf
 module.exports = withManifest(
   withOffline({
     // service-worker settings
+    // generateSw: false,
     registerSwPrefix: prodAssetPrefix,
     scope: `${prodAssetPrefix}/`,
     workboxOpts: {
       swDest: serviceWorkerFilename,
+      // swSrc: 'static/sw.js',
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
       exclude: [/\/pages\/index\.js$/, '**/node_modules/**/*'],
       modifyURLPrefix: {
         app: linkPrefix,
       },
+      navigationPreload: true,
       runtimeCaching: [
         {
           urlPattern: /^https?.*/,
           handler: 'NetworkFirst',
           options: {
             cacheName: 'offlineCache',
+            networkTimeoutSeconds: 15,
             expiration: {
-              maxEntries: 200,
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
             },
           },
         },
         {
-          urlPattern: /^https?.*/,
+          urlPattern: ({ event }) => event.request.mode === 'navigate',
           handler: 'NetworkFirst',
           options: {
             cacheName: 'offlineCache',
+            networkTimeoutSeconds: 15,
             expiration: {
-              maxEntries: 200,
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
             },
           },
         },
