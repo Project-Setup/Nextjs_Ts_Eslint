@@ -60,7 +60,7 @@ module.exports = withManifest(
       /* eslint-disable @typescript-eslint/camelcase */
       short_name: 'Nextjs_Ts_Eslint',
       name: 'Nextjs Ts Eslint',
-      start_url: `${prodAssetPrefix}/`,
+      start_url: `${prodAssetPrefix}/count`,
       background_color: 'red',
       display: 'standalone',
       scope: `${prodAssetPrefix}/`,

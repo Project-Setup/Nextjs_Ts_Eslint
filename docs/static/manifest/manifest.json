@@ -13,7 +13,7 @@
 			"type": "image/png"
 		}
 	],
-	"start_url": "/Nextjs_Ts_Eslint/",
+	"start_url": "/Nextjs_Ts_Eslint/count",
 	"display": "standalone",
 	"orientation": "natural",
 	"background_color": "red",
