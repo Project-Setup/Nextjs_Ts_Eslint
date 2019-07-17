@@ -168,6 +168,7 @@ class Head extends NextHead {
                 src={`${linkPrefix}/${serviceWorkerFilename}`}
                 layout="nodisplay"
                 data-iframe-src={`${linkPrefix}/${ampInstallServiceWorkerHtml}`}
+                data-scope={`${linkPrefix}/`}
               />
             )}
           </>

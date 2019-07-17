@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { Page } from '../../../pages/index';
+import { Page } from '../../../pages/count';
 
 describe('Pages', () => {
   describe('Index', () => {

@@ -30,11 +30,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var config = __NEXT_DROP_CLIENT_FILE__ = "__NEXT_DROP_CLIENT_FILE__ 1563399043851";
+var config = __NEXT_DROP_CLIENT_FILE__ = "__NEXT_DROP_CLIENT_FILE__ 1563399293659";
 
 /***/ }),
 
-/***/ 2:
+/***/ 0:
 /*!******************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Famp&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Famp.tsx ***!
   \******************************************************************************************************************************************/
@@ -46,5 +46,5 @@ module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Famp&ab
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[0,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=amp.js.map

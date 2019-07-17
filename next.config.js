@@ -15,7 +15,7 @@ module.exports = withManifest(
       swDest: serviceWorkerFilename,
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
-      exclude: [/\/pages\/amp[^a-zA-Z/]*\.js$/, '**/node_modules/**/*'],
+      exclude: [/\/pages\/index\.js$/, '**/node_modules/**/*'],
       modifyURLPrefix: {
         app: linkPrefix,
       },
