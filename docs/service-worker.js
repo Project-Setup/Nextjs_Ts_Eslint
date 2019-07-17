@@ -1,27 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.17fb3cefbf0436adf927.js",
-    "revision": "14d8809f7fa4406908bd"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/_app.js",
+    "revision": "dd51377aaddb23cc4aac"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/q2JB2i9wgsoERIjOUZlw_/pages/_app.js",
-    "revision": "0aaf38e667a872252697"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/_error.js",
+    "revision": "6d3162d99898e20a9e6f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/q2JB2i9wgsoERIjOUZlw_/pages/_error.js",
-    "revision": "30c8163555fc286fe05d"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/about.js",
+    "revision": "6167a81040ad4ecc51d6"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/q2JB2i9wgsoERIjOUZlw_/pages/about.js",
-    "revision": "83c07f1989b9254e1aa9"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/amp-install-service-worker.js",
+    "revision": "a140a214e81e39195223"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/q2JB2i9wgsoERIjOUZlw_/pages/count.js",
-    "revision": "aa35f55c2f91bee6f154"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/count.js",
+    "revision": "54b74b2e998ca2c9c93e"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/q2JB2i9wgsoERIjOUZlw_/pages/stats.js",
-    "revision": "5c6f8a235ec31dc1a777"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OA-zCJvl_mwIqgs1axkgx/pages/stats.js",
+    "revision": "2a40d165d6280c2cf3b1"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
+    "revision": "2ec15b9540b62290296f"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-5856a6fa252953fc3e00.js",
