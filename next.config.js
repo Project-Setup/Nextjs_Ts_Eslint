@@ -4,7 +4,7 @@ const withOffline = require('next-offline');
 const withManifest = require('next-manifest');
 const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
 
-const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
+const { linkPrefix, prodAssetPrefix, serviceWorkerFilename } = publicRuntimeConfig;
 
 module.exports = withManifest(
   withOffline({
@@ -12,14 +12,24 @@ module.exports = withManifest(
     registerSwPrefix: prodAssetPrefix,
     scope: `${prodAssetPrefix}/`,
     workboxOpts: {
-      swDest: 'service-worker.js',
+      swDest: serviceWorkerFilename,
       globPatterns: ['app/static/**/*'],
       globDirectory: '.',
-      exclude: [/[^a-zA-Z\d\s]amp[^a-zA-Z/]*\.js$/, '**/node_modules/**/*'],
+      exclude: [/\/pages\/amp[^a-zA-Z/]*\.js$/, '**/node_modules/**/*'],
       modifyURLPrefix: {
         app: linkPrefix,
       },
       runtimeCaching: [
+        {
+          urlPattern: /^https?.*/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'offlineCache',
+            expiration: {
+              maxEntries: 200,
+            },
+          },
+        },
         {
           urlPattern: /^https?.*/,
           handler: 'NetworkFirst',
