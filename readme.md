@@ -576,5 +576,77 @@ Packages used:
 1. copy `configureStore.ts`, `DynamicStoreCallbackWrap.tsx` from the example setup `src/utils/redux`
 2. copy `_app.tsx` from the example setup `pages/`
 3. adapt redux setup from the example setup `src/redux`
-4. notice:
+4. notes:
     1. can use `connect` from `react-redux` package and `DynamicStoreCallbackWrap` from the example to connect with store, but the `mapStateToProps` function must provide default values in case the reducer is removed; suggest using `get` from `lodash` package
+
+### [AMP PWA](https://developers.google.com/web/ilt/pwa/lab-build-a-progressive-web-amp#3_install_the_service_worker_from_amp)
+NextJs v9 has built in support for developing amp pages. However, to make it takes some effort to make it work with a service worker.
+1. add a `<script>` in `<ManifestHead>` to install `amp-install-serviceworker` amp component
+    ```tsx
+    // ...
+    isAmp && ampServiceWorker && (
+      <script
+        async
+        custom-element="amp-install-serviceworker"
+        src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"
+      />
+    )
+    // ...
+    ```
+2. add `serviceWorkerFilename` and `ampInstallServiceWorkerHtml` to `publicRuntimeConfig`
+    ```js
+    // ...
+    const serviceWorkerFilename = 'service-worker.js';
+    const ampInstallServiceWorkerHtml = 'amp-install-service-worker.html';
+
+    module.exports = {
+      // ...
+      serviceWorkerFilename,
+      ampInstallServiceWorkerHtml,
+    }
+    ```
+3. copy `_document.tsx` in the example setup `pages/` to add `amp-install-serviceworker` at the end of `<head>` / beginning of `<body>`.
+4. add `canonicalBase` in `next.config.js` and change serviceworker related settings in `next.config.js`
+    ```js
+    // ...
+    module.exports = withManifest(
+      withOffline({
+        // ...
+        // service-worker settings
+        generateSw: false,
+        registerSwPrefix: prodAssetPrefix,
+        scope: `${prodAssetPrefix}/`,
+        workboxOpts: {
+          swDest: serviceWorkerFilename,
+          swSrc: 'static/sw.js',
+          globPatterns: ['app/static/**/*'],
+          globDirectory: '.',
+          exclude: ['**/node_modules/**/*'],
+          modifyURLPrefix: {
+            app: linkPrefix,
+          },
+        },
+
+        // ...
+        amp: {
+          canonicalBase: linkPrefix,
+        },
+      })
+    );
+    ```
+5. add `static/sw.js` as source of serviceworker. a trick is to copy from the previously generated serviceworker from workbox options. add the following code to cache amp related js.
+    ```js
+    self.addEventListener('install', event => {
+      const urls = [
+        'https://cdn.ampproject.org/v0.js',
+        'https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js',
+      ];
+      const cacheName = workbox.core.cacheNames.runtime;
+      event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)));
+    });
+    ```
+6. add pure amp pages or hybrid amp pages based on nextjs documentation. read example setup for use with `<ManifestHead>` and the `_document.tsx`.
+7. Notes:
+    1. remove js precache for pure amp pages in `exclude` option in `workboxOpts` in `next.config.js` since the plugin thinks the intermediate js files need to be cached, but there are none in the end
+    2. github pages only serves static files, so `?amp=1` doesn't work with hybrid amp retrieval; will have to use `amppage.amp` to retrieve amp version
+    3. this hack to make service worker and amp mingle is not elegant, suggest not doing `ampwa` at the moment.

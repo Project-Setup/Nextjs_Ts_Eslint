@@ -1,43 +1,43 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.ac7da73c077b2a5146b1.js",
-    "revision": "04b42b5cf5aeaf3d81b6"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/_app.js",
+    "revision": "478c3ea6a51e231f1ba2"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/_app.js",
-    "revision": "13eb357ab5bc530528e4"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/_error.js",
+    "revision": "d8616c6d2d61b73bd8cd"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/_error.js",
-    "revision": "fbbebab1a5c2ae6dd324"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/about.js",
+    "revision": "dccf8e8f2e30fd106d47"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/about.js",
-    "revision": "e524e9d5b2eb3b543055"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/amp-install-service-worker.js",
+    "revision": "9be647b6002add19d693"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/amp-install-service-worker.js",
-    "revision": "08f281699b12f062bfa0"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/count.js",
+    "revision": "496758c9350608f2f57c"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/count.js",
-    "revision": "eacb711ed65fde9c32e7"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/index.js",
+    "revision": "55a4c4ecb185a0fb05b8"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/index.js",
-    "revision": "8c11442c9e117404636a"
+    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/stats.js",
+    "revision": "47b5b3f9c95f30cf2f81"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/stats.js",
-    "revision": "5d37d4eb3aa0b36fecc6"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.4e29e4f9ff3fb78e802e.js",
+    "revision": "a6b0251d3dcab7786fef"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-5856a6fa252953fc3e00.js",
-    "revision": "8aea4166013567da6174"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2d7b27a6487bffc1796a.js",
+    "revision": "5ce00c2dfea573906cb6"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
-    "revision": "fba09cad31602b08916f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
+    "revision": "b0a559ac8f238b6fd6f7"
   }
 ];
 
