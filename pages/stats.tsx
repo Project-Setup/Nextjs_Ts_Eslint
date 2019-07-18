@@ -34,7 +34,7 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
   return (
     <main>
       <ManifestHead
-        title="Nextjs Typescript Eslint testing"
+        title="Nextjs Typescript Eslint stats"
         themeColor="red"
         hrefCanonical="/stats"
         favIconPath="/static/icons/favicon.ico"

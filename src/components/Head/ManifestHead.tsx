@@ -1,10 +1,6 @@
 import React from 'react';
 import NextHead from 'next/head';
-// import getConfig from 'next/config';
 import Link, { linkPrefix } from '../Link';
-
-// const { publicRuntimeConfig } = getConfig();
-// const { serviceWorkerFilename, ampInstallServiceWorkerHtml } = publicRuntimeConfig;
 
 interface Props {
   title?: string;
@@ -18,6 +14,7 @@ interface Props {
   refresh?: number;
   appleIconPath?: string;
   appleIconSize?: string;
+  isAmp?: boolean;
   ampServiceWorker?: boolean;
   children?: React.ReactElement | React.ReactElement[];
 }
@@ -34,6 +31,7 @@ const Head: React.FC<Props> = ({
   refresh,
   appleIconPath,
   appleIconSize = '192x192',
+  isAmp,
   ampServiceWorker,
   children,
 }) => (
@@ -47,7 +45,7 @@ const Head: React.FC<Props> = ({
         <link key="manifest" rel="manifest" />
       </Link>
     )}
-    {hrefCanonical && (
+    {!isAmp && hrefCanonical && (
       <Link href={hrefCanonical} key="canonical" passHref>
         <link key="canonical" rel="canonical" />
       </Link>
@@ -90,21 +88,13 @@ const Head: React.FC<Props> = ({
     {themeColor && (
       <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />
     )}
-    {ampServiceWorker && (
+    {isAmp && ampServiceWorker && (
       <script
         async
         custom-element="amp-install-serviceworker"
         src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"
       />
     )}
-    {/* {ampServiceWorker && (
-      // @ts-ignore
-      <amp-install-serviceworker
-        src={`${linkPrefix}/${serviceWorkerFilename}`}
-        layout="nodisplay"
-        data-iframe-src={`${linkPrefix}/${ampInstallServiceWorkerHtml}`}
-      />
-    )} */}
     {children}
   </NextHead>
 );

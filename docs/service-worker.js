@@ -1,31 +1,35 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
-    "revision": "2ec15b9540b62290296f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.ac7da73c077b2a5146b1.js",
+    "revision": "04b42b5cf5aeaf3d81b6"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/_app.js",
-    "revision": "69fdb7bf6b1324f6c9d1"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/_app.js",
+    "revision": "13eb357ab5bc530528e4"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/_error.js",
-    "revision": "3e999bf6d93df1fd222b"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/_error.js",
+    "revision": "fbbebab1a5c2ae6dd324"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/about.js",
-    "revision": "65cf4abda1caf12bb6a7"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/about.js",
+    "revision": "e524e9d5b2eb3b543055"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/amp-install-service-worker.js",
-    "revision": "76083c450ac329d42ad6"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/amp-install-service-worker.js",
+    "revision": "08f281699b12f062bfa0"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/count.js",
-    "revision": "e5a6a190dd3aad760ffc"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/count.js",
+    "revision": "eacb711ed65fde9c32e7"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/dn1ynTsNGg3ogTjc2bO8d/pages/stats.js",
-    "revision": "751e1adc676bee68750d"
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/index.js",
+    "revision": "8c11442c9e117404636a"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/pd71x3erEdUBX7QdBAKT0/pages/stats.js",
+    "revision": "5d37d4eb3aa0b36fecc6"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-5856a6fa252953fc3e00.js",
