@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/_app.js",
-    "revision": "478c3ea6a51e231f1ba2"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/_app.js",
+    "revision": "db2c5846b9ad86a6546c"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/_error.js",
-    "revision": "d8616c6d2d61b73bd8cd"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/_error.js",
+    "revision": "ce670afc44cc0574b738"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/about.js",
-    "revision": "dccf8e8f2e30fd106d47"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/about.js",
+    "revision": "f5d142bd7bcf9d6ef658"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/amp-install-service-worker.js",
-    "revision": "9be647b6002add19d693"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/amp-install-service-worker.js",
+    "revision": "2f80fd64247333dc6dd3"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/count.js",
-    "revision": "496758c9350608f2f57c"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/count.js",
+    "revision": "b53fc49d1943337c188f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/index.js",
-    "revision": "55a4c4ecb185a0fb05b8"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/index.js",
+    "revision": "87c72fb1d6cf639fa7ac"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/OIwaCSSHYstehwh9Sw--G/pages/stats.js",
-    "revision": "47b5b3f9c95f30cf2f81"
+    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/stats.js",
+    "revision": "b4014c9a8b9b9c7dc414"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.4e29e4f9ff3fb78e802e.js",
@@ -50,7 +50,6 @@ self.addEventListener('install', event => {
   const urls = [
     'https://cdn.ampproject.org/v0.js',
     'https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js',
-    'https://cdn.ampproject.org/shadow-v0.js'
   ];
   const cacheName = workbox.core.cacheNames.runtime;
   event.waitUntil(caches.open(cacheName).then(cache => cache.addAll(urls)));
