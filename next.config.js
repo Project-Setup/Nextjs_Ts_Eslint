@@ -38,10 +38,9 @@ module.exports = withManifest(
         },
         {
           urlPattern: ({ event }) => event.request.mode === 'navigate',
-          handler: 'NetworkFirst',
+          handler: 'CacheFirst',
           options: {
             cacheName: 'offlineCache',
-            networkTimeoutSeconds: 15,
             expiration: {
               maxEntries: 150,
               maxAgeSeconds: 30 * 24 * 60 * 60,

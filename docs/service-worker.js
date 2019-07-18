@@ -1,5 +1,29 @@
 self.__precacheManifest = [
   {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/_app.js",
+    "revision": "9f7273d6f501848e23a4"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/_error.js",
+    "revision": "002ab4c78a35609afb54"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/about.js",
+    "revision": "10cf02549e75f90c31ca"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/amp-install-serviceworker-script.js",
+    "revision": "7cd4f7e39658e0831687"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/count.js",
+    "revision": "871523758e434f771a00"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/NKxVUWzpB6_1-qTFXAamq/pages/stats.js",
+    "revision": "175fe1d4c583237a2c4e"
+  },
+  {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
     "revision": "2ec15b9540b62290296f"
   },
@@ -10,30 +34,6 @@ self.__precacheManifest = [
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
     "revision": "fba09cad31602b08916f"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/_app.js",
-    "revision": "85628b5f5424291e93f7"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/_error.js",
-    "revision": "4b70b53ef2efaed3e679"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/about.js",
-    "revision": "001390eb4f7306b68f7f"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/amp-install-serviceworker-script.js",
-    "revision": "44cadf7f34198139de38"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/count.js",
-    "revision": "c4cfee9c9af62175e2b9"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/stats.js",
-    "revision": "8e16e372726b9d154e9b"
   }
 ];
 
@@ -73,4 +73,4 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/^https?.*/, new workbox.strategies.NetworkFirst({ "cacheName":"offlineCache","networkTimeoutSeconds":15, plugins: [new workbox.expiration.Plugin({ maxEntries: 150, maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
-workbox.routing.registerRoute(({ event }) => event.request.mode === 'navigate', new workbox.strategies.NetworkFirst({ "cacheName":"offlineCache","networkTimeoutSeconds":15, plugins: [new workbox.expiration.Plugin({ maxEntries: 150, maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
+workbox.routing.registerRoute(({ event }) => event.request.mode === 'navigate', new workbox.strategies.CacheFirst({ "cacheName":"offlineCache", plugins: [new workbox.expiration.Plugin({ maxEntries: 150, maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
