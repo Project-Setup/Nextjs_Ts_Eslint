@@ -12,28 +12,28 @@ self.__precacheManifest = [
     "revision": "fba09cad31602b08916f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/_app.js",
-    "revision": "3f6bb52f8b1f26c8ff62"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/_app.js",
+    "revision": "85628b5f5424291e93f7"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/_error.js",
-    "revision": "d15eda00f316475f7cdd"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/_error.js",
+    "revision": "4b70b53ef2efaed3e679"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/about.js",
-    "revision": "02abaac2a9cd80593ee2"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/about.js",
+    "revision": "001390eb4f7306b68f7f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/amp-install-serviceworker-script.js",
-    "revision": "9c6e82c4208f3c946117"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/amp-install-serviceworker-script.js",
+    "revision": "44cadf7f34198139de38"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/count.js",
-    "revision": "40274909fcb03bb052fb"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/count.js",
+    "revision": "c4cfee9c9af62175e2b9"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/stats.js",
-    "revision": "4b489cda8f710219931b"
+    "url": "/Nextjs_Ts_Eslint/_next/static/uae83DCvw-8igPU6HmCqh/pages/stats.js",
+    "revision": "8e16e372726b9d154e9b"
   }
 ];
 
@@ -56,6 +56,8 @@ importScripts(
   
 );
 
+workbox.navigationPreload.enable();
+
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
@@ -70,4 +72,5 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/^https?.*/, new workbox.strategies.NetworkFirst({ "cacheName":"offlineCache", plugins: [new workbox.expiration.Plugin({ maxEntries: 200, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute(/^https?.*/, new workbox.strategies.NetworkFirst({ "cacheName":"offlineCache","networkTimeoutSeconds":15, plugins: [new workbox.expiration.Plugin({ maxEntries: 150, maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');
+workbox.routing.registerRoute(({ event }) => event.request.mode === 'navigate', new workbox.strategies.NetworkFirst({ "cacheName":"offlineCache","networkTimeoutSeconds":15, plugins: [new workbox.expiration.Plugin({ maxEntries: 150, maxAgeSeconds: 2592000, purgeOnQuotaError: false }), new workbox.cacheableResponse.Plugin({ statuses: [ 0, 200 ] })] }), 'GET');

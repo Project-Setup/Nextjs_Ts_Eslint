@@ -19,14 +19,35 @@ module.exports = withManifest(
       modifyURLPrefix: {
         app: linkPrefix,
       },
+      navigationPreload: true,
       runtimeCaching: [
         {
           urlPattern: /^https?.*/,
           handler: 'NetworkFirst',
           options: {
             cacheName: 'offlineCache',
+            networkTimeoutSeconds: 15,
             expiration: {
-              maxEntries: 200,
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+          },
+        },
+        {
+          urlPattern: ({ event }) => event.request.mode === 'navigate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'offlineCache',
+            networkTimeoutSeconds: 15,
+            expiration: {
+              maxEntries: 150,
+              maxAgeSeconds: 30 * 24 * 60 * 60,
+            },
+            cacheableResponse: {
+              statuses: [0, 200],
             },
           },
         },
