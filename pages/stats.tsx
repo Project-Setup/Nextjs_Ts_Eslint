@@ -34,7 +34,7 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
       <ManifestHead
         title="Nextjs Typescript Eslint testing"
         themeColor="red"
-        hrefPage="/stats"
+        hrefCanonical="/stats"
         favIconPath="/static/icons/favicon.ico"
         appleIconPath="/static/icons/icon192x192.png"
         hrefManifest="/static/manifest/manifest.json"
@@ -47,8 +47,13 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
       <button type="button" onClick={minus5}>
         minus 5
       </button>
+      <br />
       <Link href="/" prefetch={false}>
         <a>index</a>
+      </Link>
+      <br />
+      <Link href="/about" prefetch={false}>
+        <a>about</a>
       </Link>
     </main>
   );
