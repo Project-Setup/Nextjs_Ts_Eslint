@@ -1,20 +1,60 @@
-# Project Setup with NextJs, Typescript, Eslint, Prettier
-This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest, Enzyme, Styled-JSX, Github-Pages, service-worker, web manifest, etc. NextJs made serverside rendering React framework so easy with much less boilerplate code.
+# PWA Project Setup with NextJs, Typescript, Eslint
+
+This is an example project setup.
+Packages used:
+* NextJs
+* Typescript
+* Eslint, Prettier
+* Jest, Enzyme
+* Styled-Jsx
+* Next-Offline
+* Next-Manifest
+
+## Usage of this example setup
+
+0. setup node env
+    ```sh
+    nvm use
+    npm install
+    ```
+1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `pages`
+2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
+3. preview dev progress on `http://localhost:3000/`
+    ```sh
+    npm run dev
+    ```
+4. deploy the gh-pages
+    ```sh
+    npm run deploy
+    ```
+5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
 
 ## Setup
 
 0. install nvm in the os
-1. `nvm install node`
-2. `git init`
-3. add `.gitignore`
-4. `node -v > .nvmrc`
-5. `npm init -y`
+1. 
+   ```sh
+   nvm install node
+   git init
+   ```
+2. add `.gitignore`
+4. 
+    ```sh
+    node -v > .nvmrc
+    ```
+4. 
+    ```sh
+    npm init -y
+    ```
 
 ### [NextJs](https://github.com/zeit/next.js#how-to-use)
 
-6. `npm i -P next react react-dom`
-7. add a script to your package.json like this:
+1. 
+    ```sh
+    npm i -P next react react-dom
     ```
+2. add a script to your package.json like this:
+    ```json
     {
       "scripts": {
         "dev": "next",
@@ -26,9 +66,12 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 
 ### [Typescript](https://github.com/zeit/next.js#typescript)
 
-8. `npm i -D typescript @types/react @types/react-dom @types/node`
-9. create `tsconfig.json`
+1.
+    ```sh
+    npm i -D typescript @types/react @types/react-dom @types/node`
     ```
+2. create `tsconfig.json`
+    ```json
     {
       "compilerOptions": {
         "allowJs": true,
@@ -69,17 +112,20 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Create Pages](https://github.com/zeit/next.js#typescript)
-10. create `pages` folder
-11. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
+1. create `pages` folder
+2. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
 
 
 ### [Eslint and Prettier](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
 
-12. `npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react`
-13. `npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks`
-14. `npm i -D prettier eslint-config-prettier eslint-plugin-prettier`
-15. create `.eslintrc.js`
+1. 
+    ```sh
+    npm i -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-react
+    npm i -D eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react-hooks
+    npm i -D prettier eslint-config-prettier eslint-plugin-prettier
     ```
+2. create `.eslintrc.js`
+    ```js
     module.exports =  {
       parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
       extends:  [
@@ -154,8 +200,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       },
     }
     ```
-16. create `.prettierrc.js`
-    ```
+3. create `.prettierrc.js`
+    ```js
     module.exports =  {
       semi:  true,
       trailingComma:  'es5',
@@ -166,19 +212,25 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
-17. `npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react`
-18. add scripts in `package.json`
+1. 
+    ```sh
+    npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react
     ```
+2. add scripts in `package.json`
+    ```json
     "scripts": {
       "test": "jest",
       "test:watch": "jest --watch",
       "test:coverage": "jest --coverage"
     },
     ```
-19. `npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json`
-20. `npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest`
-21. create `jest.config.js`
+3. 
+    ```sh
+    npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json
+    npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest
     ```
+4. create `jest.config.js`
+    ```js
     module.exports = {
       moduleFileExtensions: ['ts', 'tsx', 'js'],
       testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',
@@ -206,14 +258,14 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       },
     };
     ```
-22. create `babel.config.js`
-    ```
+5. create `babel.config.js`
+    ```js
     module.exports = {
       presets: ['next/babel'],
     };
     ```
-23. create `jest.setup.js`
-    ```
+6. create `jest.setup.js`
+    ```js
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
     // Make sure you can use "publicRuntimeConfig" within tests.
@@ -223,8 +275,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     // setConfig({ publicRuntimeConfig });
     Enzyme.configure({ adapter: new Adapter() });
     ```
-24. change `env` in `.eslintrc.js`
-    ```
+7. change `env` in `.eslintrc.js`
+    ```js
     env: {
             browser: true,
             node: true,
@@ -233,10 +285,13 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Styled-JSX](https://nextjs.org/blog/styling-next-with-styled-jsx)
-25. `npm i -P styled-jsx`
-26. `npm i -D @types/styled-jsx`
-27. change `babel.config.js`
+1. 
+    ```sh
+    npm i -P styled-jsx
+    npm i -D @types/styled-jsx
     ```
+2. change `babel.config.js`
+    ```js
     module.exports = {
       presets: [
         [
@@ -254,8 +309,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
 ### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
 (deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
 
-28. create `linkPrefix` in `next.publicRuntimeConfig.js`
-    ```
+1. create `linkPrefix` in `next.publicRuntimeConfig.js`
+    ```js
     const isProd = process.env.NODE_ENV === 'production';
     const prodAssetPrefix = '/{folder}';
 
@@ -265,8 +320,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       prodAssetPrefix,
     };
     ```
-29. create `assetPrefix` in `next.config.js`
-```
+2. create `assetPrefix` in `next.config.js`
+    ```js
     const publicRuntimeConfig = require('./ next.publicRuntimeConfig');
     const { linkPrefix, prodAssetPrefix } = publicRuntimeConfig;
 
@@ -274,9 +329,9 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       assetPrefix: linkPrefix,
       publicRuntimeConfig,
     };
-```
-30. change `as` prop in `next/Link` to add `linkPrefix`
     ```
+3. change `as` prop in `next/Link` to add `linkPrefix`
+    ```tsx
     // ...
     import getConfig from 'next/config';
     import Link from 'next/link';
@@ -289,16 +344,23 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     );
     // ...
     ```
-31. change `scripts` in `package.json`
-    ```
-    "export": "npm run build && next export",
-    "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
+4. change `scripts` in `package.json`
+    ```json
+    {
+      "scripts": {
+        "export": "npm run build && next export",
+        "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll",
+      }
+    }
     ```
 
 ### [ServiceWorker](https://gist.github.com/kosamari/7c5d1e8449b2fbc97d372675f16b566e)
-32. `npm i -P next-offline`
-33. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+1. 
+    ```sh
+    npm i -P next-offline
     ```
+2. add to `next.config.js` to make `service-worker.js` available at the root of project folder
+    ```js
     const withOffline = require('next-offline');
     //...
 
@@ -322,8 +384,8 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       //...
     });
     ```
-34. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
-    ```
+3. add `<link rel="canonical" href="/{folder}" />` to `<Head />` to force redirected to `/{folder}` and allow scope of service worker works under `/{folder}/` (without [adding `service-worker-allowed` header in repsonse header](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60) to request for greater scope)
+    ```tsx
     <Head>
       <Link href="/" passHref>
         <link rel="canonical" />
@@ -332,9 +394,12 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
     ```
 
 ### [Web Mainfest](https://www.npmjs.com/package/next-manifest)
-35. `npm i -P next-manifest`
-36. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+1. 
+    ```sh
+    npm i -P next-manifest
     ```
+2. add to `next.config.js` to make `manifest.json` available at `/static/manifest/manifest.json`
+    ```js
     //...
     const withManifest = require('next-manifest');
     //...
@@ -372,12 +437,10 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       })
     );
     ```
-37. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
-    ```
+3. Create `<ManifestHead>` to hold mainfest related head elements and add support to other browsers
+    ```tsx
     //...
     import NextHead from 'next/head';
-    // @ts-ignore
-    import Manifest from 'next-manifest/manifest';
     import Link, { linkPrefix } from '../Link';
 
     //...
@@ -386,64 +449,77 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
       title = '',
       description = title,
       charset = 'utf-8',
-      hrefPage,
+      hrefCanonical,
       hrefManifest,
-      viewportScale,
       themeColor,
       favIconPath,
       keywords = title,
       refresh,
       appleIconPath,
       appleIconSize = '192x192',
+      isAmp,
       children,
     }) => (
       <NextHead>
-        <title>{title}</title>
-        <meta charSet={charset} />
-        <meta name="description" content={description} />
-        <Link href={hrefManifest} passHref>
-          <Manifest themeColor={themeColor} initialScale={viewportScale} />
-        </Link>
-        {hrefPage && (
-          <Link href={hrefPage} passHref>
-            <link rel="canonical" />
+        <title key="title">{title}</title>
+        <meta charSet={charset} key="charSet" />
+        <meta name="description" key="description" content={description} />
+        {themeColor && <meta name="theme-color" key="theme-color" content={themeColor} />}
+        {hrefManifest && (
+          <Link href={hrefManifest} key="manifest" passHref>
+            <link key="manifest" rel="manifest" />
           </Link>
         )}
-
-        {/* favicon link */}
+        {!isAmp && hrefCanonical && (
+          <Link href={hrefCanonical} key="canonical" passHref>
+            <link key="canonical" rel="canonical" />
+          </Link>
+        )}
         {favIconPath && (
-          <Link href={favIconPath} passHref>
-            <link rel="shortcut icon" type="image/x-icon" />
+          <Link href={favIconPath} key="fav-icon" passHref>
+            <link rel="shortcut icon" key="fav-icon" type="image/x-icon" />
           </Link>
         )}
-
-        <meta name="keywords" content={keywords} />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        {refresh && <meta httpEquiv="refresh" content={`${refresh}`} />}
+        <meta name="keywords" key="keywords" content={keywords} />
+        <meta httpEquiv="X-UA-Compatible" key="ua-compatible" content="ie=edge" />
+        {refresh && <meta httpEquiv="refresh" key="refresh" content={`${refresh}`} />}
 
         {/* for safari */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
-        <meta name="apple-mobile-web-app-title" content="With Manifest" />
+        <meta name="apple-mobile-web-app-capable" key="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          key="apple-mobile-web-app-status-bar-style"
+          content="blue"
+        />
+        <meta
+          name="apple-mobile-web-app-title"
+          key="apple-mobile-web-app-title"
+          content="With Manifest"
+        />
         {appleIconPath && appleIconSize && (
-          <Link href={appleIconPath} passHref>
-            <link rel="apple-touch-icon" sizes={appleIconSize} />
+          <Link href={appleIconPath} key="apple-touch-icon" passHref>
+            <link rel="apple-touch-icon" key="apple-touch-icon" sizes={appleIconSize} />
           </Link>
         )}
 
         {/* for IE */}
         {appleIconPath && (
-          <meta name="msapplication-TitleImage" content={`${linkPrefix}${appleIconPath}`} />
+          <meta
+            name="msapplication-TitleImage"
+            key="msapplication-TitleImage"
+            content={`${linkPrefix}${appleIconPath}`}
+          />
         )}
-        {themeColor && <meta name="msapplication-TitleColor" content={themeColor} />}
-
+        {themeColor && (
+          <meta name="msapplication-TitleColor" key="msapplication-TitleColor" content={themeColor} />
+        )}
         {children}
       </NextHead>
     );
     //...
     ```
-38. import the `<ManifestHead>` in the page
-    ```
+4. import the `<ManifestHead>` in the page
+    ```tsx
     //...
     import ManifestHead from '../src/components/Head/ManifestHead';
     import Link from '../src/components/Link';
@@ -452,18 +528,11 @@ This is an example project setup with NextJs, Typescript, Eslint, Prettier, Jest
         <ManifestHead
           title="index"
           themeColor="red"
-          hrefPage="/"
+          hrefCanonical="/"
           favIconPath="/static/icons/favicon.ico"
           appleIconPath="/static/icons/icon192x192.png"
           hrefManifest="/static/manifest/manifest.json"
         />
     //..
     ```
-39. Make icons files (favicon.ico, icon*.png) available in the static folder
-
-## Usage of this example setup
-1. remove unwanted files in `static/`, `src/utils`, `src/__tests/`, `src/components`, and `pages`
-2. modify `prodAssetPrefix` in `next.publicRuntimeConfig.js`
-3. continue coding with `npm run dev`
-4. `npm run deploy` to deploy the gh-pages
-5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
+5. Make icons files (favicon.ico, icon*.png) available in the static folder

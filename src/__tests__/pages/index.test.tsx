@@ -1,6 +1,6 @@
-import { ReactWrapper } from 'enzyme';
+import React from 'react';
+import { mount, ReactWrapper } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import appWrapper from '../../utils/appWrapper';
 import Index from '../../../pages/index';
 
 describe('Pages', () => {
@@ -8,11 +8,7 @@ describe('Pages', () => {
     let TestIndexWrapper: ReactWrapper;
     it('should render without throwing an error', () => {
       act(() => {
-        // TestIndexWrapper = mount(<Index userAgent="test" />);
-        TestIndexWrapper = appWrapper({
-          Component: Index,
-          pageProps: { userAgent: 'test' },
-        });
+        TestIndexWrapper = mount(<Index />);
       });
       expect(TestIndexWrapper.find('span').text()).toBe('This is index');
     });
