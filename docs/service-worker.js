@@ -4,40 +4,36 @@ self.__precacheManifest = [
     "revision": "2ec15b9540b62290296f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/_app.js",
-    "revision": "e75d509faf8ce9c20bbe"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/_error.js",
-    "revision": "4934c9f5d125992cb0bb"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/about.js",
-    "revision": "6fd3c4a412bb4a0c7b75"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/amp-install-serviceworker-script.js",
-    "revision": "068bcf11c24c7dfa7c4b"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/count.js",
-    "revision": "19381ced3be6768009f4"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/index.js",
-    "revision": "ad892d64555ce2b4839d"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/stats.js",
-    "revision": "e73fe5579e43ca6032f9"
-  },
-  {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2570a7045a83e31895c5.js",
     "revision": "5d8a4c957e9acb35cfd5"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
     "revision": "fba09cad31602b08916f"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/_app.js",
+    "revision": "3f6bb52f8b1f26c8ff62"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/_error.js",
+    "revision": "d15eda00f316475f7cdd"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/about.js",
+    "revision": "02abaac2a9cd80593ee2"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/amp-install-serviceworker-script.js",
+    "revision": "9c6e82c4208f3c946117"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/count.js",
+    "revision": "40274909fcb03bb052fb"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/yulZqqcU1iSJQLOV8fJoz/pages/stats.js",
+    "revision": "4b489cda8f710219931b"
   }
 ];
 
