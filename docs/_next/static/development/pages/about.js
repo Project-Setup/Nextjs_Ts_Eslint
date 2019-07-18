@@ -6856,43 +6856,6 @@ module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
 /***/ }),
 
-/***/ "./node_modules/next-manifest/manifest.js":
-/*!************************************************!*\
-  !*** ./node_modules/next-manifest/manifest.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-const {createElement} = __webpack_require__(/*! react */ "./node_modules/react/index.js")
-
-const Manifest = ({
-  href = '/static/manifest/manifest.json',
-  themeColor = '#FFFFFF',
-  initialScale = '1'
-}) => {
-  const head = [
-    createElement('meta', {
-      name: "viewport",
-      content: "width=device-width",
-      "initial-scale": initialScale
-    }),
-    createElement('meta', {
-      name: "theme-color",
-      content: themeColor
-    }),
-    createElement('link', {
-    rel: "manifest",
-    href: href
-  })]
-
-  return head
-}
-
-module.exports = Manifest
-
-
-/***/ }),
-
 /***/ "./node_modules/next-server/dist/lib/amp-context.js":
 /*!**********************************************************!*\
   !*** ./node_modules/next-server/dist/lib/amp-context.js ***!
@@ -12848,7 +12811,7 @@ var Page = function Page() {
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_2__["default"], {
     title: "Nextjs Typescript Eslint",
     themeColor: "red",
-    hrefPage: "/about",
+    hrefCanonical: "/about",
     favIconPath: "/static/icons/favicon.ico",
     appleIconPath: "/static/icons/icon192x192.png",
     hrefManifest: "/static/manifest/manifest.json",
@@ -12904,13 +12867,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "./node_modules/next-server/dist/lib/head.js");
 /* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_manifest_manifest__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next-manifest/manifest */ "./node_modules/next-manifest/manifest.js");
-/* harmony import */ var next_manifest_manifest__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_manifest_manifest__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Link__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Link */ "./src/components/Link/index.tsx");
+/* harmony import */ var _Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Link */ "./src/components/Link/index.tsx");
 var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/components/Head/ManifestHead.tsx";
 
-
- // @ts-ignore
 
 
 
@@ -12922,9 +12881,8 @@ var Head = function Head(_ref) {
       description = _ref$description === void 0 ? title : _ref$description,
       _ref$charset = _ref.charset,
       charset = _ref$charset === void 0 ? 'utf-8' : _ref$charset,
-      hrefPage = _ref.hrefPage,
+      hrefCanonical = _ref.hrefCanonical,
       hrefManifest = _ref.hrefManifest,
-      viewportScale = _ref.viewportScale,
       themeColor = _ref.themeColor,
       favIconPath = _ref.favIconPath,
       _ref$keywords = _ref.keywords,
@@ -12933,159 +12891,187 @@ var Head = function Head(_ref) {
       appleIconPath = _ref.appleIconPath,
       _ref$appleIconSize = _ref.appleIconSize,
       appleIconSize = _ref$appleIconSize === void 0 ? '192x192' : _ref$appleIconSize,
+      isAmp = _ref.isAmp,
       children = _ref.children;
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_head__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("title", {
+    key: "title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, title), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    charSet: charset,
+    key: "charSet",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 38
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("title", {
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    name: "description",
+    key: "description",
+    content: description,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 39
     },
     __self: this
-  }, title), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    charSet: charset,
+  }), themeColor && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    name: "theme-color",
+    key: "theme-color",
+    content: themeColor,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 40
     },
     __self: this
-  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    name: "description",
-    content: description,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 41
-    },
-    __self: this
-  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), hrefManifest && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
     href: hrefManifest,
+    key: "manifest",
     passHref: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 42
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(next_manifest_manifest__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    themeColor: themeColor,
-    initialScale: viewportScale,
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
+    key: "manifest",
+    rel: "manifest",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 43
     },
     __self: this
-  })), hrefPage && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: hrefPage,
+  })), !isAmp && hrefCanonical && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: hrefCanonical,
+    key: "canonical",
     passHref: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 46
-    },
-    __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
-    rel: "canonical",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 47
     },
     __self: this
-  })), favIconPath && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    href: favIconPath,
-    passHref: true,
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
+    key: "canonical",
+    rel: "canonical",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 48
     },
     __self: this
-  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
-    rel: "shortcut icon",
-    type: "image/x-icon",
+  })), favIconPath && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    href: favIconPath,
+    key: "fav-icon",
+    passHref: true,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 52
     },
     __self: this
-  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    name: "keywords",
-    content: keywords,
+  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
+    rel: "shortcut icon",
+    key: "fav-icon",
+    type: "image/x-icon",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 53
     },
     __self: this
-  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    httpEquiv: "X-UA-Compatible",
-    content: "ie=edge",
+  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    name: "keywords",
+    key: "keywords",
+    content: keywords,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 56
     },
     __self: this
-  }), refresh && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    httpEquiv: "refresh",
-    content: "".concat(refresh),
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    httpEquiv: "X-UA-Compatible",
+    key: "ua-compatible",
+    content: "ie=edge",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 57
     },
     __self: this
-  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    name: "apple-mobile-web-app-capable",
-    content: "yes",
+  }), refresh && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    httpEquiv: "refresh",
+    key: "refresh",
+    content: "".concat(refresh),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 58
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    name: "apple-mobile-web-app-status-bar-style",
-    content: "blue",
+    name: "apple-mobile-web-app-capable",
+    key: "apple-mobile-web-app-capable",
+    content: "yes",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 61
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
-    name: "apple-mobile-web-app-title",
-    content: "With Manifest",
+    name: "apple-mobile-web-app-status-bar-style",
+    key: "apple-mobile-web-app-status-bar-style",
+    content: "blue",
     __source: {
       fileName: _jsxFileName,
       lineNumber: 62
     },
     __self: this
-  }), appleIconPath && appleIconSize && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
+    name: "apple-mobile-web-app-title",
+    key: "apple-mobile-web-app-title",
+    content: "With Manifest",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: this
+  }), appleIconPath && appleIconSize && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_Link__WEBPACK_IMPORTED_MODULE_3__["default"], {
     href: appleIconPath,
+    key: "apple-touch-icon",
     passHref: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 73
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("link", {
     rel: "apple-touch-icon",
+    key: "apple-touch-icon",
     sizes: appleIconSize,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 74
     },
     __self: this
   })), appleIconPath && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
     name: "msapplication-TitleImage",
-    content: "".concat(_Link__WEBPACK_IMPORTED_MODULE_4__["linkPrefix"]).concat(appleIconPath),
+    key: "msapplication-TitleImage",
+    content: "".concat(_Link__WEBPACK_IMPORTED_MODULE_3__["linkPrefix"]).concat(appleIconPath),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 80
     },
     __self: this
   }), themeColor && Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("meta", {
     name: "msapplication-TitleColor",
+    key: "msapplication-TitleColor",
     content: themeColor,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 87
     },
     __self: this
   }), children);
@@ -13150,7 +13136,7 @@ var PrefixedLink = function PrefixedLink(_ref) {
 
 /***/ }),
 
-/***/ 2:
+/***/ 3:
 /*!**********************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fabout&absolutePagePath=%2FUsers%2Fdavid.chen%2FDocuments%2Fprojects%2Fnext9%2Fpages%2Fabout.tsx ***!
   \**********************************************************************************************************************************************/
@@ -13173,5 +13159,5 @@ module.exports = dll_829b10deddf10e1653a8;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[3,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=about.js.map
