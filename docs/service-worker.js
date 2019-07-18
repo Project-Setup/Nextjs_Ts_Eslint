@@ -4,24 +4,24 @@ self.__precacheManifest = [
     "revision": "9ededcd86553977a7903"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/e-XVaeFc4BtlclDSCxF6J/pages/_app.js",
-    "revision": "6f84c1f20c0776d6cbf5"
+    "url": "/Nextjs_Ts_Eslint/_next/static/kxCUC-FJpRxLjxXnNdhig/pages/_app.js",
+    "revision": "9e23e5a11f485967a553"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/e-XVaeFc4BtlclDSCxF6J/pages/_error.js",
-    "revision": "f69af289c8252595ff56"
+    "url": "/Nextjs_Ts_Eslint/_next/static/kxCUC-FJpRxLjxXnNdhig/pages/_error.js",
+    "revision": "b84f0377695938e09a3d"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/e-XVaeFc4BtlclDSCxF6J/pages/about.js",
-    "revision": "be1c0945ff8552875f3c"
+    "url": "/Nextjs_Ts_Eslint/_next/static/kxCUC-FJpRxLjxXnNdhig/pages/about.js",
+    "revision": "68b5c5a4bc5f0296fad5"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/e-XVaeFc4BtlclDSCxF6J/pages/index.js",
-    "revision": "d02c354acd9211004f93"
+    "url": "/Nextjs_Ts_Eslint/_next/static/kxCUC-FJpRxLjxXnNdhig/pages/index.js",
+    "revision": "4462152699b8bb2fd792"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/e-XVaeFc4BtlclDSCxF6J/pages/stats.js",
-    "revision": "0fbc6da38914cefec857"
+    "url": "/Nextjs_Ts_Eslint/_next/static/kxCUC-FJpRxLjxXnNdhig/pages/stats.js",
+    "revision": "fd3ef89a316851fc436c"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-d7b9dd42b9676d74e37a.js",
