@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import get from 'lodash/get';
 import Loading from '../src/components/Loading';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
@@ -22,7 +21,7 @@ const storeCallback = (store: Store) => {
 };
 
 const mapStateToProps = (state: State) => ({
-  numCount: get(state, 'count.count', 0),
+  numCount: (state.count || {}).count || 0,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

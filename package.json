@@ -36,7 +36,6 @@
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.14",
-    "lodash": "^4.17.14",
     "next": "^9.0.0",
     "next-manifest": "^2.0.0",
     "next-offline": "^4.0.2",

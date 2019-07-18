@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import get from 'lodash/get';
 import ManifestHead from '../src/components/Head/ManifestHead';
 import Link from '../src/components/Link';
 import dynamicStoreCallbackWrap from '../src/utils/redux/dynamicStoreCallbackWrap';
@@ -20,7 +19,7 @@ const storeCallback = (store: Store) => {
 };
 
 const mapStateToProps = (state: State) => ({
-  numstats: get(state, 'stats.stats', 0),
+  numstats: (state.stats || {}).stats || 0,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
