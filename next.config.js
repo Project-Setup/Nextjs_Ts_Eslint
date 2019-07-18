@@ -80,6 +80,9 @@ module.exports = withManifest(
 
     // cdn settings
     assetPrefix: linkPrefix,
+    amp: {
+      canonicalBase: linkPrefix,
+    },
     publicRuntimeConfig,
   })
 );
