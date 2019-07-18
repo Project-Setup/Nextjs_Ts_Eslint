@@ -32,7 +32,8 @@ module.exports =  {
     'react/jsx-first-prop-new-line': 0,
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-object-literal-type-assertion': ['error', {'allowAsParameter': true}],
+    '@typescript-eslint/no-object-literal-type-assertion': ['error', { 'allowAsParameter': true }],
+    '@typescript-eslint/no-namespace': 'off',
     'jsx-a11y/anchor-is-valid': [ 'error', {
       'components': [ 'Link' ],
       'specialLink': [ 'hrefLeft', 'hrefRight' ],

@@ -1,35 +1,43 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/-Vfh05KcPaKkWkqOCiKy3/pages/_app.js",
-    "revision": "17f53919f41c65a812bb"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
+    "revision": "2ec15b9540b62290296f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/-Vfh05KcPaKkWkqOCiKy3/pages/_error.js",
-    "revision": "81770bbe3dbe9dbcf2c3"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/_app.js",
+    "revision": "e75d509faf8ce9c20bbe"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/-Vfh05KcPaKkWkqOCiKy3/pages/about.js",
-    "revision": "64515e907edb524b0017"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/_error.js",
+    "revision": "4934c9f5d125992cb0bb"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/-Vfh05KcPaKkWkqOCiKy3/pages/index.js",
-    "revision": "6151d550fe483ef19c48"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/about.js",
+    "revision": "6fd3c4a412bb4a0c7b75"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/-Vfh05KcPaKkWkqOCiKy3/pages/stats.js",
-    "revision": "b95f3edab3cd54ebba34"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/amp-install-serviceworker-script.js",
+    "revision": "068bcf11c24c7dfa7c4b"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.962e3a30400cc7a5fe9a.js",
-    "revision": "9ededcd86553977a7903"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/count.js",
+    "revision": "19381ced3be6768009f4"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-d7b9dd42b9676d74e37a.js",
-    "revision": "b841b48f29e2a9fe0220"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/index.js",
+    "revision": "ad892d64555ce2b4839d"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
-    "revision": "b0a559ac8f238b6fd6f7"
+    "url": "/Nextjs_Ts_Eslint/_next/static/jHS2XhDcZksgUq1NoFWaB/pages/stats.js",
+    "revision": "e73fe5579e43ca6032f9"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2570a7045a83e31895c5.js",
+    "revision": "5d8a4c957e9acb35cfd5"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
+    "revision": "fba09cad31602b08916f"
   }
 ];
 
