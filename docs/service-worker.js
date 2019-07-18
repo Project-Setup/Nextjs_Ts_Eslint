@@ -1,31 +1,31 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/_app.js",
-    "revision": "db2c5846b9ad86a6546c"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/_app.js",
+    "revision": "8b86f9cf8649a6fba1f3"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/_error.js",
-    "revision": "ce670afc44cc0574b738"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/_error.js",
+    "revision": "293d1dc77df6366ca75f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/about.js",
-    "revision": "f5d142bd7bcf9d6ef658"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/about.js",
+    "revision": "eb63e3c7b0da19c0efd8"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/amp-install-service-worker.js",
-    "revision": "2f80fd64247333dc6dd3"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/amp-install-service-worker.js",
+    "revision": "d26503b18f69eb9d4d69"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/count.js",
-    "revision": "b53fc49d1943337c188f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/count.js",
+    "revision": "d824df8948d526b322ab"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/index.js",
-    "revision": "87c72fb1d6cf639fa7ac"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/index.js",
+    "revision": "a9f9efef1172430671e4"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/8vw_zS4U0YWovlt0kc9ao/pages/stats.js",
-    "revision": "b4014c9a8b9b9c7dc414"
+    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/stats.js",
+    "revision": "00250ede6e3584eac1b7"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.4e29e4f9ff3fb78e802e.js",

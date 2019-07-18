@@ -64,6 +64,7 @@ const Page: FC = () => {
       <Link href="/stats">
         <a>stats</a>
       </Link>
+      <br />
       <Link href="/about">
         <a>about</a>
       </Link>
