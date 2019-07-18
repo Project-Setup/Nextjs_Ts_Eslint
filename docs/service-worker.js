@@ -1,35 +1,35 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/_app.js",
-    "revision": "8b86f9cf8649a6fba1f3"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/_error.js",
-    "revision": "293d1dc77df6366ca75f"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/about.js",
-    "revision": "eb63e3c7b0da19c0efd8"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/amp-install-service-worker.js",
-    "revision": "d26503b18f69eb9d4d69"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/count.js",
-    "revision": "d824df8948d526b322ab"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/index.js",
-    "revision": "a9f9efef1172430671e4"
-  },
-  {
-    "url": "/Nextjs_Ts_Eslint/_next/static/W1sA4XejLrAv1DAcxEj0W/pages/stats.js",
-    "revision": "00250ede6e3584eac1b7"
-  },
-  {
     "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.4e29e4f9ff3fb78e802e.js",
     "revision": "a6b0251d3dcab7786fef"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/_app.js",
+    "revision": "f66bf73d2c69ddc08f6d"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/_error.js",
+    "revision": "570dea3ce736ef3d871e"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/about.js",
+    "revision": "4678c334ee7366f72b40"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/amp-install-service-worker.js",
+    "revision": "23a3f92ecd6f325a6f8f"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/count.js",
+    "revision": "ba3b422d258e2f482d54"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/index.js",
+    "revision": "b91b60dc2c7ee85dfc3d"
+  },
+  {
+    "url": "/Nextjs_Ts_Eslint/_next/static/irhVGr2YQVFxYrMjsKsUv/pages/stats.js",
+    "revision": "2e8a91786bb00e4c515f"
   },
   {
     "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2d7b27a6487bffc1796a.js",

@@ -49,6 +49,7 @@ export const Page: FC<Props> = ({ numstats, minus5, add8 }) => {
       <button type="button" onClick={minus5}>
         minus 5
       </button>
+      <br />
       <Link href="/" prefetch={false}>
         <a>index</a>
       </Link>
