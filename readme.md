@@ -5,7 +5,6 @@ Packages used:
 * NextJs
 * Typescript
 * Redux
-* Redux-Saga
 * Eslint, Prettier
 * Jest, Enzyme
 * Emotion
