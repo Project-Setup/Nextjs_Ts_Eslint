@@ -37,7 +37,7 @@ export const Page: FC<Props> = ({ numCount, minus3, add2 }) => {
       <ManifestHead
         title="Nextjs Typescript Eslint count"
         themeColor="red"
-        hrefCanonical="/"
+        hrefCanonical="/count"
         favIconPath="/static/icons/favicon.ico"
         appleIconPath="/static/icons/icon192x192.png"
         hrefManifest="/static/manifest/manifest.json"
