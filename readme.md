@@ -1,14 +1,18 @@
-# PWA Project Setup with NextJs, Typescript, Eslint
+# Github PWA Project Setup with NextJs, Typescript, Redux, AMP etc.
+
+**Go to different branches for different Project Setup**
+- `pwa-amp` -- with Amp, Redux-Saga, Emotion
+- `redux-saga` -- with Redux-Saga, Emotion
+- `redux-code-splitting` -- with Redux, Emotion
+- `emotion` -- with Emotion
+- `styled-jsx` -- with built-in Styled-JSX
 
 This is an example project setup.
-Packages used:
+Packages used for all branches:
 * NextJs
 * Typescript
-* Redux
-* Redux-Saga
 * Eslint, Prettier
 * Jest, Enzyme
-* Emotion
 * Next-Offline
 * Next-Manifest
 
@@ -25,11 +29,12 @@ Packages used:
     ```sh
     npm run dev
     ```
-4. deploy the gh-pages
+4. read [Setup](#Setup) for notes
+5. deploy the gh-pages
     ```sh
     npm run deploy
     ```
-5. merge to github master branch and use `/docs` for gh-pages in github project repo settings
+6. merge to github master branch and use `/docs` for gh-pages in github project repo settings
 
 ## Setup
 
