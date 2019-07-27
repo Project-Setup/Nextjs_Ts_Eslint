@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextComponentType } from 'next';
-import { Store } from 'redux';
+import { Store, Action, AnyAction } from 'redux';
 import { END, Task } from 'redux-saga';
 import { TransformedApp, WithStoreAppContext, TransformedAppProps } from './withRedux';
 
@@ -12,9 +12,11 @@ export interface SagaTasksProp {
   sagaTasks: SagaTasks;
 }
 
-export interface StoreWithSaga extends Store, SagaTasksProp {}
+export interface StoreWithSaga<A extends Action = AnyAction> extends Store<any, A>, SagaTasksProp {}
 
-function withReduxSaga<S extends StoreWithSaga = StoreWithSaga>(BaseElement: TransformedApp<S>) {
+function withReduxSaga<A extends Action = AnyAction, S extends StoreWithSaga<A> = StoreWithSaga<A>>(
+  BaseElement: TransformedApp<S>
+) {
   const WrappedElement: NextComponentType<
     WithStoreAppContext<S>,
     any,
@@ -31,7 +33,7 @@ function withReduxSaga<S extends StoreWithSaga = StoreWithSaga>(BaseElement: Tra
 
     // Stop saga on the server
     if (isServer) {
-      store.dispatch(END);
+      store.dispatch(END as A);
       if (store.sagaTasks) {
         const tasks = Object.values(store.sagaTasks);
         if (tasks.length) {
