@@ -3,6 +3,7 @@ import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux, { StoreProps } from '../src/utils/redux/withRedux';
 import initStore, { Store } from '../src/redux/store';
+import { ActionWithPayload } from '../src/utils/redux/types';
 
 class MyApp extends App<StoreProps<Store>> {
   public render() {
@@ -17,4 +18,4 @@ class MyApp extends App<StoreProps<Store>> {
   }
 }
 
-export default withRedux<Store>(initStore)(MyApp);
+export default withRedux<ActionWithPayload, Store>(initStore)(MyApp);
