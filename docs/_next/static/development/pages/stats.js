@@ -16961,7 +16961,7 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/pages/stats.tsx";
 
 
 
-var storeCallback = function storeCallback(store) {
+var callbackOnMount = function callbackOnMount(store) {
   store.substitueReducers({
     stats: _src_redux_reducers_stats__WEBPACK_IMPORTED_MODULE_6__["default"]
   });
@@ -16994,7 +16994,7 @@ var Page = function Page(_ref) {
   return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("main", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 35
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Head_ManifestHead__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -17006,19 +17006,19 @@ var Page = function Page(_ref) {
     hrefManifest: "/static/manifest/manifest.json",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 36
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("span", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 44
     },
     __self: this
   }, "This is stats"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 45
     },
     __self: this
   }, "Number is ".concat(numstats)), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17026,7 +17026,7 @@ var Page = function Page(_ref) {
     onClick: add8,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 46
     },
     __self: this
   }, "add 8"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("button", {
@@ -17034,13 +17034,13 @@ var Page = function Page(_ref) {
     onClick: minus5,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 49
     },
     __self: this
   }, "minus 5"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 52
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -17048,19 +17048,19 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 53
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 53
+      lineNumber: 54
     },
     __self: this
   }, "index")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("br", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 56
     },
     __self: this
   }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(_src_components_Link__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -17068,20 +17068,20 @@ var Page = function Page(_ref) {
     prefetch: false,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 56
+      lineNumber: 57
     },
     __self: this
   }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])("a", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 58
     },
     __self: this
   }, "about")));
 };
 var ConnectedPage = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(Page);
 /* harmony default export */ __webpack_exports__["default"] = (Object(_src_utils_redux_dynamicStoreCallbackWrap__WEBPACK_IMPORTED_MODULE_5__["default"])({
-  callback: storeCallback,
+  callbackOnMount: callbackOnMount,
   Child: ConnectedPage
 }));
 
@@ -17546,39 +17546,47 @@ var _jsxFileName = "/Users/david.chen/Documents/projects/next9/src/utils/redux/d
 
 var DynamicStoreCallback = function DynamicStoreCallback(_ref) {
   var store = _ref.store,
-      callback = _ref.callback,
+      callbackOnMount = _ref.callbackOnMount,
+      callbackOnUnmount = _ref.callbackOnUnmount,
       Child = _ref.Child;
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
-    callback(store);
+    callbackOnMount(store);
+    return function () {
+      if (callbackOnUnmount) {
+        callbackOnUnmount(store);
+      }
+    };
   }, []);
   return Child ? Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Child, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 32
     },
     __self: this
   }) : null;
 };
 
 function dynamicStoreCallbackWrap(_ref2) {
-  var callback = _ref2.callback,
+  var callbackOnMount = _ref2.callbackOnMount,
+      callbackOnUnmount = _ref2.callbackOnUnmount,
       Child = _ref2.Child;
   return function () {
     return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_redux__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"].Consumer, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 40
       },
       __self: this
     }, function (_ref3) {
       var store = _ref3.store;
       return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__["jsx"])(DynamicStoreCallback, {
-        callback: callback,
+        callbackOnMount: callbackOnMount,
+        callbackOnUnmount: callbackOnUnmount,
         store: store,
         Child: Child,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 42
         },
         __self: this
       });

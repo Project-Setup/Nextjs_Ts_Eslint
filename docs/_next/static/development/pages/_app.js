@@ -16834,20 +16834,20 @@ function (_App) {
       return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_6__["jsx"])(next_app__WEBPACK_IMPORTED_MODULE_8__["Container"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 12
+          lineNumber: 13
         },
         __self: this
       }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_6__["jsx"])(react_redux__WEBPACK_IMPORTED_MODULE_9__["Provider"], {
         store: store,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 13
+          lineNumber: 14
         },
         __self: this
       }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_6__["jsx"])(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 14
+          lineNumber: 15
         },
         __self: this
       }))));
@@ -17108,7 +17108,7 @@ var configureStore = function configureStore(_ref) {
             var _ref3 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_ref2, 1),
                 k = _ref3[0];
 
-            return !(k in keysToRemove);
+            return !keysToRemove.includes(k);
           })({}, state);
           keysToRemove = [];
         }
@@ -17131,18 +17131,20 @@ var configureStore = function configureStore(_ref) {
         store.asyncReducers[key] = asyncReducer;
         store.replaceReducer(createReducer(store.asyncReducers));
       },
-      removeReducer: function removeReducer(key) {
-        if (!key || !store.asyncReducers[key]) {
-          return;
-        }
+      removeReducers: function removeReducers(keys) {
+        keys.forEach(function (key) {
+          if (!key || !store.asyncReducers[key]) {
+            return;
+          }
 
+          keysToRemove.push(key);
+        });
         store.asyncReducers = Object(_common_objectAssign__WEBPACK_IMPORTED_MODULE_11__["default"])(function (_ref4) {
           var _ref5 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_ref4, 1),
               k = _ref5[0];
 
-          return k !== key;
+          return !keysToRemove.includes(k);
         })({}, store.asyncReducers);
-        keysToRemove.push(key);
         store.replaceReducer(createReducer(store.asyncReducers));
       },
       injectReducers: function injectReducers(reducers) {
@@ -17169,34 +17171,32 @@ var configureStore = function configureStore(_ref) {
 
         store.sagaTasks[key] = sagaMiddleware.run(saga);
       },
-      removeSaga: function () {
-        var _removeSaga = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
+      removeSagas: function () {
+        var _removeSagas = Object(_babel_runtime_corejs2_helpers_esm_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__["default"])(
         /*#__PURE__*/
-        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(key) {
+        _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.mark(function _callee(keys) {
+          var sagaKeysToRemove;
           return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_2___default.a.wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  if (!(!key || !store.sagaTasks[key])) {
-                    _context.next = 2;
-                    break;
-                  }
+                  sagaKeysToRemove = [];
+                  keys.forEach(function (key) {
+                    if (!key || !store.sagaTasks[key]) {
+                      return;
+                    }
 
-                  return _context.abrupt("return");
-
-                case 2:
-                  _context.next = 4;
-                  return store.sagaTasks[key].cancel();
-
-                case 4:
+                    store.sagaTasks[key].cancel();
+                    sagaKeysToRemove.push(key);
+                  });
                   store.sagaTasks = Object(_common_objectAssign__WEBPACK_IMPORTED_MODULE_11__["default"])(function (_ref6) {
                     var _ref7 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_ref6, 1),
                         k = _ref7[0];
 
-                    return k !== key;
+                    return !sagaKeysToRemove.includes(k);
                   })({}, store.sagaTasks);
 
-                case 5:
+                case 3:
                 case "end":
                   return _context.stop();
               }
@@ -17204,11 +17204,11 @@ var configureStore = function configureStore(_ref) {
           }, _callee);
         }));
 
-        function removeSaga(_x) {
-          return _removeSaga.apply(this, arguments);
+        function removeSagas(_x) {
+          return _removeSagas.apply(this, arguments);
         }
 
-        return removeSaga;
+        return removeSagas;
       }(),
       injectSagas: function injectSagas(sagas) {
         _babel_runtime_corejs2_core_js_object_entries__WEBPACK_IMPORTED_MODULE_1___default()(sagas).forEach(function (_ref8) {
@@ -17499,7 +17499,7 @@ function withReduxSaga(BaseElement) {
     return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_5__["jsx"])(BaseElement, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_4__["default"])({}, props, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 22
+        lineNumber: 24
       },
       __self: this
     }));
