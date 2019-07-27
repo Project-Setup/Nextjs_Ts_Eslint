@@ -54,7 +54,9 @@ const Page: FC = () => {
       <span>This is amp index page</span>
       <br />
       <p>{`Some time: ${date.toJSON()}`}</p>
-      <amp-timeago width="0" height="15" datetime={date.toJSON()} layout="responsive">.</amp-timeago>
+      <amp-timeago width="0" height="15" datetime={date.toJSON()} layout="responsive">
+        .
+      </amp-timeago>
       <amp-img
         src={`${linkPrefix}/static/icons/icon192x192.png`}
         width={192}

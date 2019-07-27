@@ -8,12 +8,13 @@ import { Store } from '../src/redux/store';
 import stats, { initialState } from '../src/redux/reducers/stats';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
 import saga2 from '../src/redux/sagas/saga2';
+import { ActionWithPayload } from '../src/utils/redux/types';
 
 export interface State {
   stats: typeof initialState;
 }
 
-const storeCallback = (store: Store) => {
+const callbackOnMount = (store: Store) => {
   store.substitueReducers({ stats });
   store.substitueSagas({ stats: saga2 });
 };
@@ -65,4 +66,7 @@ const ConnectedPage = connect(
   mapDispatchToProps
 )(Page);
 
-export default dynamicStoreCallbackWrap<Store>({ callback: storeCallback, Child: ConnectedPage });
+export default dynamicStoreCallbackWrap<ActionWithPayload, Store>({
+  callbackOnMount,
+  Child: ConnectedPage,
+});
