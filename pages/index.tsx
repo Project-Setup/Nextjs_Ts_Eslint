@@ -10,12 +10,13 @@ import count, { initialState } from '../src/redux/reducers/count';
 import { addNumber, minusNumber } from '../src/redux/actions/actions';
 import rootSaga from '../src/redux/sagas';
 import saga1 from '../src/redux/sagas/saga1';
+import { ActionWithPayload } from '../src/utils/redux/types';
 
 export interface State {
   count: typeof initialState;
 }
 
-const storeCallback = (store: Store) => {
+const callbackOnMount = (store: Store) => {
   store.substitueReducers({ count });
   store.substitueSagas({ root: rootSaga, index: saga1 });
 };
@@ -68,4 +69,7 @@ const ConnectedPage = connect(
   mapDispatchToProps
 )(Page);
 
-export default dynamicStoreCallbackWrap<Store>({ callback: storeCallback, Child: ConnectedPage });
+export default dynamicStoreCallbackWrap<ActionWithPayload, Store>({
+  callbackOnMount,
+  Child: ConnectedPage,
+});
