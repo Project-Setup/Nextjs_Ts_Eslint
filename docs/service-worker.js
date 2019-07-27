@@ -1,39 +1,39 @@
 self.__precacheManifest = [
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/_app.js",
-    "revision": "9453db079c5012e8a85f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/_app.js",
+    "revision": "4aa39ae8dc6674e1f8f0"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/_error.js",
-    "revision": "4c832c27353cde6dfeb1"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/_error.js",
+    "revision": "3d9da07d61695063e57f"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/about.js",
-    "revision": "419e36a5217972d77413"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/about.js",
+    "revision": "851d90534daf196c8974"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/amp-install-serviceworker-script.js",
-    "revision": "5c36b8439d022e97256e"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/amp-install-serviceworker-script.js",
+    "revision": "a3c39d8bdc2a4b7d8781"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/count.js",
-    "revision": "774432a90a8e8a970b8c"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/count.js",
+    "revision": "5d2f8c7779ab3233ccfa"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/MbPH6PmLuF7Muu32SThdR/pages/stats.js",
-    "revision": "aac1b3af1e7746fa3ea2"
+    "url": "/Nextjs_Ts_Eslint/_next/static/9UxCeMUQOAYF_MBnEjTlF/pages/stats.js",
+    "revision": "b6aaf2dcd6b25b2fa22e"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.fc7fbf21eae53e738a9b.js",
-    "revision": "2ec15b9540b62290296f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/chunks/commons.38a5674e7e81a3ba4a63.js",
+    "revision": "07674c4a27bfcbf3c8f4"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-2570a7045a83e31895c5.js",
-    "revision": "5d8a4c957e9acb35cfd5"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/main-3ed12da57b4a1422150b.js",
+    "revision": "e279eb40f34f8ed248c5"
   },
   {
-    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-02abf031fc7e13766d3d.js",
-    "revision": "fba09cad31602b08916f"
+    "url": "/Nextjs_Ts_Eslint/_next/static/runtime/webpack-3df6523e264ff2ac6548.js",
+    "revision": "b0a559ac8f238b6fd6f7"
   }
 ];
 
