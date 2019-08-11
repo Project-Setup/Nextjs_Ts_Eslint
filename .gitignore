@@ -6,3 +6,4 @@ public/build/*
 *.log
 .env
 out/
+config/
