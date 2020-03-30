@@ -1,22 +1,5 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion..
 
-## Deprecated
-**Go to different branches for different Project Setup**
-- `pwa-amp` -- with Amp, Redux-Saga, Emotion
-- `redux-saga` -- with Redux-Saga, Emotion
-- `redux-code-splitting` -- with Redux, Emotion
-- `emotion` -- with Emotion
-- `styled-jsx` -- with built-in Styled-JSX
-
-This is an example project setup.
-Packages used for all branches:
-* NextJs
-* Typescript
-* Eslint, Prettier
-* Jest, Enzyme
-* Next-Offline
-* Next-Manifest
-
 ## Usage of this example setup
 
 0. setup node env
@@ -347,3 +330,20 @@ Packages used for all branches:
     ```sh
     npm i -D @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining
     ```
+
+## Deprecated
+**Go to different branches for different Project Setup**
+- `pwa-amp` -- with Amp, Redux-Saga, Emotion
+- `redux-saga` -- with Redux-Saga, Emotion
+- `redux-code-splitting` -- with Redux, Emotion
+- `emotion` -- with Emotion
+- `styled-jsx` -- with built-in Styled-JSX
+
+This is an example project setup.
+Packages used for all branches:
+* NextJs
+* Typescript
+* Eslint, Prettier
+* Jest, Enzyme
+* Next-Offline
+* Next-Manifest
