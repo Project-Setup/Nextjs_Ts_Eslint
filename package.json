@@ -1,7 +1,7 @@
 {
   "name": "Nextjs_Ts_Eslint",
   "version": "1.0.0",
-  "description": "Github PWA Project Setup with NextJs, Typescript, Redux, AMP etc.",
+  "description": "Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -11,8 +11,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "help": "next export -h",
-    "export": "npm run build && next export",
-    "deploy": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
+    "export": "npm run build && next export"
   },
   "repository": {
     "type": "git",
