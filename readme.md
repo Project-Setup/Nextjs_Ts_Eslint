@@ -330,6 +330,18 @@
     ```sh
     npm i -D @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining
     ```
+2. add the plugins to `babel.config.js`
+    ```js
+    module.exports = {
+      presets: [
+        // ...
+      ],
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+      ],
+    };
+    ```
 
 ## Deprecated
 **Go to different branches for different Project Setup**
