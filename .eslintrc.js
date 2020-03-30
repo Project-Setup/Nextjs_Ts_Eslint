@@ -32,7 +32,6 @@ module.exports =  {
     'react/jsx-first-prop-new-line': 0,
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-object-literal-type-assertion': ['error', { 'allowAsParameter': true }],
     '@typescript-eslint/no-namespace': 'off',
     'jsx-a11y/anchor-is-valid': [ 'error', {
       'components': [ 'Link' ],
@@ -40,6 +39,7 @@ module.exports =  {
       'aspects': [ 'invalidHref', 'preferButton' ]
     }],    
     'react/prop-types': 'off',
+    'import/extensions': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -66,13 +66,13 @@ module.exports =  {
   plugins: [
     'emotion',
     '@typescript-eslint/eslint-plugin',
-    'react-hooks'
+    'react-hooks',
   ],
   settings:  {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
     react:  {
       version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use

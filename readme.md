@@ -55,10 +55,9 @@ Packages used for all branches:
     ```
 
 ### [NextJs](https://github.com/zeit/next.js#how-to-use)
-
 1. 
     ```sh
-    npm i -P next react react-dom
+    npm i -S next react react-dom
     ```
 2. add a script to your package.json like this:
     ```json
@@ -75,7 +74,7 @@ Packages used for all branches:
 
 1.
     ```sh
-    npm i -D typescript @types/react @types/react-dom @types/node`
+    npm i -D typescript @types/react @types/react-dom @types/node
     ```
 2. create `tsconfig.json`
     ```json
@@ -163,15 +162,17 @@ Packages used for all branches:
           'ignoreRestSiblings': false
         }],
         'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+        'react/jsx-first-prop-new-line': 0,
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/explicit-function-return-type': 0,
-        '@typescript-eslint/no-object-literal-type-assertion': ['error', {'allowAsParameter': true}],
+        '@typescript-eslint/no-namespace': 'off',
         'jsx-a11y/anchor-is-valid': [ 'error', {
           'components': [ 'Link' ],
           'specialLink': [ 'hrefLeft', 'hrefRight' ],
           'aspects': [ 'invalidHref', 'preferButton' ]
         }],    
         'react/prop-types': 'off',
+        'import/extensions': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/no-extraneous-dependencies': [
           'error',
           {
@@ -188,24 +189,25 @@ Packages used for all branches:
             'functions': 'never'
           }
         ],
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'off'
+        "react-hooks/rules-of-hooks": "error",
+        'react-hooks/exhaustive-deps': 'off',
+        'no-bitwise': 'off'
       },
       plugins: [
         '@typescript-eslint/eslint-plugin',
-        'react-hooks'
+        'react-hooks',
       ],
       settings:  {
         'import/resolver': {
           node: {
-            extensions: ['.js', '.jsx', '.ts', '.tsx']
-          }
+            extensions: ['.js', '.jsx', '.ts', '.tsx'],
+          },
         },
         react:  {
           version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
         },
       },
-    }
+    };
     ```
 3. create `.prettierrc.js`
     ```js
@@ -221,7 +223,7 @@ Packages used for all branches:
 ### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
 1. 
     ```sh
-    npm i -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react
+    npm i -D jest babel-jest
     ```
 2. add scripts in `package.json`
     ```json
@@ -256,7 +258,7 @@ Packages used for all branches:
         '.json',
         '.snap',
       ],
-      setupFiles: ['<rootDir>/jest.setup.js'],
+      setupFiles: ['<rootDir>/jest/jest.setup.js'],
       coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
       moduleNameMapper: {
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
@@ -271,13 +273,13 @@ Packages used for all branches:
       presets: ['next/babel'],
     };
     ```
-6. create `jest.setup.js`
+6. create `jest/jest.setup.js`
     ```js
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
     // Make sure you can use "publicRuntimeConfig" within tests.
     // import { setConfig } from 'next/config';
-    // import publicRuntimeConfig from './ next.publicRuntimeConfig';
+    // import publicRuntimeConfig from '../configs/publicRuntimeConfig';
 
     // setConfig({ publicRuntimeConfig });
     Enzyme.configure({ adapter: new Adapter() });
@@ -294,7 +296,7 @@ Packages used for all branches:
 ### [EmotionJs](https://emotion.sh/docs/install)
 1. 
     ```sh
-    npm i -P @emotion/core
+    npm i -S @emotion/core
     npm i -D @emotion/babel-preset-css-prop jest-emotion eslint-plugin-emotion
     ```
 2. change `babel.config.js`
@@ -312,7 +314,7 @@ Packages used for all branches:
       ],
     };
     ```
-3. add rules and plugins to `.eslint.js`
+3. add rules and plugins to `.eslintrc.js`
     ```js
     module.exports = {
       // ...
@@ -330,13 +332,13 @@ Packages used for all branches:
       // ...
     }
     ```
-4. add `jest.setupAfterEnv.js`
+4. add `jest/jest.setupAfterEnv.js`
     ```js
     import { matchers } from 'jest-emotion';
 
     expect.extend(matchers);
     ```
-5. add serializers and setup files to `jest.config.js`
+5. add serializers and setup files to `jest/jest.config.js`
     ```js
     // ...
     snapshotSerializers: ['enzyme-to-json/serializer', 'jest-emotion'],
