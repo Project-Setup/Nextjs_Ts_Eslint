@@ -26,7 +26,7 @@
   "homepage": "https://github.com/Project-Setup/Nextjs_Ts_Eslint#readme",
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "next": "^9.3.2",
+    "next": "^9.3.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -36,13 +36,13 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/jest": "^25.1.4",
-    "@types/node": "^13.9.5",
-    "@types/react": "^16.9.27",
-    "@types/react-dom": "^16.9.5",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
-    "babel-jest": "^25.2.4",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.0",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "babel-jest": "^25.2.6",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -55,9 +55,9 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
-    "jest": "^25.2.4",
+    "jest": "^25.2.7",
     "jest-emotion": "^10.0.32",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.4",
     "typescript": "^3.8.3"
   }
 }
