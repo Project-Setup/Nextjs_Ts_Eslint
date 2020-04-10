@@ -1,5 +1,9 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion..
 
+## Versions
+* NextJs v9.3.4
+* Emotion v10
+
 ## Usage of this example setup
 
 0. setup node env
@@ -44,10 +48,12 @@
       "scripts": {
         "dev": "next",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
       }
     }
     ```
+    (the export script is for github pages)
 
 ### [Typescript](https://github.com/zeit/next.js#typescript)
 
@@ -97,8 +103,8 @@
     ```
 
 ### [Create Pages](https://github.com/zeit/next.js#typescript)
-1. create `pages` folder
-2. create `pages.tsx` under `pages/` (i.e. `pages/index.tsx` for `/` route)
+1. create `src/pages` folder (or `pages`)
+2. create `pages.tsx` under `src/pages/` (i.e. `src/pages/index.tsx` for `/` route)
 
 
 ### [Eslint and Prettier](https://dev.to/robertcoopercode/using-eslint-and-prettier-in-a-typescript-project-53jb)
