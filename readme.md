@@ -1,4 +1,4 @@
-# Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion..
+# Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.
 
 ## Versions
 * NextJs v9.3.4
@@ -11,8 +11,8 @@
     nvm use
     npm install
     ```
-1. remove unwanted files in `public/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `pages`
-2. modify `config/publicRuntimeConfig.js`
+1. remove unwanted files in `public/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `src/pages`
+2. modify `config/`
 3. preview dev progress on `http://localhost:3000/`
     ```sh
     npm run dev
@@ -261,11 +261,7 @@
     ```js
     import Enzyme from 'enzyme';
     import Adapter from 'enzyme-adapter-react-16';
-    // Make sure you can use "publicRuntimeConfig" within tests.
-    // import { setConfig } from 'next/config';
-    // import publicRuntimeConfig from '../configs/publicRuntimeConfig';
 
-    // setConfig({ publicRuntimeConfig });
     Enzyme.configure({ adapter: new Adapter() });
     ```
 7. change `env` in `.eslintrc.js`
@@ -331,6 +327,9 @@
     // ...
     ```
 
+<br/>
+
+### _Optional_:
 ### Optional chaining
 1. 
     ```sh
@@ -347,6 +346,31 @@
         '@babel/plugin-proposal-nullish-coalescing-operator',
       ],
     };
+    ```
+
+### Dotenv
+1.
+    ```sh
+    npm i -S dotenv
+    ```
+2. add `.env/development.env` and `.env/production.env`
+3. add `config/env.mapping.js`
+    ```js
+    /* eslint-disable @typescript-eslint/no-var-requires */
+    const path = require('path');
+    require('dotenv').config({
+      path: path.join(__dirname, `../.env/${process.env.NODE_ENV}.env`),
+    });
+
+    // env mapping for exposure to client
+    module.exports = {/* EXAMPLE_VAR: process.env.EXAMPLE */};
+    ```
+4. add to `jest/jest.setup.js`
+    ```js
+    // ...
+    import envMapping from '../configs/env.mapping';
+    Object.assign(process.env, envMapping);
+    // ...
     ```
 
 ## Deprecated

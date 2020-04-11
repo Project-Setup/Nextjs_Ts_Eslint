@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IndexPage should render without throwing an error 1`] = `
+<IndexPage
+  test="test"
+>
+  <div>
+    <p>
+      Props from _app.tsx: {"test":"test"}
+    </p>
+    <p>
+      page process env: TEST_TEST_PAGE_PROP
+    </p>
+  </div>
+</IndexPage>
+`;
