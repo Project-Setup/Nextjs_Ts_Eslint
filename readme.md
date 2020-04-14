@@ -3,6 +3,7 @@
 ## Versions
 * NextJs v9.3.4
 * Emotion v10
+* Typescript v3.8.3
 
 ## Usage of this example setup
 
@@ -11,8 +12,8 @@
     nvm use
     npm install
     ```
-1. remove unwanted files in `public/`, `src/utils`, `src/__tests/`, `src/components`, `src/redux`, and `src/pages`
-2. modify `config/`
+1. remove unwanted files in `public/`, `src/`
+2. modify `configs/`
 3. preview dev progress on `http://localhost:3000/`
     ```sh
     npm run dev
@@ -325,6 +326,45 @@
     // ...
     setupFilesAfterEnv: ['<rootDir>/jest.setupAfterEnv.js'],
     // ...
+    ```
+
+### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
+(deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
+
+1. create `LINK_PREFIX` in `next.config.js`
+    ```js
+    const isProd = process.env.NODE_ENV === 'production';
+    const prodAssetPrefix = '/{folder}';
+    module.exports = () => ({
+      env: {
+        ENV: process.env.NODE_ENV,
+        LINK_PREFIX: isProd ? prodAssetPrefix : '';
+      },
+      assetPrefix: isProd ? prodAssetPrefix : '';,
+    });
+    ```
+2. change `as` prop in `next/Link` to add `linkPrefix`
+    ```tsx
+    import React from 'react';
+    import Link from 'next/link';
+
+    const linkPrefix = process.env.LINK_PREFIX;
+
+    const PrefixedLink: React.FC<Link['props']> = ({
+      href,
+      as = href,
+      ...props
+    }) => <Link href={href} as={`${linkPrefix}${as}`} {...props} />;
+
+    export default PrefixedLink;
+    ```
+3. change `scripts` in `package.json`
+    ```json
+    {
+      "scripts": {
+        "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
+      }
+    }
     ```
 
 <br/>
