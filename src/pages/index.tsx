@@ -7,8 +7,8 @@ const IndexPage: NextPage<{ [key in string]?: string }> = ({ ...appProps }) => (
     <p>{`Props from _app.tsx: ${JSON.stringify(appProps)}`}</p>
     <p>{`page process env: ${process.env.TEST_PAGE_VAR}`}</p>
     <br />
-    <Link href="/index/2">
-      <a>index/2</a>
+    <Link href="/index/1">
+      <a>index/1</a>
     </Link>
   </div>
 );
