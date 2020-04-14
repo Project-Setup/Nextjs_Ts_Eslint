@@ -9,5 +9,5 @@ module.exports = {
   TEST_CLIENT: process.env.test,
   TEST_PAGE_VAR: process.env.TEST_PAGE_VAR,
   ENV: process.env.NODE_ENV,
-  LINK_PREFIX: process.env.LINK_PREFIX,
+  LINK_PREFIX: process.env.LINK_PREFIX || '',
 };
