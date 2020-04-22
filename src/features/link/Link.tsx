@@ -1,12 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import { join } from 'path';
 
-const linkPrefix = process.env.LINK_PREFIX;
+const LINK_PREFIX = process.env.LINK_PREFIX || '';
 
-const PrefixedLink: React.FC<Link['props']> = ({
+type PrefixedLinkProps = Link['props'] & {
+  linkPrefix?: string;
+};
+
+const PrefixedLink: React.FC<PrefixedLinkProps> = ({
   href,
   as = href,
+  linkPrefix = LINK_PREFIX,
   ...props
-}) => <Link href={href} as={`${linkPrefix}${as}`} {...props} />;
+}) => <Link href={href} as={join(linkPrefix, as.toString())} {...props} />;
 
 export default PrefixedLink;
