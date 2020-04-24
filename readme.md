@@ -23,7 +23,11 @@
     ```sh
     npm run dev
     ```
-4. read [Setup](#Setup) for notes
+4. export to `docs/` for GIthub Page deploy
+    ```sh
+    npm run export
+    ```
+5. read [Setup](#Setup) for notes
 
 ## Setup
 
