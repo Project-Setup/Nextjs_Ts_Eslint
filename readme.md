@@ -1,5 +1,13 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.
 
+## Highlight
+* **Multi-page** **React** web app
+* Can be statically hosted on **Github Page** for free (or as a regular web app hosted on a custom server)
+* Prefetch security sensitive content at build time
+* All in **Typescript**/Javascript with **CSS-in-JS**
+* Easy testing with **Jest** and **Enzyme**
+* **Eslint** helps practice standard coding styles
+
 ## Versions
 * NextJs v9.3.6
 * Emotion v10
