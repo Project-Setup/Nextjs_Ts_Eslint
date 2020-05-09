@@ -1,7 +1,7 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.
 
 ## Versions
-* NextJs v9.3.4
+* NextJs v9.3.6
 * Emotion v10
 * Typescript v3.8.3
 
