@@ -27,7 +27,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "dotenv": "^8.2.0",
-    "next": "^9.3.6",
+    "next": "^9.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -39,10 +39,10 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.7",
-    "@typescript-eslint/eslint-plugin": "^2.31.0",
-    "@typescript-eslint/parser": "^2.31.0",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^2.32.0",
+    "@typescript-eslint/parser": "^2.32.0",
     "babel-jest": "^25.5.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

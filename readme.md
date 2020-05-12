@@ -9,7 +9,7 @@
 * **Eslint** helps practice standard coding styles
 
 ## Versions
-* NextJs v9.3.6
+* NextJs v9.4.0
 * Emotion v10
 * Typescript v3.8.3
 
