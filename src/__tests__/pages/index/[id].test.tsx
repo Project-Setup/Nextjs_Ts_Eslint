@@ -32,7 +32,7 @@ describe('Page', () => {
 
   it('should render page process env correctly', () => {
     expect(TestPageWrapper.find('p').at(2).text()).toContain(
-      process.env.TEST_PAGE_VAR
+      process.env.NEXT_PUBLIC_TEST_PAGE_VAR
     );
   });
 });

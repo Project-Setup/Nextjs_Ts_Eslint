@@ -73,6 +73,7 @@ module.exports =  {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
+      typescript: {},
     },
     react:  {
       version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use

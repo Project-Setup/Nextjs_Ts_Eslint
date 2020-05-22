@@ -24,4 +24,5 @@ module.exports = {
       '<rootDir>/__mocks__/mocks.js',
     '\\.(css|less|scss)$': '<rootDir>/__mocks__/mocks.js',
   },
+  moduleDirectories: ['node_modules', 'src'],
 };

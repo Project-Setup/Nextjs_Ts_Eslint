@@ -24,7 +24,8 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./src"
   },
   "exclude": [
     "node_modules",

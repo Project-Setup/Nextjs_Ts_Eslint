@@ -21,7 +21,7 @@ describe('IndexPage', () => {
 
   it('should render page process env correctly', () => {
     expect(TestIndexPageWrapper.find('p').at(1).text()).toContain(
-      process.env.TEST_PAGE_VAR
+      process.env.NEXT_PUBLIC_TEST_PAGE_VAR
     );
   });
 });

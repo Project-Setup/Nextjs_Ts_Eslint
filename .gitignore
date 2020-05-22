@@ -4,5 +4,5 @@ coverage
 .DS_Store
 public/build/*
 *.log
-.env
+.env*.local
 out/

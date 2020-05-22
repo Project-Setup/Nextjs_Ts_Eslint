@@ -5,7 +5,7 @@ exports[`Page should render without throwing an error 1`] = `
   id="testId"
   test="test"
 >
-  <div>
+  <main>
     <p>
       Param: testId
     </p>
@@ -15,6 +15,22 @@ exports[`Page should render without throwing an error 1`] = `
     <p>
       Page Process Env: TEST_TEST_PAGE_PROP
     </p>
-  </div>
+    <PrefixedLink
+      href="/"
+    >
+      <Link
+        as="/"
+        href="/"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          index
+        </a>
+      </Link>
+    </PrefixedLink>
+  </main>
 </IndexPage>
 `;

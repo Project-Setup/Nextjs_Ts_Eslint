@@ -4,13 +4,30 @@ exports[`IndexPage should render without throwing an error 1`] = `
 <IndexPage
   test="test"
 >
-  <div>
+  <main>
     <p>
       Props from _app.tsx: {"test":"test"}
     </p>
     <p>
       page process env: TEST_TEST_PAGE_PROP
     </p>
-  </div>
+    <br />
+    <PrefixedLink
+      href="/index/1"
+    >
+      <Link
+        as="/index/1"
+        href="/index/1"
+      >
+        <a
+          href="/index/1"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          index/1
+        </a>
+      </Link>
+    </PrefixedLink>
+  </main>
 </IndexPage>
 `;
