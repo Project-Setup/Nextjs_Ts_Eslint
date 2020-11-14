@@ -117,7 +117,7 @@
     }
     ```
 
-### [Create Pages](https://github.com/zeit/next.js#typescript)
+### [Create Pages](https://nextjs.org/docs/getting-started)
 1. create `src/pages` folder (or `pages`)
 2. create `pages.tsx` under `src/pages/` (i.e. `src/pages/index.tsx` for `/` route)
 
