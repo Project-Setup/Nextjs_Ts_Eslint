@@ -13,7 +13,13 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react', 'react-hooks', 'prettier'],
+  plugins: [
+    '@emotion',
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'prettier',
+  ],
   extends: [
     'airbnb',
     'plugin:@typescript-eslint/recommended',
@@ -64,6 +70,9 @@ module.exports = {
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 2,
     'no-bitwise': 2,
+    '@emotion/no-vanilla': 2,
+    '@emotion/import-from-emotion': 2,
+    '@emotion/styled-import': 2,
   },
   settings: {
     'import/resolver': {

@@ -299,21 +299,21 @@
 1. 
     ```sh
     npm i -S @emotion/core
-    npm i -D @emotion/babel-preset-css-prop jest-emotion eslint-plugin-emotion
+    npm i -D @emotion/babel-plugin @emotion/eslint-plugin @emotion/jest
     ```
 2. change `babel.config.js`
     ```js
     module.exports = {
       presets: [
-        [
-          'next/babel',
-          {
-            'preset-env': {},
-            'preset-react': {},
+        'next/babel',
+        {
+          'preset-react': {
+            runtime: 'automatic',
+            importSource: '@emotion/react',
           },
-        ],
-        '@emotion/babel-preset-css-prop',
+        },
       ],
+      plugins: ['@emotion/babel-plugin'],
     };
     ```
 3. add rules and plugins to `.eslintrc.js`
@@ -322,13 +322,13 @@
       // ...
       rules: {
         // ...
-        "emotion/no-vanilla": "error",
-        "emotion/import-from-emotion": "error",
-        "emotion/styled-import": "error",
+        "@emotion/no-vanilla": "error",
+        "@emotion/import-from-emotion": "error",
+        "@emotion/styled-import": "error",
       },
       // ...
       plugins: [
-        'emotion',
+        '@emotion',
         // ...
       ],
       // ...
@@ -336,14 +336,14 @@
     ```
 4. add `jest/jest.setupAfterEnv.js`
     ```js
-    import { matchers } from 'jest-emotion';
+    import { matchers } from '@emotion/jest'
 
     expect.extend(matchers);
     ```
 5. add serializers and setup files to `jest/jest.config.js`
     ```js
     // ...
-    snapshotSerializers: ['enzyme-to-json/serializer', 'jest-emotion'],
+    snapshotSerializers: ['@emotion/jest/serializer'],
     // ...
     setupFilesAfterEnv: ['<rootDir>/jest.setupAfterEnv.js'],
     // ...
