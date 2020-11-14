@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     node: true,
     es2020: true,
+    jest: true,
   },
   parser: '@typescript-eslint/parser', // Specifies the ESLint parser
   parserOptions: {
