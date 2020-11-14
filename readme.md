@@ -71,50 +71,48 @@
     }
     ```
 
-### [Typescript](https://github.com/zeit/next.js#typescript)
+### [Typescript](https://nextjs.org/docs/basic-features/typescript)
 
 1.
     ```sh
-    npm i -D typescript @types/react @types/react-dom @types/node
+    npm i -D typescript @types/react @types/node
     ```
 2. create `tsconfig.json`
     ```json
     {
       "compilerOptions": {
+        "target": "esnext",
+        "lib": [
+          "dom",
+          "dom.iterable",
+          "esnext"
+        ],
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
-        "esModuleInterop": true,
-        "isolatedModules": true,
-        "jsx": "preserve",
-        "lib": [
-          "dom",
-          "es2017"
-        ],
-        "module": "esnext",
-        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "strict": false,
+        "forceConsistentCasingInFileNames": true,
         "noEmit": true,
-        "typeRoots": [
-          "./node_modules/@types"
-        ],
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
         "resolveJsonModule": true,
-        "removeComments": false,
-        "skipLibCheck": true,
-        "strict": true,
-        "target": "esnext",
-        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
         "baseUrl": "./src"
       },
+      "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx"
+      ],
       "exclude": [
         "node_modules",
         "next.config.js"
-      ],
-      "include": [
-        "**/*.ts",
-        "**/*.tsx"
       ]
     }
     ```
