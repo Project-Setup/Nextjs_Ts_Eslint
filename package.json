@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/Project-Setup/Nextjs_Ts_Eslint/issues"
   },
-  "homepage": "https://github.com/Project-Setup/Nextjs_Ts_Eslint#readme"
+  "homepage": "https://github.com/Project-Setup/Nextjs_Ts_Eslint#readme",
+  "dependencies": {
+    "next": "^10.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }
