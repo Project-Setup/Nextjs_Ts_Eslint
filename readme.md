@@ -4,8 +4,7 @@
 
 0. setup node env
     ```sh
-    nvm use
-    npm install
+    nvm use || npm install
     ```
 1. remove unwanted files in `public/`, `src/`
 2. add `.env` and other .env files
