@@ -1,23 +1,5 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.
 
-## Highlight
-* **Multi-page** **React** web app
-* Can be statically hosted on **Github Page** for free (or as a regular web app hosted on a custom server)
-* Prefetch security sensitive content at build time
-* All in **Typescript**/Javascript with **CSS-in-JS**
-* Easy testing with **Jest** and **Enzyme**
-* **Eslint** helps practice standard coding styles
-
-## Versions
-* NextJs v9.4.2
-* Emotion v10
-* Typescript v3.9.3
-
-## Other Project Setup
-* **[[nextjs_redux_toolkit]](https://github.com/Project-Setup/nextjs_redux_toolkit)** NextJs, Redux-Toolkit
-* **[[github_pwa]](https://github.com/Project-Setup/github_pwa)** Github page pwa setup with NextJs, code splitting Redux-Toolkit
-* **[[github_sql_pwa]](https://github.com/Project-Setup/github_sql_pwa)** Github page pwa setup with NextJs, code splitting Redux-Toolkit, Sql.js, Typeorm
-
 ## Usage of this example setup
 
 0. setup node env
@@ -31,11 +13,7 @@
     ```sh
     npm run dev
     ```
-4. export to `docs/` for Github Page deploy
-    ```sh
-    npm run export
-    ```
-5. read [Setup](#Setup) for notes
+4. read [Setup](#Setup) for notes
 
 ## Setup
 
@@ -131,80 +109,89 @@
     ```
 2. create `.eslintrc.js`
     ```js
-    module.exports =  {
-      parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
-      extends:  [
-        'plugin:react/recommended',  // Uses the recommended rules from @eslint-plugin-react
-        'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
-        'airbnb',  //Uses airbnb recommended rules
-        'prettier/@typescript-eslint',  // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-        'plugin:prettier/recommended',  // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-      ],
-      parserOptions:  {
-        ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
-        sourceType:  'module',  // Allows for the use of imports
-        ecmaFeatures:  {
-          jsx:  true,  // Allows for the parsing of JSX
-        },
-      },
+    module.exports = {
       env: {
         browser: true,
-        node: true
+        node: true,
+        es2020: true,
+        jest: true,
       },
-      rules:  {
-        // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
-        // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
-        'no-unused-vars': 'off',
-        '@typescript-eslint/no-unused-vars': ['error', {
-          'vars': 'all',
-          'args': 'after-used',
-          'ignoreRestSiblings': false
-        }],
-        'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
-        'react/jsx-first-prop-new-line': 0,
-        '@typescript-eslint/no-explicit-any': 'off',
+      parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      plugins: [
+        '@typescript-eslint',
+        'react',
+        'react-hooks',
+        'prettier',
+      ],
+      extends: [
+        'airbnb',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:import/errors',
+        'plugin:import/warnings',
+        'plugin:import/typescript',
+        'prettier',
+        'prettier/@typescript-eslint',
+        'prettier/react',
+        'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+      ],
+      rules: {
+        '@typescript-eslint/no-unused-vars': [
+          'error',
+          {
+            vars: 'all',
+            args: 'after-used',
+            ignoreRestSiblings: false,
+          },
+        ],
+        '@typescript-eslint/no-explicit-any': 0,
         '@typescript-eslint/explicit-function-return-type': 0,
-        '@typescript-eslint/no-namespace': 'off',
-        'jsx-a11y/anchor-is-valid': [ 'error', {
-          'components': [ 'Link' ],
-          'specialLink': [ 'hrefLeft', 'hrefRight' ],
-          'aspects': [ 'invalidHref', 'preferButton' ]
-        }],    
-        'react/prop-types': 'off',
-        'import/extensions': [1, { 'extensions': ['.js', '.jsx', '.ts', '.tsx'] }],
+        '@typescript-eslint/no-namespace': 0,
+        '@typescript-eslint/explicit-module-boundary-types': 0,
+        'import/extensions': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/no-extraneous-dependencies': [
           'error',
           {
-            'devDependencies': true
-          }
+            devDependencies: true,
+          },
         ],
-        'comma-dangle': [
+        'react/jsx-filename-extension': [
+          1,
+          { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+        ],
+        'react/react-in-jsx-scope': 0,
+        'react/jsx-first-prop-new-line': 0,
+        'react/prop-types': 0,
+        'react/jsx-props-no-spreading': [2, { custom: 'ignore' }],
+        'jsx-a11y/anchor-is-valid': [
           'error',
           {
-            'arrays': 'always-multiline',
-            'objects': 'always-multiline',
-            'imports': 'always-multiline',
-            'exports': 'always-multiline',
-            'functions': 'never'
-          }
+            components: ['Link'],
+            specialLink: ['hrefLeft', 'hrefRight'],
+            aspects: ['invalidHref', 'preferButton'],
+          },
         ],
-        "react-hooks/rules-of-hooks": "error",
-        'react-hooks/exhaustive-deps': 'off',
-        'no-bitwise': 'off'
+        'prettier/prettier': 2,
+        'react-hooks/rules-of-hooks': 2,
+        'react-hooks/exhaustive-deps': 2,
+        'no-bitwise': 2,
       },
-      plugins: [
-        '@typescript-eslint/eslint-plugin',
-        'react-hooks',
-      ],
-      settings:  {
+      settings: {
         'import/resolver': {
           node: {
             extensions: ['.js', '.jsx', '.ts', '.tsx'],
           },
           typescript: {},
         },
-        react:  {
-          version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
+        react: {
+          version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
         },
       },
     };
@@ -305,13 +292,15 @@
     ```js
     module.exports = {
       presets: [
-        'next/babel',
-        {
-          'preset-react': {
-            runtime: 'automatic',
-            importSource: '@emotion/react',
+        [
+          'next/babel',
+          {
+            'preset-react': {
+              runtime: 'automatic',
+              importSource: '@emotion/react',
+            },
           },
-        },
+        ],
       ],
       plugins: ['@emotion/babel-plugin'],
     };
@@ -347,49 +336,4 @@
     // ...
     setupFilesAfterEnv: ['<rootDir>/jest.setupAfterEnv.js'],
     // ...
-    ```
-
-### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
-(deploy to /docs intead of using gh-pages branch; replace `{folder}` with the project name in github repo)
-
-1. add `.env.production`
-  ```sh
-  NEXT_PUBLIC_LINK_PREFIX=/{folder}
-  ```
-2. create `LINK_PREFIX` in `next.config.js`
-    ```js
-    const LINK_PREFIX = process.env.NEXT_PUBLIC_LINK_PREFIX || '';
-    module.exports = () => ({
-      assetPrefix: LINK_PREFIX,
-    });
-    ```
-3. change `as` prop in `next/Link` to add `linkPrefix`, similar to `src/features/link/Link.tsx` in the example setup
-4. change `scripts` in `package.json`
-    ```json
-    {
-      "scripts": {
-        "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
-      }
-    }
-    ```
-
-<br/>
-
-### _Optional_:
-### Optional chaining
-1. 
-    ```sh
-    npm i -D @babel/plugin-proposal-nullish-coalescing-operator @babel/plugin-proposal-optional-chaining
-    ```
-2. add the plugins to `babel.config.js`
-    ```js
-    module.exports = {
-      presets: [
-        // ...
-      ],
-      plugins: [
-        '@babel/plugin-proposal-optional-chaining',
-        '@babel/plugin-proposal-nullish-coalescing-operator',
-      ],
-    };
     ```

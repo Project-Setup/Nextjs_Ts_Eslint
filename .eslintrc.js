@@ -44,6 +44,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-namespace': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 0,
     'import/extensions': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/no-extraneous-dependencies': [
       'error',
@@ -55,6 +56,7 @@ module.exports = {
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
+    'react/react-in-jsx-scope': 0,
     'react/jsx-first-prop-new-line': 0,
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': [2, { custom: 'ignore' }],
