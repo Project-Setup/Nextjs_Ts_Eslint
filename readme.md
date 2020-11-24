@@ -336,3 +336,11 @@
     setupFilesAfterEnv: ['<rootDir>/jest.setupAfterEnv.js'],
     // ...
     ```
+6. add to `tsconfig.json`
+    ```json
+    {
+      "compilerOptions": {
+        "jsxImportSource": "@emotion/react"
+      }
+    }
+    ```
