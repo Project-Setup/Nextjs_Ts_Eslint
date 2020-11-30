@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "NODE_ENV=production npm run build && next export -o docs && docs/.nojekyll",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
