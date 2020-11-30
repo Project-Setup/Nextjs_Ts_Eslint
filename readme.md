@@ -206,7 +206,7 @@
     };
     ```
 
-### [Jest and Enzyme](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
+### [Jest](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
 1. 
     ```sh
     npm i -D jest babel-jest
@@ -262,15 +262,11 @@
     ```
 6. create `jest/jest.setup.js`
     ```js
-    import Enzyme from 'enzyme';
-    import Adapter from 'enzyme-adapter-react-16';
     import { join } from 'path';
     import { loadEnvConfig } from 'next/dist/lib/load-env-config';
 
     // to load '.env' files in test
     loadEnvConfig(join(__dirname, '.../'));
-
-    Enzyme.configure({ adapter: new Adapter() });
     ```
 7. change `env` in `.eslintrc.js`
     ```js
