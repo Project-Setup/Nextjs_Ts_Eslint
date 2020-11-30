@@ -340,3 +340,26 @@
       }
     }
     ```
+
+### [Deploy to Github Pages]](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
+(deploy to /docs intead of using gh-pages branch; replace {folder} with the project name in github repo)
+1. add `.env.production`
+    ```sh
+    NEXT_PUBLIC_LINK_PREFIX=/{folder}
+    ```
+2. create `LINK_PREFIX` in `next.config.js`
+    ```js
+    const LINK_PREFIX = process.env.NEXT_PUBLIC_LINK_PREFIX || '';
+    module.exports = () => ({
+      assetPrefix: LINK_PREFIX,
+    });
+    ```
+3. change `href` prop in `next/link` to add `linkPrefix`, similar to `src/features/link/Link.tsx` in the example setup
+4. change `scripts` in `package.json`
+```json
+{
+  "scripts": {
+    "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
+  }
+}
+```
