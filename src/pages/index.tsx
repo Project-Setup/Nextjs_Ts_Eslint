@@ -21,8 +21,8 @@ const Index: NextPage<Record<string, string>> = ({ ...appProps }) => (
         page process env: <strong>{process.env.NEXT_PUBLIC_PAGE_VAR}</strong>
       </p>
       <br />
-      <Link href="/index/1">
-        <a>index/1</a>
+      <Link href="/1">
+        <a>1</a>
       </Link>
     </div>
   </main>
