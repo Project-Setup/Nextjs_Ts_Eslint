@@ -209,7 +209,7 @@
 ### [Jest](https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe)
 1. 
     ```sh
-    npm i -D jest babel-jest
+    npm i -D jest babel-jest @types/jest @next/env
     ```
 2. add scripts in `package.json`
     ```json
@@ -219,12 +219,7 @@
       "test:coverage": "jest --coverage"
     },
     ```
-3. 
-    ```sh
-    npm i -D enzyme enzyme-adapter-react-16 enzyme-to-json
-    npm i -D typescript @types/enzyme @types/enzyme-adapter-react-16 @types/jest
-    ```
-4. create `jest.config.js`
+3. create `jest.config.js`
     ```js
     module.exports = {
       moduleFileExtensions: ['ts', 'tsx', 'js'],
@@ -254,27 +249,27 @@
       moduleDirectories: ['node_modules', 'src'],
     };
     ```
-5. create `babel.config.js`
+4. create `babel.config.js`
     ```js
     module.exports = {
       presets: ['next/babel'],
     };
     ```
-6. create `jest/jest.setup.js`
+5. create `jest/jest.setup.js`
     ```js
     import { join } from 'path';
-    import { loadEnvConfig } from 'next/dist/lib/load-env-config';
+    import { loadEnvConfig } from '@next/env';
 
     // to load '.env' files in test
-    loadEnvConfig(join(__dirname, '.../'));
+    loadEnvConfig(join(__dirname, '../'));
     ```
-7. change `env` in `.eslintrc.js`
+6. change `env` in `.eslintrc.js`
     ```js
     env: {
-            browser: true,
-            node: true,
-            jest: true
-          },
+      browser: true,
+      node: true,
+      jest: true
+    },
     ```
 
 ### [EmotionJs](https://emotion.sh/docs/install)
