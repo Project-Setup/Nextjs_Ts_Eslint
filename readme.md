@@ -358,10 +358,10 @@
     ```
 3. change `href` prop in `next/link` to add `linkPrefix`, similar to `src/features/link/Link.tsx` in the example setup
 4. change `scripts` in `package.json`
-```json
-{
-  "scripts": {
-    "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
-  }
-}
-```
+    ```json
+    {
+      "scripts": {
+        "export": "NODE_ENV=production npm run build && next export -o docs && touch docs/.nojekyll"
+      }
+    }
+    ```
