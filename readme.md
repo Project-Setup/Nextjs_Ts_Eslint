@@ -1,5 +1,12 @@
 # Example Project Setup with NextJs, Typescript, Eslint, Jest and Emotion.
 
+## Dependency Versions
+* NextJs v10.0.1
+* react v17.0.1
+* Typescript v4.1.2
+* @emotion/react v11.1.1
+
+
 ## Usage of this example setup
 
 0. setup node env
