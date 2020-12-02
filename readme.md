@@ -343,7 +343,7 @@
     }
     ```
 
-### [Deploy to Github Pages]](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
+### [Deploy to Github Pages](https://github.com/zeit/next.js/issues/3335#issuecomment-489354854)
 (deploy to /docs intead of using gh-pages branch; replace {folder} with the project name in github repo)
 1. add `.env.production`
     ```sh
