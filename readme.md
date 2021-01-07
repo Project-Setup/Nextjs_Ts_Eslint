@@ -25,7 +25,7 @@
 
 0.  install nvm in the os
 1.  ```sh
-    nvm use || nvm install
+    nvm install node
     git init
     ```
 2.  add `.gitignore`
