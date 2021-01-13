@@ -267,7 +267,7 @@
 ### [EmotionJs](https://emotion.sh/docs/install)
 
 1.  ```sh
-    npm i -S @emotion/core
+    npm i -S @emotion/react
     npm i -D @emotion/babel-plugin @emotion/eslint-plugin @emotion/jest
     ```
 2.  change `babel.config.js`
@@ -342,11 +342,10 @@
    ```js
    const LINK_PREFIX = process.env.NEXT_PUBLIC_LINK_PREFIX || '';
    module.exports = () => ({
-     assetPrefix: LINK_PREFIX,
+     basePath: LINK_PREFIX,
    });
    ```
-3. change `href` prop in `next/link` to add `linkPrefix`, similar to `src/features/link/Link.tsx` in the example setup
-4. change `scripts` in `package.json`
+3. change `scripts` in `package.json`
    ```json
    {
      "scripts": {

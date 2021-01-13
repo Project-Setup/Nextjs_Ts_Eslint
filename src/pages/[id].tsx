@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
-import Link from 'features/link/Link';
+import Link from 'next/link';
 
 export interface Props {
   id?: string;

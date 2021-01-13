@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { css } from '@emotion/react';
-import Link from 'features/link/Link';
+import Link from 'next/link';
 
 const indexPageStyles = css`
   padding: 10px;
